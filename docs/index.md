@@ -1,4 +1,4 @@
-# Regressions- och tidsserieanalys
+# Regressions- och tidsserieanalys, 7.5 hp
 
 <img src="regsalarybyrank.png" width="48%" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="48%" class="center" alt = "Bikeshare data by season"> 
 <img src="InflSwedenPreds.png" width="48%" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="48%" class="center" alt = "EEG time series">
