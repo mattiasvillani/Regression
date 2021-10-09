@@ -1,4 +1,4 @@
-## Regressions- och tidsserieanalys
+# Regressions- och tidsserieanalys
 
 <img src="regsalarybyrank.png" width="150" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="150" class="center" alt = "Bikeshare data by season"> 
 <img src="InflSwedenPreds.png" width="150" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="150" class="center" alt = "EEG time series">
@@ -15,14 +15,11 @@ Regressionsanalys är en central statistisk metod som kan användas för att ana
 
 Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e5Z4n0wknyaQhxnZclQln_3nbZH05QcTcn_sl3516Qy6d685606y65060501ZWyQo#contentlinks).
 
----
 
 ### Föreläsningar
 
 <img src="VillaniLowRes.jpg" width="70">\
-[Mattias Villani](https://mattiasvillani.com) 
-Professor i statistik
-
+[Mattias Villani](https://mattiasvillani.com)<br>Professor i statistik
 
 **Föreläsning 1 - Titel TBA**\
 Läs: AJÅ Kapitel 1 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L1.pdf) \
