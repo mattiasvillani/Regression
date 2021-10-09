@@ -1,6 +1,8 @@
 ## Regressions- och tidsserieanalys
 
-![Image](src)
+<img src="regsalarybyrank.png" width="150" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="150" class="center" alt = "Bikeshare data by season"> 
+<img src="InflSwedenPreds.png" width="150" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="150" class="center" alt = "EEG time series">
+
 
 ### Momentets innehåll
 
@@ -8,7 +10,7 @@ Regressionsanalys är en central statistisk metod som kan användas för att ana
 
 ### Kurslitteratur
 
-* Andersson, G. Jorner, U. och Ågren, A. (2007). Regressions- och tidsserieanalys, Studentlitteratur.
+* Andersson, G. Jorner, U. och Ågren, A. (1507). Regressions- och tidsserieanalys, Studentlitteratur.
 * Ytterligare kompletterande material som delas ut under kursens gång. Boken förkortas AJÅ nedan.
 
 Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e5Z4n0wknyaQhxnZclQln_3nbZH05QcTcn_sl3516Qy6d685606y65060501ZWyQo#contentlinks).
@@ -17,7 +19,7 @@ Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/
 
 ### Föreläsningar
 
-<img src="Misc/VillaniLowRes.jpg" width="70">\
+<img src="VillaniLowRes.jpg" width="70">\
 [Mattias Villani](https://mattiasvillani.com) 
 Professor i statistik
 

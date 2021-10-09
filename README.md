@@ -2,7 +2,7 @@
 
 ### Regressions- och tidserieanalys 
 
-![](SalariesScatterByRank.pdf "Regressionsanalys")
+![](https://github.com/mattiasvillani/Regression/raw/master/docs/figs/SalariesScatterByRank.pdf "Regressionsanalys")
 
 ---
 
@@ -23,7 +23,7 @@ Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/
 
 ### Föreläsningar
 
-<img src="VillaniLowRes.jpg" width="70">\
+<img src="Misc/VillaniLowRes.jpg" width="70">\
 [Mattias Villani](https://mattiasvillani.com) 
 Professor i statistik
 
