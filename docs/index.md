@@ -1,7 +1,7 @@
 # Regressions- och tidsserieanalys
 
-<img src="regsalarybyrank.png" width="50%" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="50%" class="center" alt = "Bikeshare data by season"> 
-<img src="InflSwedenPreds.png" width="50%" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="50%" class="center" alt = "EEG time series">
+<img src="regsalarybyrank.png" width="48%" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="48%" class="center" alt = "Bikeshare data by season"> 
+<img src="InflSwedenPreds.png" width="48%" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="48%" class="center" alt = "EEG time series">
 
 
 ### Momentets innehåll
@@ -10,9 +10,7 @@ Regressionsanalys är en central statistisk metod som kan användas för att ana
 
 Data  som  har  insamlats  över  tid  är  vanligt  förekommande inom ett stort antal tillämpningsområden.  Kursen  presenterar  modeller  för  tidsserieanalys,  och  beskriver  hur  dessa  kan  användas  för  att  skapa  prognoser.  Praktiska tillämpningar av regressions- och tidsserieanalys diskuteras och exemplifieras genom hela kursmomentet.
 
-### Kurslitteratur
-
-* Andersson, G. Jorner, U. och Ågren, A. (1507). Regressions- och tidsserieanalys, Studentlitteratur. Boken förkortas **AJÅ** nedan.
+### KurslitteraturTitel TBAs, Studentlitteratur. Boken förkortas **AJÅ** nedan.
 * Ytterligare kompletterande material som delas ut under kursens gång. 
 
 Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e5Z4n0wknyaQhxnZclQln_3nbZH05QcTcn_sl3516Qy6d685606y65060501ZWyQo#contentlinks).
