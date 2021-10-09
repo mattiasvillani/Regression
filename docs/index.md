@@ -2,13 +2,9 @@
 
 ![Image](src)
 
----
-
 ### Momentets innehåll
 
 Regressionsanalys är en central statistisk metod som kan användas för att analysera samband mellan variabler och för att göra prediktioner. Funktionsformen för sambandet kan vara linjärt eller  icke-linjärt. Teorin för punktskattning,  intervallskattning  och  hypotesprövning  tillämpas  på  regressionsmodeller.  Kursen  presenterar  även  tekniker  för  att  upptäcka  avvikelser  från  modellens  antaganden,  och  konsekvenserna  av  modellavvikelser  för  den  statistiska  analysen  studeras.  Data  som  har  insamlats  över  tid  är  vanligt  förekommande.  Kursen  presenterar  modeller  för  tidsserieanalys,  och  beskriver  hur  dessa  kan  användas  för  att  skapa  prognoser.  Praktiska tillämpningar av regressions- och tidsserieanalys diskuteras och exemplifieras genom hela kursmomentet.
-
----
 
 ### Kurslitteratur
 
