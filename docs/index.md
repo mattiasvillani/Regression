@@ -1,7 +1,7 @@
 # Regressions- och tidsserieanalys
 
-<img src="regsalarybyrank.png" width="150" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="150" class="center" alt = "Bikeshare data by season"> 
-<img src="InflSwedenPreds.png" width="150" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="150" class="center" alt = "EEG time series">
+<img src="regsalarybyrank.png" width="300" class="center" alt = "regression data salary vs years since PhD"> <img src="bikesharebyseason.png" width="300" class="center" alt = "Bikeshare data by season"> 
+<img src="InflSwedenPreds.png" width="300" class="center" alt = "Swedish inflation data and prediction"> <img src="EEG_Cz.png" width="300" class="center" alt = "EEG time series">
 
 
 ### Momentets innehåll
