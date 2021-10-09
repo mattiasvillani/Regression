@@ -10,7 +10,9 @@ Regressionsanalys är en central statistisk metod som kan användas för att ana
 
 Data  som  har  insamlats  över  tid  är  vanligt  förekommande inom ett stort antal tillämpningsområden.  Kursen  presenterar  modeller  för  tidsserieanalys,  och  beskriver  hur  dessa  kan  användas  för  att  skapa  prognoser.  Praktiska tillämpningar av regressions- och tidsserieanalys diskuteras och exemplifieras genom hela kursmomentet.
 
-### KurslitteraturTitel TBAs, Studentlitteratur. Boken förkortas **AJÅ** nedan.
+### Kurslitteratur
+
+* Andersson, G. Jorner, U. och Ågren, A. (1507). Regressions- och tidsserieanalys, Studentlitteratur. Boken förkortas **AJÅ** nedan.
 * Ytterligare kompletterande material som delas ut under kursens gång. 
 
 Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e5Z4n0wknyaQhxnZclQln_3nbZH05QcTcn_sl3516Qy6d685606y65060501ZWyQo#contentlinks).
