@@ -23,39 +23,39 @@ Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/
 <img src="VillaniLowRes.jpg" width="70">\
 [Mattias Villani](https://mattiasvillani.com)<br>Professor i statistik
 
-**Föreläsning 1 - Kursinformation. Introduktion till regressionsanalys och tidsserieanalys. Enkel linjär regression.**\
-Läs: AJÅ Kapitel 1-2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L1.pdf) \
-Data: [Datamaterial 1](https://github.com/mattiasvillani/Regression/raw/master/Data/Datamaterial1.csv) | [Datamaterial 2](https://github.com/mattiasvillani/Regression/raw/master/Data/Datamaterial2.csv)
+**Föreläsning 1 - Kursinformation. Introduktion till regressionsanalys och tidsserieanalys.**\
+Läs: AJÅ Kapitel 1-2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) \
+Data: [Datamaterial 1](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) | [Datamaterial 2](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)
 
 **Föreläsning 2 - Enkel linjär regression: Skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
-Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L2.pdf) 
+Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 3 - Enkel och Multipel regression: ANOVA, hypotestest, förklaringsgrad, korrelation.**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L3.pdf) 
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 4 - Multipel regression: Modellantaganden och modellkontroll**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf) 
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 5 - Multipel regression, forts**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) 
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) 
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\
-Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L7.pdf) 
+Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L8.pdf) 
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 9 - Tidsserieanalys. Säsongsrensning med hjälp av regressionsanalys.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf) 
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 10 - Prognosutvärdering. Autokorrelation. Autoregressiva modeller för tidsserier.**\
-Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf) 
+Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 11 - Logistisk regression.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L11.pdf) 
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
 Läs: Övningstentamen på Athena.
