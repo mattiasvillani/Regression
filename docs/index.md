@@ -29,7 +29,7 @@ Data: [Cykeluthyrning](https://github.com/mattiasvillani/Regression/raw/master/D
 
 **Föreläsning 2 - Enkel linjär regression: Skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
 Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
-Extra: [video om regressionsanpassning](https://youtu.be/LBly54LLsLA)
+Extra: [Video om regressionsanpassning](https://youtu.be/LBly54LLsLA)
 
 **Föreläsning 3 - Enkel och Multipel regression: ANOVA, hypotestest, förklaringsgrad, korrelation.**\
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
