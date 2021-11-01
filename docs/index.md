@@ -30,10 +30,11 @@ Data: [cykeluthyrning](https://github.com/mattiasvillani/Regression/raw/master/D
 **Föreläsning 2 - Enkel linjär regression: Skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
 Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L2.pdf)\
 Data: [hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv)\
-Extramaterial: [Kalkylark för beräkning av residualer - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataResiduals.xlsx) | [Kalkylark för minstakvadratskattningar - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataLeastSquares.xlsx) | [Video om regressionsanpassning](https://youtu.be/4FzeGcgCy0g)
+Extramaterial: [Kalkylark för beräkning av residualer - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataResiduals.xlsx) | [Kalkylark för minstakvadratskattningar - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataLeastSquares.xlsx) | [Video om regressionsanpassning](https://youtu.be/4FzeGcgCy0g) | [gif om regressionsanpassning](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquares.gif)
 
 **Föreläsning 3 - Enkel och Multipel regression: ANOVA, hypotestest, förklaringsgrad, korrelation.**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
+Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif)
 
 **Föreläsning 4 - Multipel regression: Modellantaganden och modellkontroll**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
