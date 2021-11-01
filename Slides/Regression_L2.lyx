@@ -1258,6 +1258,56 @@ status open
 
 \series bold
 \color orange
+Regression i SAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/procregSAS.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/HealthDataSAS.png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Residualvarians
 \end_layout
 
@@ -1972,7 +2022,7 @@ Variansanalys (Analysis of Variance - ANOVA)
 
 \series bold
 \color blue
-ANOVA-uppdelningen
+ANOVA-uppdelningen:
 \end_layout
 
 \begin_layout Standard
@@ -2007,35 +2057,62 @@ ANOVA-uppdelningen
 \end_layout
 
 \begin_layout Itemize
-Andel förklarad variation (
+SSR kallas för 
 \series bold
 \color blue
-determinationskoefficienten
+S
 \series default
 \color inherit
-)
-\begin_inset Formula 
-\[
-R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}
-\]
-
+um of 
+\series bold
+\color blue
+S
+\series default
+\color inherit
+quares 
+\series bold
+\color blue
+M
+\series default
+\color inherit
+odel is SAS.
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-För regression med en förklarande variabel gäller att
-\begin_inset Formula 
-\[
-R^{2}=r^{2}
-\]
-
-\end_inset
-
-
+Hälsobudgetdata:
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SSE}=125.082$
+\end_inset
+
+ (Excelark ovan)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SST}=181.990$
+\end_inset
+
+ (kan t ex beräknas som 
+\begin_inset Formula $(n-1)\cdot\mathrm{Var(y)}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SSR}=\mathrm{SST}-\mathrm{SSR}=56.908$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -2081,6 +2158,89 @@ Variansanalys (ANOVA)
 	filename figs/anovaillustration.pdf
 	lyxscale 40
 	scale 38
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Andel förklarad variation - R
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ANOVA:
+\begin_inset Formula 
+\[
+\mathrm{SST}=\mathrm{SSE}+\mathrm{SSR}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Andel förklarad variation (
+\series bold
+\color blue
+determinationskoefficienten
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För regression med en förklarande variabel gäller att
+\begin_inset Formula 
+\[
+R^{2}=r^{2}\quad\text{ (}r\text{ är korrelationskoefficienten)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata:
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}=\frac{\mathrm{56.908}}{\mathrm{181.990}}\approx0.313.
+\]
 
 \end_inset
 
