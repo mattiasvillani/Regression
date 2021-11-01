@@ -29,7 +29,7 @@ Plots.reset_defaults()
 gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=8,
     xtickfontsize=6, ytickfontsize=6, xguidefontsize=8, yguidefontsize=8, 
     titlefontsize = 10, markersize = 3, markerstrokecolor = :auto)
-scatter(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 4), xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)")
+scatter(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 6), xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)")
 savefig(figFolder*"healthdata_text.pdf")
 
 # Health data fit - all data
@@ -45,7 +45,7 @@ fit = lm(@formula(lifespan ~ spending), healthdata)
 βhat = coef(fit)
 Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 2, label ="regressionslinje")
 
-scatter!(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 4), label = nothing)
+scatter!(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 6), label = nothing)
 
 savefig(figFolder*"healthdata_text_fit.pdf")
 
@@ -107,7 +107,7 @@ fit = lm(@formula(lifespan ~ spending), healthdata[Not(healthdata.country .== "U
 βhat = coef(fit)
 Plots.abline!(βhat[2], βhat[1], color = colors[1], lw = 2, label ="utan USA")
 
-scatter!(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 4), label = nothing)
+scatter!(healthdata.spending, healthdata.lifespan, series_annotations = text.(healthdata.country, :bottom, :darkslategrey, 6), label = nothing)
 
 savefig(figFolder*"healthdata_text_fit_USA.pdf")
 
@@ -155,12 +155,21 @@ savefig(figFolder*"oring.pdf")
 
 
 # ANOVA
-healthNoUS = healthdata[Not(30),:];
-plot()
-fit = lm(@formula(lifespan ~ spending), healthNoUS)
+gr(xguidefontsize =10, yguidefontsize = 10)
+p = plot(xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)")
+fit = lm(@formula(lifespan ~ spending), healthdata)
 βhat = coef(fit)
 Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 2)
-Plots.abline!(0, mean(healthNoUS.lifespan), color = colors[10], lw = 2)
-annotate!([(0, mean(healthNoUS.lifespan), (L"\mathbf{\bar y}", 10, :bottom, colors[10]))])
-annotate!([(2.3, 78, (L"\mathbf{\hat y = a+b \cdot x}", 10, :left, colors[4]))])
-scatter!(healthNoUS.spending, healthNoUS.lifespan, c = colors[2])
+Plots.abline!(0, mean(healthdata.lifespan), color = colors[10], lw = 2)
+annotate!([(1, mean(healthdata.lifespan), (L"\mathbf{\bar y}", 10, :bottom, colors[10]))])
+annotate!([(1.06, 76.8, (L"\mathbf{\hat y_i = a+b \cdot x_i}", 10, :left, colors[4]))])
+polandIdx = findall(healthdata.country .== "Poland")[1]
+annotate!([(healthdata.spending[polandIdx], healthdata.lifespan[polandIdx], (L"\mathbf{y_i}", 10, :top, :black))])
+plot!([healthdata.spending[polandIdx],healthdata.spending[polandIdx]], [mean(healthdata.lifespan), βhat[1] + βhat[2]*healthdata.spending[polandIdx]], color = colors[9], lw = 2)
+plot!(p, [healthdata.spending[polandIdx], healthdata.spending[polandIdx]],
+    [βhat[1]+βhat[2]*healthdata.spending[polandIdx],healthdata.lifespan[polandIdx]], color = colors[3])
+scatter!(healthdata.spending, healthdata.lifespan, c = colors[2])
+savefig(figFolder*"anovaillustration.pdf")
+
+
+
