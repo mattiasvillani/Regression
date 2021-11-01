@@ -167,12 +167,12 @@ savefig(figFolder*"cykel_tidsserie.pdf")
 
 # Scatterplot nRides vs lag of nRides
 bikeDay.lag = [bikeDay[1, :nRides];bikeDay[1:(end-1), :nRides]]
-scatter(bikeDay[!,:lag], bikeDay[!,:nRides], xlabel = "antal hyrningar igår", 
+scatter(bikeDay[!,:lag], bikeDay[!,:nRides], xlabel = "antal uthyrningar igår", 
     ylabel  = "antal uthyrningar idag", color = colors[6])
 savefig(figFolder*"cykel_rides_vs_lag.pdf")
 
 # Scatterplot nRides vs lag of nRides by season
-scatter(bikeDay[!,:lag], bikeDay[!,:nRides], xlabel = "antal hyrningar igår", 
+scatter(bikeDay[!,:lag], bikeDay[!,:nRides], xlabel = "antal uthyrningar igår", 
     ylabel  = "antal uthyrningar idag", color = colors[1], legend = :topleft, label = "season = 1")
 scatter!(bikeDay[bikeDay.season .== 1, :lag], bikeDay[bikeDay.season .== 2,:nRides], 
     color = colors[5], label = "season = 2")

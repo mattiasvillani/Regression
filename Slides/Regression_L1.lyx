@@ -428,7 +428,7 @@ Inlämningsuppgift i regressions- och tidsserieanalys, 3 hp
 \end_layout
 
 \begin_layout Itemize
-Salstentament, 4.5 hp
+Salstentamen, 4.5 hp
 \end_layout
 
 \end_deeper
@@ -520,12 +520,12 @@ Regression
 
 \begin_deeper
 \begin_layout Itemize
-Företags försäljning (
-\begin_inset Formula $y$
+Företags marknadsföringsbudget (
+\begin_inset Formula $x$
 \end_inset
 
-) och deras marknadsföringsbudget (
-\begin_inset Formula $x$
+) och försäljning (
+\begin_inset Formula $y$
 \end_inset
 
 ).
@@ -2219,7 +2219,7 @@ säkerheten
 \end_layout
 
 \begin_layout Itemize
-Data: alla förseningar för alla buslinjer i Sthlm under 1 år.
+Data: alla förseningar för alla busslinjer i Sthlm under 1 år.
 \begin_inset VSpace medskip
 \end_inset
 
