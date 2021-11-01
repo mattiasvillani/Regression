@@ -84,6 +84,50 @@ fit = lm(@formula(nRides ~ temp), bikeDay)
 Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 3)
 savefig(figFolder*"cykel_rides_vs_temp_Line.pdf")
 
+
+# Adding regression line to scatter plot nRides vs temp with coeff
+scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "temperatur (normaliserad)", 
+    ylabel  = "antal uthyrningar", color = colors[1], title = L"\mathrm{regressionslinje:\ }y = a + b \cdot x = 1215 + 6641 \cdot x", titlefontsize=14, xticks = 0:0.1:1)
+fit = lm(@formula(nRides ~ temp), bikeDay)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 3)
+
+# Text for intercept
+annotate!([(0.04, βhat[1]*1.03, (L"\mathbf{a = 1215}", 10, :left, colors[8]))])
+savefig(figFolder*"cykel_rides_vs_temp_Line_Coeff1.pdf")
+
+
+# Text for slope
+plot!([0.5,0.6],[βhat[1]+βhat[2]*0.5, βhat[1]+βhat[2]*0.5], color = colors[8])
+plot!([0.6,0.6],[βhat[1]+βhat[2]*0.5, βhat[1]+βhat[2]*0.6], color = colors[8])
+annotate!([(0.55, βhat[1]+βhat[2]*0.45, (L"\mathbf{\Delta x}", 12, :left, colors[8]))])
+annotate!([(0.62, βhat[1]+βhat[2]*0.55, (L"\mathbf{\Delta y}", 12, :left, colors[8]))])
+annotate!([(0.42, 5800, (L"b = \mathbf{\frac{\Delta y}{\Delta x}}", 12, :left, colors[8]))])
+savefig(figFolder*"cykel_rides_vs_temp_Line_Coeff2.pdf")
+
+
+scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "temperatur (normaliserad)", 
+    ylabel  = "antal uthyrningar", color = colors[1], title = L"\mathrm{regressionslinje:\ }y = a + b \cdot x = 1215 + 6641 \cdot x", titlefontsize=14, xticks = 0:0.1:1, xlims = [0,1])
+fit = lm(@formula(nRides ~ temp), bikeDay)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 3)
+
+plot!([0.5,0.5],[0, βhat[1]+βhat[2]*0.5], color = colors[8], linestyle = :dash, lw = 1)
+plot!([0.6,0.6],[0, βhat[1]+βhat[2]*0.6], color = colors[8], linestyle = :dash, lw = 1)
+plot!([0.0,0.5],[βhat[1]+βhat[2]*0.5, βhat[1]+βhat[2]*0.5], color = colors[8], linestyle = :dash, lw = 1)
+plot!([0.0,0.6],[βhat[1]+βhat[2]*0.6, βhat[1]+βhat[2]*0.6], color = colors[8], linestyle = :dash, lw = 1)
+annotate!([(0.52, 500, (L"\mathbf{\Delta x}", 12, :left, colors[8]))])
+annotate!([(0.52, 1000, (L"\mathbf{\longrightarrow}", 12, :left, colors[8]))])
+annotate!([(0.05, βhat[1]+βhat[2]*0.55, (L"\mathbf{\Delta y \uparrow}", 12, :left, colors[8]))])
+savefig(figFolder*"cykel_rides_vs_temp_Line_Coeff3.pdf")
+
+
+# Text for computing slope
+plot!(Shape([0.22, 0.8, 0.8, 0.22], [6000, 6000, 8000, 8000]), opacity=1, linecolor = :gray, fillcolor = :white)
+annotate!([(0.25, 7000, (L"b = \mathbf{\frac{\Delta y}{\Delta x} = \frac{5199-4535}{0.6-0.5}=6641}", 12, :left, colors[8]))])
+savefig(figFolder*"cykel_rides_vs_temp_Line_Coeff4.pdf")
+
+
 # Prediction for temp = 0.6
 x = 0.6
 yPred = [1 x]⋅βhat

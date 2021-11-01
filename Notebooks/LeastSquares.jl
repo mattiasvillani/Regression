@@ -16,6 +16,7 @@ end
 # ╔═╡ f9ec7ab4-397c-11ec-1f94-bda081a43650
 begin
 	using CSV, DataFrames, LaTeXStrings, Plots, GLM, LinearAlgebra
+	using StatsBase
 	using PlutoUI
 	import ColorSchemes: Paired_12; colors = Paired_12;
 	gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=10,
@@ -26,20 +27,20 @@ begin
 	df = DataFrame(CSV.File(download("https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv");header=true));
 	df.spending = df.spending./1000;
 
-	# Define Mean Squared Error function
-	function MSE(y,X,β)
-		return ((y-X*β)'*(y-X*β))/length(y)
+	# Define Squared Error function
+	function SSE(y,X,β)
+		return (y-X*β)'*(y-X*β)
 	end
 	
 	nothing
 end
 
 # ╔═╡ 8945e3e3-7d5f-48d4-bff4-def9ec5e4b13
-# Beräkna minsta kvadratskattning och MSE
+# Compute least squares estimates and SSE
 begin
 	fit = lm(@formula(lifespan ~ spending), df)
 	βhat = coef(fit)
-	MSEols = MSE(df.lifespan, [ones(length(df.spending)) df.spending], βhat)
+	SSEols = SSE(df.lifespan, [ones(length(df.spending)) df.spending], βhat)
 	nothing
 end
 
@@ -47,19 +48,19 @@ end
 begin
 	aGrid = 65:0.1:85
 	bGrid = -4:0.1:4
-	aSlider = @bind a Slider(aGrid, default = 80, show_value = true)
+	aSlider = @bind a Slider(aGrid, default = mean(df.lifespan), show_value = true)
 	bSlider = @bind b Slider(bGrid, default = 0, show_value = true)
     countryTextBox = @bind plotCountryText CheckBox(default = true)
 	
 	md"""
 	
-	**Regressionskoefficienter**
+	**Regression coefficients**
 	
 	a: $(aSlider)     
 	
 	b: $(bSlider)
 
-	**Skriv ut landsnamn**: $(countryTextBox)
+	**Plot country names**: $(countryTextBox)
 	
 	"""
 end
@@ -67,7 +68,7 @@ end
 
 # ╔═╡ 3c2ff7e2-5407-40ad-8c9c-2ad735d8f595
 begin
-	MSEreg = MSE(df.lifespan, [ones(length(df.spending)) df.spending], [a,b])
+	SSEreg = SSE(df.lifespan, [ones(length(df.spending)) df.spending], [a,b])
 	p = plot()
 	for i in 1:size(df,1)
 		plot!(p, [df.spending[i], df.spending[i]],
@@ -75,22 +76,22 @@ begin
 	end
 	Plots.abline!(p, b, a, color = colors[10], lw = 2, label = nothing)
 	if plotCountryText
-		countryText = text.(df.country, :bottom, :darkslategrey, 4)
+		countryText = text.(df.country, :bottom, :darkslategrey, 6)
 	else
 		countryText = nothing
 	end
 	scatter!(p, df.spending, df.lifespan, 		
-		xlab = "Hälsobudget (US dollar, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)", title = L"\mathrm{MSE} = %$(round(MSEreg,digits = 1))", label = nothing, series_annotations = countryText)
+		xlab = "Health spending (thousands USD per capita, PPP-adjusted)", ylab = "Life expectancy (years)", title = L"\mathrm{Sum\ of\ squared\ errors\ (SSE)} = %$(round(SSEreg,digits = 1))", label = nothing, series_annotations = countryText)
 	p
 end
 
 # ╔═╡ e1d7433d-6bd6-4931-aa4c-485a3fc2d3d3
 begin
-	heatmap(bGrid, aGrid, [log(MSE(df.lifespan, 
+	heatmap(bGrid, aGrid, [log(SSE(df.lifespan, 
 		[ones(length(df.spending)) df.spending], [a,b])) 
-		for a in aGrid, b in bGrid], c = :viridis, xlab = "b", ylab = "a", title = "Medelkvadratsumman (MSE)", legend = true)
-	scatter!([b], [a], color = colors[7], markersize = 6, series_annotations = text.(round(MSEreg, digits = 2), :top, :white, 10), label = "valda parametrar")
-	scatter!([βhat[2]], [βhat[1]], color = colors[1], markersize = 6, series_annotations = text.(round(MSEols, digits = 2), :top, :yellow, 10), label = "minsta kvadrat")
+		for a in aGrid, b in bGrid], c = :viridis, xlab = "b", ylab = "a", title = "Sum of squared errors (SSE)", legend = true)
+	scatter!([b], [a], color = colors[7], markersize = 6, series_annotations = text.(round(SSEreg, digits = 2), :top, :white, 10), label = "chosen parameters")
+	scatter!([βhat[2]], [βhat[1]], color = colors[1], markersize = 6, series_annotations = text.(round(SSEols, digits = 2), :top, :yellow, 10), label = "least squares estimates")
 end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -104,6 +105,7 @@ LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 CSV = "~0.9.10"
@@ -113,6 +115,7 @@ GLM = "~1.5.1"
 LaTeXStrings = "~1.2.1"
 Plots = "~1.23.2"
 PlutoUI = "~0.7.16"
+StatsBase = "~0.33.12"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -1132,7 +1135,7 @@ version = "0.9.1+5"
 # ╟─f9ec7ab4-397c-11ec-1f94-bda081a43650
 # ╟─8945e3e3-7d5f-48d4-bff4-def9ec5e4b13
 # ╟─16318092-feca-4b54-bfa8-2d531554fd9a
-# ╟─3c2ff7e2-5407-40ad-8c9c-2ad735d8f595
+# ╠═3c2ff7e2-5407-40ad-8c9c-2ad735d8f595
 # ╟─e1d7433d-6bd6-4931-aa4c-485a3fc2d3d3
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
