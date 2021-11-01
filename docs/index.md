@@ -25,7 +25,7 @@ Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/
 
 **Föreläsning 1 - Kursinformation. Introduktion till regressionsanalys och tidsserieanalys.**\
 Läs: AJÅ Kapitel 1-2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L1.pdf) \
-Data: [cykeluthyrning](https://github.com/mattiasvillani/Regression/raw/master/Data/cykeluthyr.csv) | [myntauktioner](https://github.com/mattiasvillani/Regression/raw/master/Data/eBayDataUCI.csv) | [inflation](https://github.com/mattiasvillani/Regression/raw/master/Data/InflationReporanta.csv)\
+Data: [cykeluthyrning](https://github.com/mattiasvillani/Regression/raw/master/Data/cykeluthyr.csv) | [myntauktioner](https://github.com/mattiasvillani/Regression/raw/master/Data/eBayDataUCI.csv) | [inflation](https://github.com/mattiasvillani/Regression/raw/master/Data/InflationReporanta.csv)
 
 **Föreläsning 2 - Enkel linjär regression: Skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
 Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L2.pdf)\
