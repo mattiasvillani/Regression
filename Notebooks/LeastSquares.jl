@@ -78,13 +78,14 @@ end
 begin
 	SSEreg = SSE(df.lifespan, [ones(length(df.spending)) df.spending], [a,b])
 	p = plot()
-	if plotResiduals
-		for i in 1:size(df,1)
-			if plotSquares && (df.country[i] == "USA" || df.country[i] == "Czech" || 		
-			df.country[i] == "Denmark")
-				plot!(square(abs(df.lifespan[i]-a-b*df.spending[i]), df.spending[i], 
-					df.lifespan[i]), opacity = 0.1)
-			end
+	for i in 1:size(df,1)
+			
+		if plotSquares && (df.country[i] == "USA" || df.country[i] == "Czech" || 		
+		df.country[i] == "Denmark")
+			plot!(square(abs(df.lifespan[i]-a-b*df.spending[i]), df.spending[i], 
+				df.lifespan[i]), opacity = 0.1)
+		end
+		if plotResiduals
 			plot!(p, [df.spending[i], df.spending[i]],
 			[a+b*df.spending[i],df.lifespan[i]], color = :lightgray)
 		end
@@ -106,7 +107,7 @@ begin
 	logSSEml = log(SSE(df.lifespan, [ones(length(df.spending)) df.spending], βhat))
 	plot(bGrid, aGrid, [log(SSE(df.lifespan, 
 		[ones(length(df.spending)) df.spending], [a,b])) 
-		for a in aGrid, b in bGrid], st=:surface, c = :viridis, xlab = "b", ylab = "a", title = "Sum of squared errors (SSE)", legend = true)
+		for a in aGrid, b in bGrid], st=:surface, opacity = 0.8, c = :viridis, xlab = "b", ylab = "a", title = "Sum of squared errors (SSE)", legend = true)
 	scatter!([b], [a], [logSSEchosen], color = colors[7], markersize = 6, label = "chosen parameters")
 	scatter!([βhat[2]], [βhat[1]], [logSSEml], color = colors[1], markersize = 6, label = "least squares estimates")
 end
