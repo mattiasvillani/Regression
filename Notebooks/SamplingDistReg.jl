@@ -4,120 +4,54 @@
 using Markdown
 using InteractiveUtils
 
-# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
-macro bind(def, element)
-    quote
-        local el = $(esc(element))
-        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : missing
-        el
-    end
-end
-
 # ╔═╡ f9ec7ab4-397c-11ec-1f94-bda081a43650
 begin
 	using CSV, DataFrames, LaTeXStrings, Plots, GLM, LinearAlgebra
 	using StatsBase
 	using PlutoUI
 	import ColorSchemes: Paired_12; colors = Paired_12;
-	gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=10,
+	gr(legend = :bottomright, grid = false, color = colors[2], lw = 2, legendfontsize=10, titlefontsize = 12,
     xtickfontsize=12, ytickfontsize=12, xguidefontsize=12, yguidefontsize=12, 
     markersize = 4, markerstrokecolor = :auto)
 
 	# Load data
-	df = DataFrame(CSV.File(download("https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv");header=true));
-	df.spending = df.spending;
+	healthdata = DataFrame(CSV.File(download("https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv");header=true));
+	x = healthdata.spending
 
-	# Define Squared Error function
-	function SSE(y,X,β)
-		return (y-X*β)'*(y-X*β)
+	function simSimpleReg(x,β₀,β₁,σ)
+		n = length(x)
+		ε = rand(Normal(0,σ), n)
+		y = β₀ .+ β₁*x + ε
+		return y
 	end
-
-	square(w, x, y) = Shape(x .+ [0,w,w,0], y .+ [0,0,w,w])
-
+	
 	nothing
 end
 
-# ╔═╡ 8945e3e3-7d5f-48d4-bff4-def9ec5e4b13
-# Compute least squares estimates and SSE
+# ╔═╡ 90859ab2-daad-4b05-909f-92edaf6e6adc
 begin
-	fit = lm(@formula(lifespan ~ spending), df)
+	β₀ = 77
+	β₁ = 1
+	σ = 3
+	for i in 1:10
+	y = simSimpleReg(x,β₀,β₁,σ)
+	df = DataFrame(y = y, x = x)
+	fit = lm(@formula(y ~ x), df)
 	βhat = coef(fit)
-	SSEols = SSE(df.lifespan, [ones(length(df.spending)) df.spending], βhat)
-	nothing
-end
-
-# ╔═╡ 16318092-feca-4b54-bfa8-2d531554fd9a
-begin
-	aGrid = 65:0.1:85
-	bGrid = -4:0.1:4
-	aSlider = @bind a Slider(aGrid, default = mean(df.lifespan), show_value = true)
-	bSlider = @bind b Slider(bGrid, default = 0, show_value = true)
-    countryTextBox = @bind plotCountryText CheckBox(default = true)
-	residualsTextBox = @bind plotResiduals CheckBox(default = true)
-	addSquaresBox = @bind plotSquares CheckBox(default = false)
-
-	md"""
-	
-	**Regression coefficients**
-	
-	a: $(aSlider)     
-	
-	b: $(bSlider)
-
-	**Plot country names**: $(countryTextBox)
-
-	**Plot residuals as lines**: $(residualsTextBox)
-
-	**Plot some squares of residuals**: $(addSquaresBox)
-	
-	"""
-end
-
-
-# ╔═╡ 3c2ff7e2-5407-40ad-8c9c-2ad735d8f595
-begin
-	SSEreg = SSE(df.lifespan, [ones(length(df.spending)) df.spending], [a,b])
-	p = plot()
-	if plotResiduals
-		for i in 1:size(df,1)
-			if plotSquares && (df.country[i] == "USA" || df.country[i] == "Czech" || 		
-			df.country[i] == "Denmark")
-				plot!(square(abs(df.lifespan[i]-a-b*df.spending[i]), df.spending[i], 
-					df.lifespan[i]), opacity = 0.1)
-			end
-			plot!(p, [df.spending[i], df.spending[i]],
-			[a+b*df.spending[i],df.lifespan[i]], color = :lightgray)
-		end
+	p = plot(xlims = 0:8, ylims = 74:90, xlab =L"x", ylab = L"y", 
+		title = "Sampling distribution of least squares regression line")
+	scatter!(x, y, label = L"\mathrm{sample\ data}")
+	Plots.abline!(p, β₁, β₀, color = colors[10], lw = 3, 
+		label = L"\mathrm{population:\ } \beta_0+\beta_1 \cdot x")
+	Plots.abline!(p, βhat[2], βhat[1], color = colors[8], lw = 2, 
+		label = L"\mathrm{least\ squares\ fit:\ } a+b \cdot x")
+		annotate!([(1.5, 89.5, (L"\beta_0 = %$(round(β₀,digits = 2))\mathrm{\ and\ } \beta_1 = %$(round(β₁,digits = 2))", 10, :top, colors[10]))])
+	annotate!([(1.5, 88, (L"a = %$(round(βhat[1],digits = 2))\mathrm{\ and\ } b = %$(round(βhat[2],digits = 2))", 10, :top, colors[8]))])
+	ylims!((70,90))
+	xlims!((0,8))
+		display(p)
+		sleep(1)
 	end
-	Plots.abline!(p, b, a, color = colors[10], lw = 2, label = nothing)
-	if plotCountryText
-		countryText = text.(df.country, :bottom, :darkslategrey, 6)
-	else
-		countryText = nothing
-	end
-	scatter!(p, df.spending, df.lifespan, 		
-		xlab = "Health spending (thousands USD per capita, PPP-adjusted)", ylab = "Life expectancy (years)", title = L"\mathrm{Sum\ of\ squared\ errors\ (SSE)} = %$(round(SSEreg,digits = 1))", label = nothing, series_annotations = countryText)
-	p
-end
-
-# ╔═╡ f76ba71d-fd1e-4035-aabb-c7f1471e96dc
-begin
-	logSSEchosen = log(SSE(df.lifespan, [ones(length(df.spending)) df.spending], [a,b]))
-	logSSEml = log(SSE(df.lifespan, [ones(length(df.spending)) df.spending], βhat))
-	plot(bGrid, aGrid, [log(SSE(df.lifespan, 
-		[ones(length(df.spending)) df.spending], [a,b])) 
-		for a in aGrid, b in bGrid], st=:surface, c = :viridis, xlab = "b", ylab = "a", title = "Sum of squared errors (SSE)", legend = true)
-	scatter!([b], [a], [logSSEchosen], color = colors[7], markersize = 6, label = "chosen parameters")
-	scatter!([βhat[2]], [βhat[1]], [logSSEml], color = colors[1], markersize = 6, label = "least squares estimates")
-end
-
-# ╔═╡ a6db4c3a-c896-4365-a4ff-f8402f810251
-begin
-	heatmap(bGrid, aGrid, [log(SSE(df.lifespan, 
-		[ones(length(df.spending)) df.spending], [a,b])) 
-		for a in aGrid, b in bGrid], c = :viridis, xlab = "b", ylab = "a", title = "Sum of squared errors (SSE)", legend = true)
-	scatter!([b], [a], color = colors[7], markersize = 6, series_annotations = text.(round(SSEreg, digits = 2), :top, :white, 10), label = "chosen parameters")
-	scatter!([βhat[2]], [βhat[1]], color = colors[1], markersize = 6, series_annotations = text.(round(SSEols, digits = 2), :top, :yellow, 10), label = "least squares estimates")
 end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1158,11 +1092,7 @@ version = "0.9.1+5"
 """
 
 # ╔═╡ Cell order:
-# ╟─f9ec7ab4-397c-11ec-1f94-bda081a43650
-# ╟─8945e3e3-7d5f-48d4-bff4-def9ec5e4b13
-# ╟─16318092-feca-4b54-bfa8-2d531554fd9a
-# ╟─3c2ff7e2-5407-40ad-8c9c-2ad735d8f595
-# ╟─f76ba71d-fd1e-4035-aabb-c7f1471e96dc
-# ╟─a6db4c3a-c896-4365-a4ff-f8402f810251
+# ╠═f9ec7ab4-397c-11ec-1f94-bda081a43650
+# ╠═90859ab2-daad-4b05-909f-92edaf6e6adc
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
