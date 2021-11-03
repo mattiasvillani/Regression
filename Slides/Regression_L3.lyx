@@ -1,0 +1,1747 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 3 - Regression som sannolikhetsmodell
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression som sannolikhetsmodell
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Konfidensintervall
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotestest
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktionsintervall
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Repetition sannolikhetsmodeller
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Underliggande 
+\series bold
+\color blue
+populationsmodell
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+X_{1},\ldots,X_{n}\overset{\mathrm{ober}}{\sim}N(\mu,\sigma^{2}),\quad\sigma^{2}\text{ känd}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Medelvärdet 
+\begin_inset Formula 
+\[
+\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}
+\]
+
+\end_inset
+
+ är en 
+\series bold
+\color blue
+estimator
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Väntevärdesriktig
+\series default
+\color inherit
+ (rätt i genomsnitt över alla möjliga stickprov)
+\begin_inset Formula 
+\[
+\mathbb{E}(\bar{X})=\mu
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen 
+\series default
+\color inherit
+(hur medelvärdet varierar från stickprov till stickprov):
+\begin_inset Formula 
+\[
+\bar{X}\sim N\left(\mu,\frac{\sigma^{2}}{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression som sannolikhetsmodell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Underliggande 
+\series bold
+\color blue
+populationsmodell
+\series default
+\color inherit
+ för regression:
+\begin_inset Formula 
+\[
+y=\alpha+\beta x+\varepsilon,\quad\varepsilon\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regression är en modell för den 
+\series bold
+\color blue
+betingade fördelningen
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y\vert x\sim N\left(\mu_{y\vert x},\sigma_{\varepsilon}^{2}\right)
+\]
+
+\end_inset
+
+där det betingade väntevärdet för 
+\begin_inset Formula $y$
+\end_inset
+
+ nu beror på 
+\begin_inset Formula $x$
+\end_inset
+
+ genom regressionen
+\begin_inset Formula 
+\[
+\mu_{y\vert x}=\alpha+\beta x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha$
+\end_inset
+
+ är interceptet i den underliggande populationen.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta$
+\end_inset
+
+ är lutningen på regressionslinjen i den underliggande populationen.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression som sannolikhetsmodell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Stickprov/datamaterial med 
+\begin_inset Formula $n$
+\end_inset
+
+ observationspar 
+\begin_inset Formula $(y_{1},x_{1}),\ldots(y_{n},x_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Vanligt att anta oberoende feltermer 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ för alla observationer:
+\begin_inset Formula 
+\[
+\varepsilon_{1},\ldots,\varepsilon_{n}\overset{\mathrm{ober}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modell för hela stickprovet
+\begin_inset Formula 
+\[
+y_{i}=\alpha+\beta x_{i}+\varepsilon_{i},\quad\varepsilon_{i}\overset{\mathrm{ober}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression som sannolikhetsmodell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Regression som modell för betingad fördelning
+\size small
+
+\begin_inset Formula 
+\[
+y\vert x\sim N\left(\mu_{y\vert x},\sigma_{\varepsilon}^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu_{y\vert x}=\alpha+\beta x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/regdensities.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Simulera data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Simulera regressionsdata med stickprovstorlek 
+\begin_inset Formula $n$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bestäm populationens parametrar 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Bestäm 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+(som antas vara icke-slumpmässiga)
+\end_layout
+
+\begin_layout Itemize
+Simulera feltermer 
+\begin_inset Formula $\varepsilon_{1},\ldots,\varepsilon_{n}$
+\end_inset
+
+ från 
+\begin_inset Formula $N(0,\sigma^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Beräkna 
+\begin_inset Formula $y_{i}=\beta_{0}+\beta_{1}x_{i}+\varepsilon_{i}$
+\end_inset
+
+ för varje observation.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelning - minstakvadratskattningen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Minstakvadratestimatorerna
+\begin_inset Formula 
+\[
+b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a=\bar{y}-b\bar{x}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{e}^{2}=\frac{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}{n-2}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Väntevärdesriktiga
+\series default
+\color black
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}(b) & =\beta\\
+\mathbb{E}(a) & =\alpha\\
+\mathbb{E}(s_{e}^{2}) & =\sigma_{\varepsilon}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelning för b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estimatorn för lutningskoefficienten
+\begin_inset Formula 
+\[
+b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+har 
+\series bold
+\color blue
+samplingvarians 
+\series default
+\color inherit
+(hur mycket varierar 
+\begin_inset Formula $b$
+\end_inset
+
+ över olika stickprov?) 
+\begin_inset Formula 
+\[
+\sigma_{b}^{2}=\frac{\sigma_{\varepsilon}^{2}}{\sum(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+En estimator av den teoretiska samplingvariansen 
+\begin_inset Formula $\sigma_{b}^{2}$
+\end_inset
+
+ är
+\begin_inset Formula 
+\[
+s_{b}^{2}=\frac{s_{e}^{2}}{\sum(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+Se AJÅ för en motsvarande formel för att skatta samplingvariansen för 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata
+\begin_inset Formula 
+\[
+s_{b}^{2}=\frac{4.467}{52.861}=0.085\qquad s_{b}\approx\sqrt{0.085}\approx0.291
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Approximativt konfidensintervall för b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Approximativt 95% konfidensintervall för 
+\begin_inset Formula $b$
+\end_inset
+
+
+\series default
+\color black
+ för 
+\series bold
+\color blue
+stora stickprov
+\series default
+\color black
+ (
+\begin_inset Formula $n\geq30$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\left[b-1.96\cdot s_{b},b+1.96\cdot s_{b}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata
+\color black
+
+\begin_inset Formula 
+\[
+\left[1.038-1.96\cdot0.291,1.038+1.96\cdot0.291\right]=\left[0.468,1.608\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+I 
+\begin_inset Formula $95$
+\end_inset
+
+% av alla stickprov från populationen
+\series default
+\color inherit
+ täcker intervallet 
+\begin_inset Formula $\left[0.468,1.608\right]$
+\end_inset
+
+ den sanna lutningen 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exakt konfidensintervall för b - student 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+För 
+\series bold
+\color blue
+små 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\series default
+\color inherit
+är normalapproximationen inte tillräckligt bra.
+ 
+\end_layout
+
+\begin_layout Itemize
+Estimatorn 
+\begin_inset Formula $b$
+\end_inset
+
+ följer en 
+\series bold
+\color blue
+
+\begin_inset Formula $t$
+\end_inset
+
+-fördelning
+\series default
+\color inherit
+ med 
+\begin_inset Formula $n-2$
+\end_inset
+
+ 
+\series bold
+\color blue
+frihetsgrader
+\series default
+\color inherit
+.
+\begin_inset Formula 
+\[
+\frac{b-\beta}{s_{b}}\sim t(n-2)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+ blir 
+\begin_inset Formula $t$
+\end_inset
+
+-fördelningen alltmer lik normalfördelningen.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $t$
+\end_inset
+
+-fördelningen konvergerar mot normalfördelningen när 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/studentt.pdf
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exakt konfidensintervall för b - student 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exakt 95% konfidensintervall för 
+\begin_inset Formula $b$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\left[b-t_{0.975}(n-2)\cdot s_{b},b+t_{0.975}(n-2)\cdot s_{b}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $t$
+\end_inset
+
+-fördelningen med 
+\begin_inset Formula $n-2$
+\end_inset
+
+ frihetsgrader har 
+\begin_inset Formula $0.975$
+\end_inset
+
+ (
+\begin_inset Formula $97.5$
+\end_inset
+
+%) sannolikhetsmassa till vänster om värdet 
+\begin_inset Formula $t_{0.975}(n-2)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/studenttCrit.pdf
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata: 
+\begin_inset Formula $n=28$
+\end_inset
+
+, och 
+\begin_inset Formula $t_{0.975}(28)=2.0484$
+\end_inset
+
+ från tabell.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exakt 
+\color black
+95% konfidensintervall för 
+\begin_inset Formula $b$
+\end_inset
+
+
+\color inherit
+
+\begin_inset Formula 
+\[
+\left[1.038-2.0484\cdot0.291,1.038+2.0484\cdot0.291\right]=\left[0.442,1.634\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest för 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotestest
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för lutningen
+\series default
+\color inherit
+ i regressionen
+\begin_inset Formula 
+\begin{align*}
+H_{0}: & \beta=0\\
+H_{1}: & \beta\neq0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistiska
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+t=\left|\frac{b-0}{s_{b}}\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi förkastar nollhypotesten på signifikansnivån 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+ om 
+\begin_inset Formula 
+\[
+t>t_{0.975}(n-2)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+P-värde
+\series default
+\color inherit
+ = sannolikheten att observera 
+\begin_inset Formula $t$
+\end_inset
+
+ eller något ännu mer extremt givet att 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ är sann.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ har vi 
+\begin_inset Formula $t\sim t(n-2)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest för 
+\begin_inset Formula $\beta$
+\end_inset
+
+ - hälsobudgetdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $n=28$
+\end_inset
+
+, och 
+\begin_inset Formula $t_{0.975}(28)=2.0484$
+\end_inset
+
+ från tabell.
+\begin_inset Formula 
+\[
+t_{\mathrm{obs}}=\left|\frac{1.038-0}{0.291}\right|=3.567
+\]
+
+\end_inset
+
+Eftersom 
+\begin_inset Formula $t_{\mathrm{obs}}=3.567>t_{0.975}(28)=2.0484$
+\end_inset
+
+ så förkastar vi nollhypotesen på 
+\begin_inset Formula $5\%$
+\end_inset
+
+ signifikansnivå.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi förkastar nollhypotesen att hälsobudgetens storlek inte är korrelerad
+ med livslängd.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Testets 
+\begin_inset Formula $p$
+\end_inset
+
+-värde
+\begin_inset Formula 
+\[
+p=0.0013237
+\]
+
+\end_inset
+
+vilket visar att vi t o m skulle ha förkastat på 
+\begin_inset Formula $1$
+\end_inset
+
+% nivån.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest för 
+\begin_inset Formula $\beta$
+\end_inset
+
+ - hälsobudgetdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/HealthDataSAS.png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för regressionslinjen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regressionslinjen i populationen
+\series default
+\color inherit
+ är
+\begin_inset Formula 
+\[
+\mu_{y\vert x}=\alpha+\beta x
+\]
+
+\end_inset
+
+som skattas med minsta kvadratmetoden genom formeln
+\begin_inset Formula 
+\[
+\hat{\mu}_{y\vert x}=a+bx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Standardavvikelsen för skattningen av regressionslinjen
+\series default
+\color inherit
+ vid ett givet 
+\begin_inset Formula $x$
+\end_inset
+
+-värde 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+ är 
+\begin_inset Formula 
+\[
+\sigma_{\hat{\mu}_{y\vert x_{0}}}=\sigma_{\varepsilon}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Denna teoretiska standardavvikelsen kan skattas med
+\begin_inset Formula 
+\[
+s_{\hat{\mu}_{y\vert x_{0}}}=s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prediktionsintervall 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Antag att vi gjort en prognos vid punkten 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Prognosen är 
+\begin_inset Formula 
+\[
+\hat{y}(x_{0})=\hat{\mu}_{y\vert x_{0}}=a+bx_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prognosintervall
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\hat{y}(x_{0})$
+\end_inset
+
+ - 
+\series bold
+\color blue
+två källor av osäkerhet
+\series default
+\color inherit
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+De 
+\series bold
+\color blue
+okända parametrarna
+\series default
+\color inherit
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ och 
+\begin_inset Formula $\beta$
+\end_inset
+
+, dvs osäkerhet om 
+\begin_inset Formula $\mu_{y\vert x}$
+\end_inset
+
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Variationen i de enskilda 
+\begin_inset Formula $y$
+\end_inset
+
+-värdena kring regressionlinjen
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mu_{y\vert x}$
+\end_inset
+
+.
+ Alla observationer 
+\begin_inset Quotes eld
+\end_inset
+
+träffas av ett 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ som har varians 
+\begin_inset Formula $\sigma_{\varepsilon}^{2}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Prognosvariansen: 
+\begin_inset Formula 
+\[
+\sigma_{\hat{y}(x_{0})}^{2}=\sigma_{\hat{\mu}_{y\vert x_{0}}}^{2}+\sigma_{\varepsilon}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+95%-igt prognosintervall för en enskild obseration vid 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{y}(x_{0})\pm t(n-2)\cdot s_{e}\sqrt{1+\frac{1}{n}+\frac{(x_{0}-\bar{x})^{2}}{\sum(x_{i}-\bar{x})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prediktionsintervall
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/prognosintervall.jpg
+	lyxscale 20
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

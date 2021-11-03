@@ -132,6 +132,39 @@ plot(p..., layout = (2,2))
 savefig(figFolder*"anscombeQuartet.pdf")
 
 
+# ANOVA
+gr(xguidefontsize =10, yguidefontsize = 10)
+p = plot(xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)")
+fit = lm(@formula(lifespan ~ spending), healthdata)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 2)
+Plots.abline!(0, mean(healthdata.lifespan), color = colors[10], lw = 2)
+annotate!([(1, mean(healthdata.lifespan), (L"\mathbf{\bar y}", 10, :bottom, colors[10]))])
+annotate!([(1.06, 76.8, (L"\mathbf{\hat y_i = a+b \cdot x_i}", 10, :left, colors[4]))])
+polandIdx = findall(healthdata.country .== "Poland")[1]
+annotate!([(healthdata.spending[polandIdx], healthdata.lifespan[polandIdx], (L"\mathbf{y_i}", 10, :top, :black))])
+plot!([healthdata.spending[polandIdx],healthdata.spending[polandIdx]], [mean(healthdata.lifespan), βhat[1] + βhat[2]*healthdata.spending[polandIdx]], color = colors[9], lw = 2)
+plot!(p, [healthdata.spending[polandIdx], healthdata.spending[polandIdx]],
+    [βhat[1]+βhat[2]*healthdata.spending[polandIdx],healthdata.lifespan[polandIdx]], color = colors[3])
+scatter!(healthdata.spending, healthdata.lifespan, c = colors[2])
+savefig(figFolder*"anovaillustration.pdf")
+
+# Extrapolering
+Plots.reset_defaults()
+gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=8,
+    xtickfontsize=6, ytickfontsize=6, xguidefontsize=8, yguidefontsize=8, 
+    titlefontsize = 10, markersize = 3, markerstrokecolor = :auto, ylims = [73,90])
+plot(xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", 
+    ylab = "Förväntad livslängd (år)", label = nothing, legend = :topleft)
+scatter!(healthdata.spending, healthdata.lifespan, c = colors[2], label = nothing)
+vline!([10], linestyle = :dash, color = colors[10], label = nothing)
+annotate!([( 9.7, 88, ("?", 20, :top, colors[10]))])
+fit = lm(@formula(lifespan ~ spending), healthdata)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 2, label = nothing)
+savefig(figFolder*"extrapolate.pdf")
+
+
 # O-rings data - Extrapolation
 oring = DataFrame(CSV.File(dataFolder*"orings.csv"; header = true))
 oring.fracDistress = oring.nDistress./oring.nRisk
@@ -151,25 +184,6 @@ end
 scatter(oring.tempLaunch, oring.nDistressViz, xlims = [30,80], ylims = [0,6], 
     legend = :topright, label = "data från tidigare avfärder", ylab = "antal skadade gummipackningar (jittered)", xlab = "temperatur (Fahrenheit)")
 vline!([31], color = colors[4], label = "förväntad temperatur vid avfärd")
+annotate!([( 34, 5, ("?", 20, :top, colors[4]))])
+
 savefig(figFolder*"oring.pdf")
-
-
-# ANOVA
-gr(xguidefontsize =10, yguidefontsize = 10)
-p = plot(xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)")
-fit = lm(@formula(lifespan ~ spending), healthdata)
-βhat = coef(fit)
-Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 2)
-Plots.abline!(0, mean(healthdata.lifespan), color = colors[10], lw = 2)
-annotate!([(1, mean(healthdata.lifespan), (L"\mathbf{\bar y}", 10, :bottom, colors[10]))])
-annotate!([(1.06, 76.8, (L"\mathbf{\hat y_i = a+b \cdot x_i}", 10, :left, colors[4]))])
-polandIdx = findall(healthdata.country .== "Poland")[1]
-annotate!([(healthdata.spending[polandIdx], healthdata.lifespan[polandIdx], (L"\mathbf{y_i}", 10, :top, :black))])
-plot!([healthdata.spending[polandIdx],healthdata.spending[polandIdx]], [mean(healthdata.lifespan), βhat[1] + βhat[2]*healthdata.spending[polandIdx]], color = colors[9], lw = 2)
-plot!(p, [healthdata.spending[polandIdx], healthdata.spending[polandIdx]],
-    [βhat[1]+βhat[2]*healthdata.spending[polandIdx],healthdata.lifespan[polandIdx]], color = colors[3])
-scatter!(healthdata.spending, healthdata.lifespan, c = colors[2])
-savefig(figFolder*"anovaillustration.pdf")
-
-
-

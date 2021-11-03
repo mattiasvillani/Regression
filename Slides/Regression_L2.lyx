@@ -1269,6 +1269,50 @@ status open
 
 \series bold
 \color orange
+gif-time!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+På webbsidan ligger en animerad gif:en com visar hur olika regressionlinjer
+ ger olika SSE.
+ 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "gif"
+target "https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquares.gif"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Regression i SAS
 \end_layout
 
@@ -2239,7 +2283,13 @@ R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}
 \end_layout
 
 \begin_layout Itemize
-För regression med en förklarande variabel gäller att
+För regression med 
+\series bold
+\color blue
+en
+\series default
+\color inherit
+ förklarande variabel gäller att
 \begin_inset Formula 
 \[
 R^{2}=r^{2}\quad\text{ (}r\text{ är korrelationskoefficienten)}
