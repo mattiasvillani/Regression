@@ -676,15 +676,15 @@ Simulera regressionsdata med stickprovstorlek
 \begin_deeper
 \begin_layout Itemize
 Bestäm populationens parametrar 
-\begin_inset Formula $\beta_{0}$
+\begin_inset Formula $\alpha$
 \end_inset
 
 , 
-\begin_inset Formula $\beta_{1}$
+\begin_inset Formula $\beta$
 \end_inset
 
  och 
-\begin_inset Formula $\sigma^{2}$
+\begin_inset Formula $\sigma_{\varepsilon}^{2}$
 \end_inset
 
 .
@@ -712,7 +712,7 @@ Simulera feltermer
 \end_inset
 
  från 
-\begin_inset Formula $N(0,\sigma^{2})$
+\begin_inset Formula $N(0,\sigma_{\varepsilon}^{2})$
 \end_inset
 
 .
@@ -724,7 +724,7 @@ Simulera feltermer
 
 \begin_layout Itemize
 Beräkna 
-\begin_inset Formula $y_{i}=\beta_{0}+\beta_{1}x_{i}+\varepsilon_{i}$
+\begin_inset Formula $y_{i}=\alpha+\beta x_{i}+\varepsilon_{i}$
 \end_inset
 
  för varje observation.
@@ -1436,14 +1436,18 @@ Hypotesttest för
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $n=28$
+\begin_inset Formula $n=30$
+\end_inset
+
+, så 
+\begin_inset Formula $n-2=28$
 \end_inset
 
 , och 
 \begin_inset Formula $t_{\mathrm{crit}}=t_{0.975}(28)=2.0484$
 \end_inset
 
- från tabell.
+.
 \begin_inset Formula 
 \[
 t_{\mathrm{obs}}=\left|\frac{1.038-0}{0.291}\right|=3.567
@@ -1657,6 +1661,20 @@ Root MSE =
 
 .
  Residualstandardavvikelse.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sum of Squares Regression (SSR) heter 
+\series bold
+\color blue
+Sum of Squares Model
+\series default
+\color inherit
+ (SSM) i SAS.
 \end_layout
 
 \end_deeper
@@ -1664,10 +1682,6 @@ Root MSE =
 \begin_inset Separator parbreak
 \end_inset
 
-
-\end_layout
-
-\begin_layout Frame
 
 \end_layout
 
