@@ -987,14 +987,14 @@ b_{j}\pm t_{0.975}(n-k-1)\cdot s_{b_{j}}
 \end_layout
 
 \begin_layout Itemize
-Hälsodata med 
+Cykeluthyrning med 
 \begin_inset Formula $k=3$
 \end_inset
 
  förklarande variabler 
 \begin_inset Formula 
 \[
-t_{0.975}(n-k-1)=t_{0.975}(26)=2.056
+t_{0.975}(n-k-1)=t_{0.975}(727)=1.963\text{ (eftersom nära normal)}
 \]
 
 \end_inset
@@ -1070,19 +1070,11 @@ Nollhypotes
 \begin_inset Formula $x_{j}$
 \end_inset
 
- är en 
-\begin_inset Quotes eld
-\end_inset
-
-viktig
-\begin_inset Quotes erd
-\end_inset
-
- förklarande variabel
+ är en signifikant variabel
 \begin_inset Formula 
 \begin{align*}
-H_{0}: & \beta_{j}=0\\
-H_{1}: & \beta_{j}\neq0
+H_{0}:\: & \beta_{j}=0\\
+H_{1}: & \:\beta_{j}\neq0
 \end{align*}
 
 \end_inset
@@ -1116,24 +1108,38 @@ Vi förkastar nollhypotesten på signifikansnivån
  om 
 \begin_inset Formula 
 \[
-t_{\mathrm{obs}}>t_{\mathrm{crit}}
+t_{\mathrm{obs}}>t_{\mathrm{crit}}=t_{0.975}(n-k-1)\text{ (från tabell)}.
 \]
 
 \end_inset
 
-där det kritiska värdet 
-\begin_inset Formula $t_{\mathrm{crit}}$
-\end_inset
 
- hämtas från tabell:
+\end_layout
+
+\begin_layout Itemize
+Cykeluthyrning.
+ Testa om windspeed är en signifikant variabel:
 \begin_inset Formula 
 \[
-t_{\mathrm{crit}}=t_{0.975}(n-k-1)
+t_{\mathrm{obs}}=\left|(-4806.92-0)/708.90\right|=6.780
 \]
 
 \end_inset
 
+och 
+\begin_inset Formula $t_{\mathrm{crit}}=t_{0.975}(727)=1.963$
+\end_inset
 
+.
+ Eftersom 
+\begin_inset Formula $t_{\mathrm{obs}}>t_{\mathrm{crit}}$
+\end_inset
+
+ så förkastar vi 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
 \end_layout
 
 \end_deeper
@@ -1647,7 +1653,7 @@ status open
 
 \series bold
 \color orange
-Regularisering
+L2-regularisering (Ridge regression)
 \end_layout
 
 \end_inset
@@ -1657,13 +1663,17 @@ Regularisering
 
 \begin_deeper
 \begin_layout Itemize
-Problemet med 
+
 \series bold
 \color blue
-för många förklarande variabler
+För många förklarande variabler
 \series default
 \color inherit
- är att minsta kvadrat-metoden ges för mycket frihet att överanpassa data.
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ MK-metoden överanpassar data.
  Modellen är 
 \series bold
 \color blue
@@ -1674,13 +1684,7 @@ för många förklarande variabler
 \end_layout
 
 \begin_layout Itemize
-Variabelselektion är en typ av 
-\series bold
-\color blue
-regularisering
-\series default
-\color inherit
- där man försöker minska antalet fria parametrar.
+Variabelselektion försöker minska antalet skattade parametrar.
 \end_layout
 
 \begin_layout Itemize
@@ -1746,11 +1750,140 @@ regulariseringsparametern
 \end_layout
 
 \begin_layout Itemize
+Stort 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ kommer krympa estimaten av 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ mot noll.
+ 
+\series bold
+\color blue
+Bias-Variance trade-off
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
 Vi kan bestämma 
 \begin_inset Formula $\lambda$
 \end_inset
 
- själva eller genom kors-validering.
+ själva, eller skatt via korsvalidering.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L1-regularisering (Lasso regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+L1-regularisering
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+Lasso
+\series default
+\color inherit
+) straffar med 
+\series bold
+\color blue
+absolutbelopp
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso har två effekter:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+krymper 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ mot noll (shrinkage)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+kan sätta vissa 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ exakt till noll (selection)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+SAS GLMSELECT med SELECTION=LASSO som option gör Lasso regression.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+R: glmnet paketet gör Lasso och mycket mer.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso är extremt populär.
+ Go-to när man har väldigt många förklarande variabler.
 \end_layout
 
 \end_deeper
