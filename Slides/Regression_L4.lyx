@@ -829,64 +829,6 @@ y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon,\quad\varepsilon\sim N(0,\sig
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\alpha$
-\end_inset
-
- är interceptet i den underliggande populationen.
- 
-\begin_inset Formula $x_{1}=x_{2}=0$
-\end_inset
-
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
- talar om hur 
-\begin_inset Formula $y$
-\end_inset
-
- förändras när vi ändrar 
-\begin_inset Formula $x_{1}$
-\end_inset
-
- med en enhet (och håller 
-\begin_inset Formula $x_{2}$
-\end_inset
-
- konstant)
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\beta_{2}$
-\end_inset
-
- talar om hur 
-\begin_inset Formula $y$
-\end_inset
-
- förändras när vi ändrar 
-\begin_inset Formula $x_{2}$
-\end_inset
-
- med en enhet (och håller 
-\begin_inset Formula $x_{1}$
-\end_inset
-
- konstant)
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 
 \series bold
 \color blue
@@ -913,16 +855,90 @@ y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\ldots+\beta_{k}x_{k}+\varepsilon,\quad\v
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $k$
+\begin_inset Formula $\beta_{j}$
 \end_inset
 
- förklarande variabler: 
-\series bold
-alla
-\series default
- andra variabler hålls konstanta.
+ talar om hur 
+\begin_inset Formula $y$
+\end_inset
+
+ förändras när vi ändrar 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ med en enhet (utan att ändra de andra 
+\begin_inset Formula $x$
+\end_inset
+
+-variablerna).
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
+\begin_layout Itemize
+Samma 
+\series bold
+\color blue
+antaganden
+\series default
+\color inherit
+ som tidigare:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Feltermerna 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ har 
+\series bold
+\color blue
+samma varians
+\series default
+\color inherit
+ 
+\begin_inset Formula $\sigma_{\varepsilon}^{2}$
+\end_inset
+
+ (homoskedastiticitet)
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Feltermerna är 
+\series bold
+\color blue
+normalfördelade
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Feltermerna är 
+\series bold
+\color blue
+oberoende
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
