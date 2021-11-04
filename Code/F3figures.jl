@@ -1,4 +1,4 @@
-# Code for plots of Lecture 3 in Regression and Time Series Analysis courseFolder
+# Code for plots of Lecture 3 in Regression and Time Series Analysis course
 # Plot titles and legends in Swedish
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots
@@ -55,7 +55,7 @@ nRep = 500
 
     βdraws[i,:] = βhat
     p2 = density(βdraws[1:i,2], linecolor = colors[2], fill=(0, .5, colors[1]), 
-        title = "Samplingfördelningen för b", label = "Simulerad", legend = :topleft)
+        title = "Samplingfördelningen för b", label = "Simulerad", legend = :topleft, xlab = "b")
     scatter!(p2, βdraws[1:i,2], zeros(i), color = colors[2], label = nothing)
     #vline!([β₁], color = colors[10], linestyle = :dash)
     plot!(p2, theoreticalDist, color = colors[4], label = "Teoretisk")
@@ -120,3 +120,55 @@ plot!(p, tCrit:0.01:5, pdf(TDist(28),tCrit:0.01:5), fill = (0, 0.5, colors[1]), 
 plot!(p, -5:0.01:5, pdf(TDist(28),-5:0.01:5), color = colors[2], label = L"t(28)", ylab = "täthet", xlab = "t")
 vline!(p, [tCrit], color = colors[4], linestyle = :dash, label = L"t_{0.975}(28)=2.048")
 savefig(figFolder*"studenttCrit.pdf")
+
+
+
+β₀ = 77
+β₁ = 1
+σ = 3
+theoreticalDist = Normal(β₁, σ/√(sum((x .- mean(x)).^2)))
+nRep = 500
+βdraws = zeros(nRep,2)
+p3 = plot(ylab = L"y", xlab = L"x")
+@gif for i in 1:nRep
+    y = simSimpleReg(x, β₀, β₁, σ)
+    df = DataFrame(y = y, x = x)
+    fit = lm(@formula(y ~ x), df)
+    βhat = coef(fit)
+    βdraws[i,:] = βhat    
+    p1 = plot(xlims = (0,8), ylims = (74,90), xlab =L"x", ylab = L"y", 
+        title = "Stickprov nummer nr $i")
+    scatter!(x, y, label = L"\mathrm{sample\ data}", color = colors[1])
+    Plots.abline!(p1, β₁, β₀, color = colors[4], lw = 3, 
+        label = L"\mathrm{population:\ } \alpha+\beta x")
+    Plots.abline!(p1, βhat[2], βhat[1], color = colors[2], lw = 2, 
+        label = L"\mathrm{least\ squares\ fit:\ } a+b x")
+    annotate!([(1.5, 89.5, (L"\alpha = %$(round(β₀,digits = 2))\mathrm{\ and\ } \beta = %$(round(β₁,digits = 2))", 12, :top, colors[4]))])
+    annotate!([(1.5, 88, (L"a = %$(round(βhat[1],digits = 2))\mathrm{\ and\ } b = %$(round(βhat[2],digits = 2))", 12, :top, colors[2]))])
+    ylims!((70,90))
+    xlims!((0,8))
+
+    
+    p2 = density(βdraws[1:i,2], linecolor = colors[2], fill=(0, .5, colors[1]), 
+        title = "Samplingfördelningen för b", label = "Simulerad", legend = :topleft, xlab = "b")
+    scatter!(p2, βdraws[1:i,2], zeros(i), color = colors[2], label = nothing)
+    #vline!([β₁], color = colors[10], linestyle = :dash)
+    plot!(p2, theoreticalDist, color = colors[4], label = "Teoretisk")
+    ylims!((0,2))
+    xlims!((-1,2.5))
+
+    if i == 1
+        Plots.abline!(p3, βdraws[i,2], βdraws[i,1], color = colors[2], lw = 2, 
+        label = L"\mathrm{least\ squares\ fit:\ } a+b x", opacity = 0.5)
+    else
+        Plots.abline!(p3, βdraws[i,2], βdraws[i,1], color = colors[2], lw = 2, 
+            label = nothing, opacity = 0.5)
+    end
+    ylims!((70,90))
+    xlims!((0,8))
+
+    plot(size = (1000,1000), p1, p2, p3, layout = (3,1))
+    #display()
+    #sleep(1)
+    sleep(0.1)
+end every 1

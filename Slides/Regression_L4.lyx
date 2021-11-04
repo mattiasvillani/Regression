@@ -1,0 +1,1477 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 4 - Multipel regression
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multipel regression
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modellantaganden
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modellkontroll
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykeluthyrning revisited
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temphum_Line.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Fler förklarande variabler - multipel regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dålig lösning: skatta enkel regression för varje förklarande variabel.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bra lösning: skatta multipel regression med alla förklarande variabler.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regressionanpassning med två förklarande variabler
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+b_{2}x_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ talar om hur 
+\begin_inset Formula $y$
+\end_inset
+
+ förändras när vi ändrar 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ med en enhet (utan att ändra 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+).
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b_{2}$
+\end_inset
+
+ talar om hur 
+\begin_inset Formula $y$
+\end_inset
+
+ förändras när vi ändrar 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ med en enhet (utan att ändra 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Minsta kvadrat-skattningar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Stickprov: 
+\begin_inset Formula $(y_{i},x_{1i},x_{2i})$
+\end_inset
+
+ för 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{1i}$
+\end_inset
+
+ är t ex den 
+\begin_inset Formula $i$
+\end_inset
+
+:te observationens värde på 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+-variabeln.
+\end_layout
+
+\begin_layout Itemize
+Samma idé: hitta 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $b_{2}$
+\end_inset
+
+ som minimerar residualkvadratsumman
+\begin_inset Formula 
+\[
+Q=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-b_{2}x_{2i})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi får nu tre ekvationer (från partialderivatorna) som ska lösa med avseende
+ på 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $b_{2}$
+\end_inset
+
+.
+ Se AJÅ.
+\end_layout
+
+\begin_layout Itemize
+Med 
+\begin_inset Formula $k$
+\end_inset
+
+ förklarande variabler
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+b_{2}x_{2}+\ldots+b_{k}x_{k}
+\]
+
+\end_inset
+
+får 
+\begin_inset Formula $k+1$
+\end_inset
+
+ ekvationer att lösa.
+\end_layout
+
+\begin_layout Itemize
+Använd dator! (busenkelt att programmera själv om man kan linjär algebra).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Enkel regression temp - SAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SAScykelRegTemp.png
+	lyxscale 30
+	scale 42
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattad modell
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=1214.64+6640.71\cdot\text{temperatur}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multipel regression temp och hum - SAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SAScykelRegTempHum.png
+	lyxscale 30
+	scale 42
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattad modell:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=2657.9+6886.97\cdot\text{temperatur}-2492.85\cdot\text{{\color{orange}luftfuktighet}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multipel regression temp, hum, wind - SAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SAScykelRegTempHumWind.png
+	lyxscale 30
+	scale 37
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattad modell:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=4084.4+6625.5\cdot\text{temp}-3100.1\cdot\mathrm{hum}-4806.9\cdot\mathrm{{\color{orange}wind}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multipel regression 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multipel 
+\series default
+\color inherit
+regression med 
+\begin_inset Formula $k$
+\end_inset
+
+ förklarande variabler:
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+b_{2}x_{2}+\ldots+b_{k}x_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Residualvariansen
+\series default
+\color inherit
+ mäter graden av spridning kring linjen
+\begin_inset Formula 
+\[
+s_{e}^{2}=\frac{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}{n-(k+1)},
+\]
+
+\end_inset
+
+där de predikterade värden ges av regressionekvationen
+\begin_inset Formula 
+\[
+\hat{y}_{i}=a+b_{1}x_{1i}+b_{2}x_{2i}+\ldots+b_{ki}x_{k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Andel förklarad variation
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}=\frac{\sum(\hat{y}_{i}-\bar{y})^{2}}{\sum(y_{i}-\bar{y})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alternativt sätt (kom ihåg att 
+\begin_inset Formula $\mathrm{SST}=\mathrm{SSR}+\mathrm{SSE}$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}=\frac{\mathrm{SST}-\mathrm{SSE}}{\mathrm{SST}}=1-\frac{\mathrm{SSE}}{\mathrm{SST}}=1-\frac{\sum(y_{i}-\hat{y}_{i})^{2}}{\sum(y_{i}-\bar{y})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multipel regression som sannolikhetsmodell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsmodell
+\series default
+\color inherit
+ för regression med två förklarande variabler:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon,\quad\varepsilon\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha$
+\end_inset
+
+ är interceptet i den underliggande populationen.
+ 
+\begin_inset Formula $x_{1}=x_{2}=0$
+\end_inset
+
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ talar om hur 
+\begin_inset Formula $y$
+\end_inset
+
+ förändras när vi ändrar 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ med en enhet (och håller 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ konstant)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+ talar om hur 
+\begin_inset Formula $y$
+\end_inset
+
+ förändras när vi ändrar 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ med en enhet (och håller 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ konstant)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsmodell
+\series default
+\color inherit
+ 
+\series bold
+för multipel regression
+\series default
+ med 
+\begin_inset Formula $k$
+\end_inset
+
+ förklarande variabler:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\ldots+\beta_{k}x_{k}+\varepsilon,\quad\varepsilon\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k$
+\end_inset
+
+ förklarande variabler: 
+\series bold
+alla
+\series default
+ andra variabler hålls konstanta.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Val av förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ju fler förklarande variabler desto mer förklarar regressionen.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ kan inte minska
+\series default
+\color inherit
+ när man lägger till fler förklarande variabler.
+ Se upp för överanpassning!
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{\mathrm{adjusted}}^{2}$
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+justerad R-2
+\begin_inset Quotes erd
+\end_inset
+
+), se AJÅ, kan minska om en förklarande variabel bara reducerar variationen
+ marginellt.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Andra vanliga informationskriterier: 
+\series bold
+\color blue
+AIC
+\series default
+\color inherit
+, 
+\series bold
+\color blue
+BIC
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Full sökning
+\series default
+\color inherit
+: Gå igenom alla möjliga kombinationer av förklarande variabler och välj
+ modell med högst 
+\begin_inset Formula $R_{\mathrm{adjusted}}^{2}$
+\end_inset
+
+.
+ Beräkningstungt.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stepwise selection and beyond
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Forward selection
+\series default
+\color inherit
+:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Börja med bara interceptet.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Lägg till 
+\begin_inset Formula $x$
+\end_inset
+
+-variabeln med högst 
+\begin_inset Formula $t_{\mathrm{obs}}$
+\end_inset
+
+, om 
+\begin_inset Formula $t_{\mathrm{obs}}>2$
+\end_inset
+
+, annars stanna.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Lägg till 
+\begin_inset Formula $x$
+\end_inset
+
+-variabeln med högst 
+\begin_inset Formula $t_{\mathrm{obs}}$
+\end_inset
+
+, givet att valda variabeln i Steg 2 ingår i modellen, om 
+\begin_inset Formula $t_{\mathrm{obs}}>2$
+\end_inset
+
+, annars stanna.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fortsätt tills ingen ny förklarande variabel har 
+\begin_inset Formula $t_{\mathrm{obs}}>2$
+\end_inset
+
+ i modellen där alla tidigare variabler ingår.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Backward selection
+\series default
+\color inherit
+.
+ Starta med alla variabler i modellen.
+ Ta bort den variabel som har lägst 
+\begin_inset Formula $t_{\mathrm{obs}}$
+\end_inset
+
+.
+ Skatta modellen utan denna variabel.
+ Fortsätt tills alla variabler som är kvar har 
+\begin_inset Formula $t_{\mathrm{obs}}>2$
+\end_inset
+
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Det finns massor av andra (bättre) variabelselektionsstrategier.
+ 
+\series bold
+\color blue
+Bayesian variable selection
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regularisering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Problemet med 
+\series bold
+\color blue
+för många förklarande variabler
+\series default
+\color inherit
+ är att minsta kvadrat-metoden ges för mycket frihet att överanpassa data.
+ Modellen är 
+\series bold
+\color blue
+överparametriserad
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Variabelselektion är en typ av 
+\series bold
+\color blue
+regularisering
+\series default
+\color inherit
+ där man försöker minska antalet fria parametrar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+L2-regularisering
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ridge
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+regression
+\series default
+\color inherit
+) behåller alla variabler i modellen men minimerar en 
+\series bold
+\color blue
+straffad residualkvadratsumma
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Straff/kostnad för att introducera en variabel i modellen
+\begin_inset Formula 
+\[
+\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur hårt vi straffar bestäms av 
+\series bold
+\color blue
+regulariseringsparametern 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Vi kan bestämma 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ själva eller genom kors-validering.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prognosförmåga på testdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Välj den modell som ger bäst prediktioner på nya (test) data.
+\end_layout
+
+\begin_layout Itemize
+Dela upp observationer i två delmängder:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Träningsdata
+\series default
+\color inherit
+ för att skatta modellens parametrar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Testdata
+\series default
+\color inherit
+ för att utvärdera modellens prediktioner.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Modellen får aldrig chans att anpassa sig till testdata.
+\end_layout
+
+\begin_layout Itemize
+Prediktionsmått: 
+\series bold
+\color blue
+kvadrerade prediktionsfel på testdata
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Q_{\mathrm{test}}=\sum_{j=1}^{n_{\mathrm{test}}}(y_{j}-\hat{y}_{j})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Observera: 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+summan är över observationerna i testdata.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+modellen som ger 
+\begin_inset Formula $\hat{y}_{j}$
+\end_inset
+
+ är skattad enbart på träningsdata.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+överanpassning på träningsdata 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ dåliga prediktioner på testdata.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korsvalidering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vilka observationer ska vara i träning respektive test? 
+\series bold
+\color blue
+Korsvalidering
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Mått på modellens prognosförmåga: genomsnittligt 
+\begin_inset Formula $Q_{\mathrm{test}}$
+\end_inset
+
+ över alla 
+\begin_inset Formula $K=3$
+\end_inset
+
+ testdataset.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/CrossValExcel.png
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
