@@ -920,6 +920,32 @@ stora stickprov
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+\color blue
+I 
+\begin_inset Formula $95$
+\end_inset
+
+% av alla stickprov från populationen
+\series default
+\color inherit
+ täcker intervallet 
+\color black
+
+\begin_inset Formula $\left[b-1.96\cdot s_{b},b+1.96\cdot s_{b}\right]$
+\end_inset
+
+
+\color inherit
+ den sanna lutningen 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
 Hälsobudgetdata
 \color black
 
@@ -934,25 +960,16 @@ Hälsobudgetdata
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-\color blue
-I 
-\begin_inset Formula $95$
-\end_inset
-
-% av alla stickprov från populationen
-\series default
-\color inherit
- täcker intervallet 
+Intervallet 
 \begin_inset Formula $\left[0.468,1.608\right]$
 \end_inset
 
- den sanna lutningen 
+ täcker eller täcker inte det sanna värdet 
 \begin_inset Formula $\beta$
 \end_inset
 
 .
+ Vi vet inte vilket.
 \end_layout
 
 \end_deeper
