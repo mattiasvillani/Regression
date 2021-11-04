@@ -949,13 +949,13 @@ Approximativt konfidensintervall för b
 \series bold
 \color blue
 Approximativt 95% konfidensintervall för 
-\begin_inset Formula $b$
+\begin_inset Formula $\beta$
 \end_inset
 
 
 \series default
 \color black
- för 
+ i 
 \series bold
 \color blue
 stora stickprov
@@ -1178,7 +1178,7 @@ Exakt konfidensintervall för b - student
 \series bold
 \color blue
 Exakt 95% konfidensintervall för 
-\begin_inset Formula $b$
+\begin_inset Formula $\beta$
 \end_inset
 
 
