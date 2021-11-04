@@ -246,6 +246,13 @@ status open
 \series bold
 \color blue
 Regression som sannolikhetsmodell
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -253,6 +260,13 @@ Regression som sannolikhetsmodell
 \series bold
 \color blue
 Konfidensintervall
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -260,6 +274,13 @@ Konfidensintervall
 \series bold
 \color blue
 Hypotestest
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -453,6 +474,10 @@ där det betingade väntevärdet för
 \end_inset
 
 
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -460,6 +485,10 @@ där det betingade väntevärdet för
 \end_inset
 
  är interceptet i den underliggande populationen.
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -500,10 +529,18 @@ Stickprov/datamaterial med
 \end_inset
 
  observationspar 
-\begin_inset Formula $(y_{1},x_{1}),\ldots(y_{n},x_{n})$
+\begin_inset Formula 
+\[
+(y_{1},x_{1}),\ldots,(y_{n},x_{n})
+\]
+
 \end_inset
 
-.
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -520,6 +557,10 @@ Vanligt att anta oberoende feltermer
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Antar oftast också samma varians 
 \end_layout
 
 \begin_layout Itemize
@@ -626,6 +667,10 @@ Simulera regressionsdata med stickprovstorlek
 \end_inset
 
 :
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -643,6 +688,10 @@ Bestäm populationens parametrar
 \end_inset
 
 .
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -651,6 +700,10 @@ Bestäm
 \end_inset
 
 (som antas vara icke-slumpmässiga)
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -663,6 +716,10 @@ Simulera feltermer
 \end_inset
 
 .
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1041,7 +1098,7 @@ Estimatorn
 frihetsgrader
 \series default
 \color inherit
-.
+:
 \begin_inset Formula 
 \[
 \frac{b-\beta}{s_{b}}\sim t(n-2)
@@ -1289,7 +1346,19 @@ Vi förkastar nollhypotesten på signifikansnivån
  om 
 \begin_inset Formula 
 \[
-t>t_{0.975}(n-2)
+t_{\mathrm{obs}}>t_{\mathrm{crit}}
+\]
+
+\end_inset
+
+där det kritiska värdet 
+\begin_inset Formula $t_{\mathrm{crit}}$
+\end_inset
+
+ hämtas från tabell:
+\begin_inset Formula 
+\[
+t_{\mathrm{crit}}=t_{0.975}(n-2)
 \]
 
 \end_inset
@@ -1305,14 +1374,20 @@ P-värde
 \series default
 \color inherit
  = sannolikheten att observera 
-\begin_inset Formula $t$
+\begin_inset Formula $t_{\mathrm{obs}}$
 \end_inset
 
- eller något ännu mer extremt givet att 
+ eller något ännu mer extremt 
+\series bold
+\color blue
+givet att 
 \begin_inset Formula $H_{0}$
 \end_inset
 
- är sann.
+ är sann
+\series default
+\color inherit
+.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1324,7 +1399,7 @@ Under
 \begin_inset Formula $H_{0}$
 \end_inset
 
- har vi 
+ har vi att 
 \begin_inset Formula $t\sim t(n-2)$
 \end_inset
 
@@ -1365,7 +1440,7 @@ Hypotesttest för
 \end_inset
 
 , och 
-\begin_inset Formula $t_{0.975}(28)=2.0484$
+\begin_inset Formula $t_{\mathrm{crit}}=t_{0.975}(28)=2.0484$
 \end_inset
 
  från tabell.
@@ -1376,8 +1451,12 @@ t_{\mathrm{obs}}=\left|\frac{1.038-0}{0.291}\right|=3.567
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 Eftersom 
-\begin_inset Formula $t_{\mathrm{obs}}=3.567>t_{0.975}(28)=2.0484$
+\begin_inset Formula $t_{\mathrm{obs}}>t_{\mathrm{crit}}$
 \end_inset
 
  så förkastar vi nollhypotesen på 
@@ -1466,6 +1545,129 @@ Hypotesttest för
 \begin_inset Separator parbreak
 \end_inset
 
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Terminologi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Målvariabel
+\series default
+\color inherit
+ (
+\begin_inset Formula $y$
+\end_inset
+
+) kallas ofta 
+\series bold
+\color blue
+beroende variabel
+\series default
+\color inherit
+.
+ Även 
+\series bold
+\color blue
+responsvariabel
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Förklarande variabel
+\series default
+\color inherit
+ (
+\begin_inset Formula $x$
+\end_inset
+
+) kallas ofta 
+\series bold
+\color blue
+kovariat
+\series default
+\color inherit
+.
+ Även 
+\series bold
+\color blue
+prediktor
+\series default
+\color inherit
+ eller 
+\series bold
+\color blue
+feature
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+MSE = 
+\begin_inset Formula $s_{e}^{2}$
+\end_inset
+
+.
+ Residual varians.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Root MSE = 
+\begin_inset Formula $\sqrt{\mathrm{MSE}}$
+\end_inset
+
+, dvs 
+\begin_inset Formula $s_{e}$
+\end_inset
+
+.
+ Residualstandardavvikelse.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
 
 \end_layout
 
@@ -1700,7 +1902,7 @@ Prognosvariansen:
 \end_layout
 
 \begin_layout Itemize
-95%-igt prognosintervall för en enskild obseration vid 
+95%-igt prognosintervall för en enskild observation vid 
 \begin_inset Formula $x=x_{0}$
 \end_inset
 
