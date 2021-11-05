@@ -259,7 +259,35 @@ Multipel regression
 
 \series bold
 \color blue
-Modellantaganden
+Hypotesttest (
+\begin_inset Formula $t$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+cch 
+\begin_inset Formula $F$
+\end_inset
+
+)
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Intro till 
+\series bold
+\color blue
+regularisering
 \series default
 \color inherit
 
@@ -273,7 +301,7 @@ Modellantaganden
 
 \series bold
 \color blue
-Modellkontroll
+Modellutvärdering
 \end_layout
 
 \end_deeper
@@ -339,7 +367,7 @@ Fler förklarande variabler - multipel regression
 
 \begin_deeper
 \begin_layout Itemize
-Dålig lösning: skatta enkel regression för varje förklarande variabel.
+Dåligt: skatta enkel regression för varje förklarande variabel.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -347,7 +375,7 @@ Dålig lösning: skatta enkel regression för varje förklarande variabel.
 \end_layout
 
 \begin_layout Itemize
-Bra lösning: skatta multipel regression med alla förklarande variabler.
+Bra: skatta multipel regression med alla förklarande variabler.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -408,6 +436,39 @@ y=a+b_{1}x_{1}+b_{2}x_{2}
 ).
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+I multipel regression 
+\series bold
+\color blue
+kontrollerar
+\series default
+\color inherit
+ man 
+\series bold
+\color blue
+för
+\series default
+\color inherit
+ (tar hänsyn till) de 
+\series bold
+\color blue
+andra förklarande variablernas effekt
+\series default
+\color inherit
+ på 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -434,7 +495,13 @@ Minsta kvadrat-skattningar
 
 \begin_deeper
 \begin_layout Itemize
-Stickprov: 
+
+\series bold
+\color blue
+Stickprov
+\series default
+\color inherit
+: 
 \begin_inset Formula $(y_{i},x_{1i},x_{2i})$
 \end_inset
 
@@ -459,10 +526,14 @@ Stickprov:
 \end_inset
 
 -variabeln.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Samma idé: hitta 
+Hitta 
 \begin_inset Formula $a$
 \end_inset
 
@@ -474,7 +545,13 @@ Samma idé: hitta
 \begin_inset Formula $b_{2}$
 \end_inset
 
- som minimerar residualkvadratsumman
+ som 
+\series bold
+\color blue
+minimerar residualkvadratsumman
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 Q=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-b_{2}x_{2i})^{2}
@@ -501,6 +578,10 @@ Vi får nu tre ekvationer (från partialderivatorna) som ska lösa med avseende
 
 .
  Se AJÅ.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -508,7 +589,11 @@ Med
 \begin_inset Formula $k$
 \end_inset
 
- förklarande variabler
+ förklarande variabler får 
+\begin_inset Formula $k+1$
+\end_inset
+
+ ekvationer att lösa.
 \begin_inset Formula 
 \[
 y=a+b_{1}x_{1}+b_{2}x_{2}+\ldots+b_{k}x_{k}
@@ -516,15 +601,11 @@ y=a+b_{1}x_{1}+b_{2}x_{2}+\ldots+b_{k}x_{k}
 
 \end_inset
 
-får 
-\begin_inset Formula $k+1$
-\end_inset
 
- ekvationer att lösa.
 \end_layout
 
 \begin_layout Itemize
-Använd dator! (busenkelt att programmera själv om man kan linjär algebra).
+Använd dator! (enkelt programmera själv med linjär algebra).
 \end_layout
 
 \end_deeper
@@ -557,7 +638,7 @@ Enkel regression temp - SAS
 \begin_inset Graphics
 	filename figs/SAScykelRegTemp.png
 	lyxscale 30
-	scale 42
+	scale 38
 
 \end_inset
 
@@ -574,6 +655,22 @@ Skattad modell
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\begin_inset CommandInset href
+LatexCommand href
+name "SAS-kod"
+target "https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas"
+literal "false"
+
+\end_inset
+
+
+\bar default
+ finns på webbsidan.
 \end_layout
 
 \end_deeper
@@ -837,8 +934,10 @@ Populationsmodell
 \color inherit
  
 \series bold
+\color blue
 för multipel regression
 \series default
+\color inherit
  med 
 \begin_inset Formula $k$
 \end_inset
@@ -983,6 +1082,22 @@ b_{j}\pm t_{0.975}(n-k-1)\cdot s_{b_{j}}
 
 \end_inset
 
+där 
+\begin_inset Formula $s_{b_{j}}$
+\end_inset
+
+ är standardfelet för 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ (liknande 
+\begin_inset Formula $b$
+\end_inset
+
+, men mer komplex).
+\begin_inset VSpace medskip
+\end_inset
+
 
 \end_layout
 
@@ -994,7 +1109,7 @@ Cykeluthyrning med
  förklarande variabler 
 \begin_inset Formula 
 \[
-t_{0.975}(n-k-1)=t_{0.975}(727)=1.963\text{ (eftersom nära normal)}
+t_{0.975}(n-k-1)=t_{0.975}(727)=1.963
 \]
 
 \end_inset
@@ -1343,7 +1458,7 @@ Under
 \begin_inset Formula $k$
 \end_inset
 
-och 
+ och 
 \begin_inset Formula $n-(k+1)$
 \end_inset
 
@@ -1635,6 +1750,11 @@ Bayesian variable selection
 \series default
 \color inherit
 .
+ 
+\emph on
+Bayesian Learning 7.5 hp
+\emph default
+.
 \end_layout
 
 \end_deeper
@@ -1760,6 +1880,11 @@ Stort
 
  mot noll.
  
+\begin_inset Newline newline
+\end_inset
+
+Biased, men lägre varians.
+ 
 \series bold
 \color blue
 Bias-Variance trade-off
@@ -1773,7 +1898,8 @@ Vi kan bestämma
 \begin_inset Formula $\lambda$
 \end_inset
 
- själva, eller skatt via korsvalidering.
+ själva, eller skatta via korsvalidering.
+ 
 \end_layout
 
 \end_deeper
@@ -1874,7 +2000,7 @@ SAS GLMSELECT med SELECTION=LASSO som option gör Lasso regression.
 \end_layout
 
 \begin_layout Itemize
-R: glmnet paketet gör Lasso och mycket mer.
+glmnet paketet i R gör Lasso och mycket mer.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -2053,11 +2179,19 @@ Mått på modellens prognosförmåga: genomsnittligt
 \begin_inset Graphics
 	filename figs/CrossValExcel.png
 	lyxscale 30
-	scale 20
+	scale 18
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Maskininlärning 7.5 hp
+\emph default
+.
 \end_layout
 
 \end_deeper
