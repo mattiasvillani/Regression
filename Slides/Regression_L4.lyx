@@ -297,13 +297,6 @@ regularisering
 
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-\color blue
-Modellutvärdering
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1117,6 +1110,28 @@ t_{0.975}(n-k-1)=t_{0.975}(727)=1.963
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SASBikeShareWithCI.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SASRegwithCICode.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
@@ -1132,17 +1147,6 @@ t_{0.975}(n-k-1)=t_{0.975}(727)=1.963
 \end_inset
 
  fördelningen.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/SAScykelRegTempHumWindCrop.png
-	scale 40
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper
@@ -1946,7 +1950,8 @@ Lasso
 absolutbelopp
 \series default
 \color inherit
-:
+:\SpecialChar softhyphen
+
 \begin_inset Formula 
 \[
 Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
@@ -2010,188 +2015,6 @@ glmnet paketet i R gör Lasso och mycket mer.
 \begin_layout Itemize
 Lasso är extremt populär.
  Go-to när man har väldigt många förklarande variabler.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Prognosförmåga på testdata
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Välj den modell som ger bäst prediktioner på nya (test) data.
-\end_layout
-
-\begin_layout Itemize
-Dela upp observationer i två delmängder:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Träningsdata
-\series default
-\color inherit
- för att skatta modellens parametrar.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Testdata
-\series default
-\color inherit
- för att utvärdera modellens prediktioner.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Modellen får aldrig chans att anpassa sig till testdata.
-\end_layout
-
-\begin_layout Itemize
-Prediktionsmått: 
-\series bold
-\color blue
-kvadrerade prediktionsfel på testdata
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-Q_{\mathrm{test}}=\sum_{j=1}^{n_{\mathrm{test}}}(y_{j}-\hat{y}_{j})^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Observera: 
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-summan är över observationerna i testdata.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-modellen som ger 
-\begin_inset Formula $\hat{y}_{j}$
-\end_inset
-
- är skattad enbart på träningsdata.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-överanpassning på träningsdata 
-\begin_inset Formula $\Rightarrow$
-\end_inset
-
- dåliga prediktioner på testdata.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Korsvalidering
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Vilka observationer ska vara i träning respektive test? 
-\series bold
-\color blue
-Korsvalidering
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Itemize
-Mått på modellens prognosförmåga: genomsnittligt 
-\begin_inset Formula $Q_{\mathrm{test}}$
-\end_inset
-
- över alla 
-\begin_inset Formula $K=3$
-\end_inset
-
- testdataset.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/CrossValExcel.png
-	lyxscale 30
-	scale 18
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-Maskininlärning 7.5 hp
-\emph default
-.
 \end_layout
 
 \end_deeper

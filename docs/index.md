@@ -40,7 +40,7 @@ Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](http
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)\
 Kod: [SAS kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas) | [SAS kod för att simulera regressionsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/simregdata.sas)
 
-**Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modelutvärdering**\
+**Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
