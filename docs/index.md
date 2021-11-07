@@ -41,7 +41,7 @@ Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw
 Kod: [SAS kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas) | [SAS kod för att simulera regressionsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/simdatareg.sas)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) 
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
