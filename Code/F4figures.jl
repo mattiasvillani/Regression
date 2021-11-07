@@ -54,3 +54,4 @@ gr(legendfontsize = 16)
 fGrid = 0.001:0.001:10; 
 plot(fGrid,pdf(FDist(3,727), fGrid), label = L"F(3,727)", legend = :topright, xlab = "F", ylab = "Täthet")
 savefig(figFolder*"Fdist.pdf")
+

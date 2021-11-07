@@ -1743,10 +1743,10 @@ Standardavvikelsen för skattningen av regressionslinjen
 \begin_inset Formula $x=x_{0}$
 \end_inset
 
- är 
+ kan skattas med
 \begin_inset Formula 
 \[
-\sigma_{\hat{\mu}_{y\vert x_{0}}}=\sigma_{\varepsilon}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
+s_{\hat{\mu}_{y\vert x_{0}}}=s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
 \]
 
 \end_inset
@@ -1755,11 +1755,61 @@ Standardavvikelsen för skattningen av regressionslinjen
 \end_layout
 
 \begin_layout Itemize
-Denna teoretiska standardavvikelsen kan skattas med
+
+\series bold
+\color blue
+\begin_inset Formula $95$
+\end_inset
+
+% konfidensintervall för regressionlinjen
+\series default
+\color inherit
+ 
+\begin_inset Formula $\hat{\mu}_{y\vert x}=a+bx$
+\end_inset
+
+
 \begin_inset Formula 
 \[
-s_{\hat{\mu}_{y\vert x_{0}}}=s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
+\hat{\mu}_{y\vert x}\pm t_{0.975}(n-2)\cdot s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för regressionslinjen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthdataCIbands.pdf
+	lyxscale 30
+	scale 40
 
 \end_inset
 
@@ -1959,9 +2009,9 @@ Prediktionsintervall
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/prognosintervall.jpg
-	lyxscale 20
-	scale 8
+	filename figs/healthdataPIbands.pdf
+	lyxscale 30
+	scale 40
 
 \end_inset
 

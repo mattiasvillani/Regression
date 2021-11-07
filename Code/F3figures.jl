@@ -172,3 +172,49 @@ p3 = plot(ylab = L"y", xlab = L"x")
     #sleep(1)
     sleep(0.1)
 end every 1
+
+
+
+
+# Confidence intervals regression line
+healthdata = DataFrame(CSV.File(dataFolder*"healthdata.csv"; header = true))
+fit = lm(@formula(lifespan ~ spending), healthdata)
+βhat = coef(fit)
+
+# Scatter - no annotation
+xGrid = 0:0.01:8
+scatter(healthdata.spending, healthdata.lifespan, xlab = "Hälsobudget (tusental US dollar per capita, köpkraftsjusterad)", ylab = "Förväntad livslängd (år)", c = :lightgray,
+    xlims = [minimum(xGrid), maximum(xGrid)], ylims = [70,90], label = nothing, legend = :bottomright)
+fit = lm(@formula(lifespan ~ spending), healthdata)
+βhat = coef(fit)
+
+x₀ = 2
+plot!([x₀, x₀], [70,87], color = :gray, linestyle = :dash, label = nothing)
+annotate!([(x₀, 87.5, (L"x_0", 14, :bottom, :black))])
+
+sₑ = sqrt(deviance(fit)/dof_residual(fit))
+n = size(healthdata,1)
+x = healthdata.spending
+xBar = mean(x)
+
+regLine(x₀) = βhat[1] + βhat[2]*x₀
+sRegLine(x₀) = sₑ*√(1/n + (x₀ - xBar)^2/sum((x .- xBar ).^2)  )
+t = quantile(TDist(n-2), 0.975)
+plot!(xGrid, regLine.(xGrid), c = colors[4], label = L"a + b x ")
+plot!(xGrid, regLine.(xGrid) .- t*sRegLine.(xGrid), linealpha = 0,
+    fillrange = regLine.(xGrid) .+ t*sRegLine.(xGrid), fillalpha = 0.2,
+    c = colors[2], lw = 0, label = L"\mathrm{K.I.\ } \hat \mu (x_0) = \alpha + \beta x ")
+
+plot!(xGrid, regLine.(xGrid), c = colors[4], label = nothing)
+savefig(figFolder*"healthdataCIbands.pdf")
+
+
+# Prediction intervals
+sPred(x₀) = sₑ*√(1 + 1/n + (x₀ - xBar)^2/sum((x .- xBar ).^2)  )
+plot!(xGrid, regLine.(xGrid) .- t*sPred.(xGrid),  c = colors[2],
+    label = L"\mathrm{P.I.\ } \hat y(x_0) ")
+plot!(xGrid, regLine.(xGrid) .+ t*sPred.(xGrid),  c = colors[2],
+    label = nothing)
+savefig(figFolder*"healthdataPIbands.pdf")
+
+
