@@ -454,7 +454,15 @@ Linjäritet
 :
 \series bold
 \color blue
- Plotta residualerna mot varje förklarande variabel
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Plotta residualerna mot varje förklarande variabel
 \series default
 \color inherit
 .
@@ -465,14 +473,39 @@ Linjäritet
 \series default
 \color inherit
 
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Normalitet:
+
+\series bold
+\color blue
+Testa om icke-linjära effekter
+\series default
+\color inherit
+ är signifikanta (se F7).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalitet
+\series default
+\color inherit
+:
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -521,6 +554,13 @@ residualerna
 \series bold
 \color blue
 Normalitetstest
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1011,17 +1051,24 @@ VIF
 
  är förklaringsgraden i regressionen 
 \series bold
+\color blue
 med 
 \begin_inset Formula $x_{j}$
 \end_inset
 
- som responsvariabel 
+ som responsvariabel
+\color inherit
+ 
 \series default
 och alla andra 
 \begin_inset Formula $x$
 \end_inset
 
  som förklarande variabler.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1030,19 +1077,23 @@ Tumregel:
 \end_inset
 
  är stark multikollinearitet.
-\begin_inset VSpace smallskip
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Cykeluthyrningsdata.
- Problem om vi lägger till upplevd temperatur (
+Cykeluthyrning.
+ Ny variabel: 
+\emph on
+upplevd temperatur
+\emph default
+ (
 \family typewriter
 feeltemp
 \family default
-) som ytterligare förklarande variabel:
+).
 \end_layout
 
 \begin_layout Standard
@@ -1523,10 +1574,7 @@ variabler
 \series default
 \color inherit
  som bara kan anta två värden.
-\end_layout
-
-\begin_layout Itemize
-Ex: cykeluthyrningsdata: 
+ Ex:
 \begin_inset Formula 
 \[
 \mathrm{holiday}=\begin{cases}
@@ -1552,19 +1600,37 @@ Ex: cykeluthyrningsdata:
 \end_layout
 
 \begin_layout Itemize
-Kan kodas på olika sätt, t ex 
-\begin_inset Formula $-1$
+Varianter av 
+\series bold
+\color blue
+kodning
+\series default
+\color inherit
+: (
+\begin_inset Formula $0$
 \end_inset
 
- och 
+-
 \begin_inset Formula $1$
 \end_inset
 
-.
+) eller (
+\begin_inset Formula $-1$
+\end_inset
+
+,
+\begin_inset Formula $1$
+\end_inset
+
+), eller 
+\family typewriter
+(true,false
+\family default
+).
 \end_layout
 
 \begin_layout Itemize
-Regressionsmodell med binära förklarande variabler
+Regressionsmodell med binär förklarande variabel:
 \begin_inset Formula 
 \[
 y=\alpha+\beta_{1}\cdot\mathrm{temp}+\beta_{2}\cdot\mathrm{workingday}+\varepsilon
@@ -1583,8 +1649,8 @@ två parallella regressionlinjer
 \begin_inset Formula 
 \[
 y=\begin{cases}
-\alpha+\beta_{1}\cdot\mathrm{temp}+\beta_{2}\cdot\mathrm{workingday}+\varepsilon & \text{ om }\mathrm{workingday}=0\\
-(\alpha+\beta_{2})+\beta_{1}\cdot\mathrm{temp}+\beta_{2}\cdot\mathrm{workingday}+\varepsilon & \text{ om }\mathrm{workingday}=1
+\alpha+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{workingday}=0}\\
+(\alpha+\beta_{2})+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{workingday}=1}
 \end{cases}
 \]
 
