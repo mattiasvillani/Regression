@@ -1771,7 +1771,7 @@ s_{\hat{\mu}_{y\vert x_{0}}}=s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(
 
 \begin_inset Formula 
 \[
-\hat{\mu}_{y\vert x}\pm t_{0.975}(n-2)\cdot s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})}{\sum(x_{i}-\bar{x})^{2}}}
+\hat{\mu}_{y\vert x_{0}}\pm t_{0.975}(n-2)\cdot s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})^{2}}{\sum(x_{i}-\bar{x})^{2}}}
 \]
 
 \end_inset
