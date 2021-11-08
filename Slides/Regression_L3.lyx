@@ -1765,7 +1765,7 @@ s_{\hat{\mu}_{y\vert x_{0}}}=s_{e}\sqrt{\frac{1}{n}+\frac{(x_{0}-\bar{x})^{2}}{\
 \series default
 \color inherit
  
-\begin_inset Formula $\hat{\mu}_{y\vert x}=a+bx$
+\begin_inset Formula $\mu_{y\vert x}=\alpha+\beta x$
 \end_inset
 
 
