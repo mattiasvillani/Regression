@@ -203,7 +203,7 @@ t = quantile(TDist(n-2), 0.975)
 plot!(xGrid, regLine.(xGrid), c = colors[4], label = L"a + b x ")
 plot!(xGrid, regLine.(xGrid) .- t*sRegLine.(xGrid), linealpha = 0,
     fillrange = regLine.(xGrid) .+ t*sRegLine.(xGrid), fillalpha = 0.2,
-    c = colors[2], lw = 0, label = L"\mathrm{K.I.\ } \hat \mu (x_0) = \alpha + \beta x ")
+    c = colors[2], lw = 0, label = L"\mathrm{K.I.\ } \mu (x_0) = \alpha + \beta x ")
 
 plot!(xGrid, regLine.(xGrid), c = colors[4], label = nothing)
 savefig(figFolder*"healthdataCIbands.pdf")
@@ -212,7 +212,7 @@ savefig(figFolder*"healthdataCIbands.pdf")
 # Prediction intervals
 sPred(x₀) = sₑ*√(1 + 1/n + (x₀ - xBar)^2/sum((x .- xBar ).^2)  )
 plot!(xGrid, regLine.(xGrid) .- t*sPred.(xGrid),  c = colors[2],
-    label = L"\mathrm{P.I.\ } \hat y(x_0) ")
+    label = L"\mathrm{P.I.\ } y(x_0) = \alpha + \beta x_0 + \varepsilon_{x_0} ")
 plot!(xGrid, regLine.(xGrid) .+ t*sPred.(xGrid),  c = colors[2],
     label = nothing)
 savefig(figFolder*"healthdataPIbands.pdf")

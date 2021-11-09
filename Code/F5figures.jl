@@ -3,6 +3,7 @@
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots, Measures
 using StatsBase, RCall, Statistics, Distributions
+using Flux: onehot, onehotbatch
 import ColorSchemes: Paired_12; colors = Paired_12
 colors = Paired_12[[1,2,7,8,3,4,5,6,9,10,11,12]]
 courseFolder = "/home/mv/Dropbox/Teaching/Regression/"
@@ -118,6 +119,7 @@ Plots.abline!(βhat[2], βhat[1], color = colors[8], lw = 3, label = "holiday = 
 Plots.abline!(βhat[2], βhat[1] + βhat[3], color = colors[2], lw = 3, label = "holiday = 1")
 annotate!([(0.2, 3500, (L"\mathbf{y = %$(round(βhat[1],digits = 2)) + %$(round(βhat[2], digits =  2)) \cdot x}", 10, :bottom, colors[8]))])
 annotate!([(0.43, 2000, (L"\mathbf{y = %$(round(βhat[1]+βhat[3],digits = 2)) + %$(round(βhat[2], digits =  2)) \cdot x}", 10, :bottom, colors[2]))])
+#annotate!([(0.1, 2000, (L"\Bigg\(", 10, :bottom, colors[10]))])
 savefig(figFolder*"cykelHolidayDummy.pdf")
 
 # Dummy variables - holiday
@@ -144,3 +146,26 @@ Plots.abline!(βhat[2], βhat[1]+βhat[4], color = colors[4], lw = 3, label = "s
 Plots.abline!(βhat[2], βhat[1]+βhat[5], color = colors[12], lw = 3, label = "höst")
 savefig(figFolder*"cykelseason.pdf")
 
+
+
+# adding seasondummies
+
+# Create binary dummy variables for categorical covariates (one-hot encoding)
+Z = onehotbatch(bikeDay[!,:season], [:1, :2, :3, :4])'
+
+for k ∈ 2:size(Z,2)
+	bikeDay[!,Symbol("season",k)] = Z[:,k]
+end
+Z = onehotbatch(bikeDay[!,:weather], [:1, :2, :3])'
+for k ∈ 2:size(Z,2)
+	bikeDay[!,Symbol("weather",k)] = Z[:,k]
+end
+Z = onehotbatch(bikeDay[!,:weekday], [:0, :1, :2, :3, :4, :5, :6])'
+for k ∈ 1:6
+	bikeDay[!,Symbol("weekday",k)] = Z[:,k+1]
+end
+
+rename!(bikeDay, :season2=>:spring, :season3=>:summer, :season4=>:fall)
+
+
+CSV.write(dataFolder*"bikeDayDummy.csv", bikeDay)

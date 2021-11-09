@@ -455,6 +455,13 @@ Linjäritet
 \series bold
 \color blue
  
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -462,18 +469,12 @@ Linjäritet
 
 \series bold
 \color blue
-Plotta residualerna mot varje förklarande variabel
+Plotta residualerna 
 \series default
 \color inherit
-.
-
-\series bold
-\color blue
+mot varje förklarande variabel.
  
-\series default
-\color inherit
-
-\begin_inset VSpace bigskip
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -599,7 +600,7 @@ status open
 
 \series bold
 \color orange
-Hälsobudgetdata
+Hälsobudgetdata med USA
 \end_layout
 
 \end_inset
@@ -611,9 +612,21 @@ Hälsobudgetdata
 \begin_layout Standard
 \align center
 \begin_inset Graphics
+	filename figs/healthdata_text_fit_USA.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
 	filename figs/healthresiduals.pdf
 	lyxscale 30
-	scale 27
+	scale 25
 
 \end_inset
 
@@ -1610,7 +1623,7 @@ kodning
 \begin_inset Formula $0$
 \end_inset
 
--
+,
 \begin_inset Formula $1$
 \end_inset
 
@@ -1794,6 +1807,43 @@ status open
 
 \series bold
 \color orange
+Ännu fler binära förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SASreglotsofvars.png
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Kategoriska förklarande variabler
 \end_layout
 
@@ -1804,12 +1854,26 @@ Kategoriska förklarande variabler
 
 \begin_deeper
 \begin_layout Itemize
-Kategoriska (klass) förklarande variabler.
- 
-\end_layout
 
-\begin_layout Itemize
-Ex: cykeluthyrningsdata:
+\series bold
+\color blue
+Kategoriska
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+klass
+\series default
+\color inherit
+) förklarande 
+\series bold
+\color blue
+variabler
+\series default
+\color inherit
+.
+ Ex:
 \size footnotesize
 
 \begin_inset Formula 
@@ -1828,7 +1892,10 @@ Ex: cykeluthyrningsdata:
 \end_layout
 
 \begin_layout Itemize
-Koda som fyra binära variabler
+Koda som 
+\series bold
+\color blue
+fyra binära variabler
 \end_layout
 
 \begin_layout Standard
@@ -1836,7 +1903,7 @@ Koda som fyra binära variabler
 
 \size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="7">
+<lyxtabular version="3" rows="9" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1860,7 +1927,7 @@ Koda som fyra binära variabler
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 vinter
 \end_layout
 
@@ -1871,7 +1938,7 @@ vinter
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 vår
 \end_layout
 
@@ -1882,7 +1949,7 @@ vår
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 sommar
 \end_layout
 
@@ -1893,7 +1960,7 @@ sommar
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 höst
 \end_layout
 
@@ -1904,7 +1971,7 @@ höst
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 temp
 \end_layout
 
@@ -1915,7 +1982,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 \begin_inset Formula $\cdots$
 \end_inset
 
@@ -1931,7 +1998,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 2011-01-01
 \end_layout
 
@@ -1942,7 +2009,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 1
 \end_layout
 
@@ -1953,7 +2020,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -1964,7 +2031,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -1975,7 +2042,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -1986,7 +2053,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0.344
 \end_layout
 
@@ -2008,7 +2075,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 2011-01-02
 \end_layout
 
@@ -2019,7 +2086,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 1
 \end_layout
 
@@ -2030,7 +2097,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2041,7 +2108,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2052,7 +2119,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2063,7 +2130,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0.363
 \end_layout
 
@@ -2085,7 +2152,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 \begin_inset Formula $\vdots$
 \end_inset
 
@@ -2155,7 +2222,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 2011-04-28
 \end_layout
 
@@ -2166,7 +2233,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2177,7 +2244,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 1
 \end_layout
 
@@ -2188,7 +2255,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2199,7 +2266,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2210,7 +2277,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0.453
 \end_layout
 
@@ -2232,7 +2299,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 \begin_inset Formula $\vdots$
 \end_inset
 
@@ -2302,7 +2369,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 2011-07-14
 \end_layout
 
@@ -2313,7 +2380,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2324,7 +2391,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2335,7 +2402,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 1
 \end_layout
 
@@ -2346,7 +2413,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2357,7 +2424,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0.830
 \end_layout
 
@@ -2379,8 +2446,11 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
-2011-07-15
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2390,7 +2460,74 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+2011-10-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
 0
 \end_layout
 
@@ -2401,7 +2538,7 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
 0
 \end_layout
 
@@ -2412,7 +2549,18 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size tiny
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
 1
 \end_layout
 
@@ -2423,19 +2571,8 @@ temp
 
 \begin_layout Plain Layout
 
-\size footnotesize
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-0.780
+\size tiny
+0.521
 \end_layout
 
 \end_inset
@@ -2494,7 +2631,7 @@ perfekt multikollinearitet
 
 \begin_inset Formula 
 \[
-y=a+b_{1}\cdot\mathrm{temp}+b_{2}\cdot\mathrm{vinter}+b_{3}\cdot\mathrm{vår}+b_{4}\cdot\mathrm{sommar}+b_{5}\cdot\mathrm{höst}
+y=a+b_{1}\cdot\mathrm{temp}+b_{2}\cdot\text{vinter}+b_{3}\cdot\text{vår}+b_{4}\cdot\text{sommar}+b_{5}\cdot\text{höst}
 \]
 
 \end_inset
@@ -2514,7 +2651,7 @@ ta bort en
 
 \begin_inset Formula 
 \[
-y=a+b_{1}\cdot\mathrm{temp}+b_{3}\cdot\mathrm{vår}+b_{4}\cdot\mathrm{sommar}+b_{5}\cdot\mathrm{höst}
+y=a+b_{1}\cdot\mathrm{temp}+b_{3}\cdot\text{vår}+b_{4}\cdot\text{sommar}+b_{5}\cdot\text{höst}
 \]
 
 \end_inset
@@ -2529,8 +2666,7 @@ Vinter blir nu
 referenskategorin
 \series default
 \color inherit
- (all tre dummies är noll då).
- 
+ (alla tre dummies är noll då).
 \end_layout
 
 \begin_layout Itemize
@@ -2566,13 +2702,23 @@ Koefficienten
 \begin_inset Formula $b_{3}$
 \end_inset
 
- är hur många fler cyklar hyrs ut under en vårdag 
+ är 
+\series bold
+\color blue
+hur många fler 
+\series default
+\color inherit
+cyklar hyrs ut under en vårdag 
 \series bold
 \color blue
 jämfört med en vinterdag
 \series default
 \color inherit
 .
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2654,6 +2800,260 @@ status open
 
 \series bold
 \color orange
+F-test för en grupp av förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Testa om det finns en säsongseffekt?
+\series default
+\color inherit
+ Vi kan 
+\begin_inset Formula $t$
+\end_inset
+
+-testa varje säsonsdummy (vår, sommar, höst).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $F$
+\end_inset
+
+-test
+\series default
+\color inherit
+ kan användas för att 
+\series bold
+\color blue
+testa en grupp av variabler
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+H_{0} & :\beta_{\text{vår}}=\beta_{\text{sommar}}=\beta_{\text{höst}}=0\\
+H_{1} & :\text{någon av }\beta_{\text{vår}},\beta_{\text{sommar}}\text{ eller }\beta_{\text{höst}}\text{ är skild från noll.}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistiska
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+F=\frac{\left(R_{\mathrm{UR}}^{2}-R_{\mathrm{R}}^{2}\right)/r}{\left(1-R_{\mathrm{UR}}^{2}\right)/(n-k-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $R_{\mathrm{UR}}^{2}$
+\end_inset
+
+ är 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ för regressionen 
+\series bold
+\color blue
+U
+\series default
+\color inherit
+tan nollhypotesens 
+\series bold
+\color blue
+R
+\series default
+\color inherit
+estriktioner (de tre säsongsdummies är med i modellen)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{\mathrm{R}}^{2}$
+\end_inset
+
+ är 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ för regressionen med nollhypotesens 
+\series bold
+\color blue
+R
+\series default
+\color inherit
+estriktioner (de tre säsongsdummies är inte med i modellen)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r$
+\end_inset
+
+ är antalet restriktioner under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+, dvs 
+\begin_inset Formula $r=3$
+\end_inset
+
+ här.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ följer teststatistikan 
+\begin_inset Formula $F$
+\end_inset
+
+ en 
+\begin_inset Formula $F(r,n-k-1)$
+\end_inset
+
+-fördelning.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+F-test för säsong i cykeluthyrningsdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+: temp, hum, windspeed.
+\end_layout
+
+\begin_layout Itemize
+Under 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+: temp, hum, windspeed, vår, sommar, höst.
+ 
+\end_layout
+
+\begin_layout Itemize
+Så 
+\begin_inset Formula $k=6$
+\end_inset
+
+ och 
+\begin_inset Formula $r=3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{\mathrm{UR}}^{2}=0.5354$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{\mathrm{R}}^{2}=0.4609$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{\mathrm{obs}}=\frac{(0.5354-0.4609)/3}{\left(1-0.5354\right)/(731-6-1)}=38.698
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{\mathrm{crit}}=F_{0.95}(3,724)=2.617
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{\mathrm{obs}}>F_{\mathrm{crit}}$
+\end_inset
+
+ så nollhypotesen förkastas på signifikansnivån 
+\begin_inset Formula $5\%$
+\end_inset
+
+.
+ Det verkar finns en säsonseffekt.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Prognosförmåga på testdata
 \end_layout
 
@@ -2664,11 +3064,11 @@ Prognosförmåga på testdata
 
 \begin_deeper
 \begin_layout Itemize
-Välj den modell som ger bäst prediktioner på nya (test) data.
-\end_layout
-
-\begin_layout Itemize
 Dela upp observationer i två delmängder:
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2680,6 +3080,10 @@ Träningsdata
 \series default
 \color inherit
  för att skatta modellens parametrar.
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2690,6 +3094,10 @@ Testdata
 \series default
 \color inherit
  för att utvärdera modellens prediktioner.
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -2734,10 +3142,22 @@ summan är över observationerna i testdata.
 
 \begin_layout Itemize
 modellen som ger 
+\series bold
+\color blue
+
 \begin_inset Formula $\hat{y}_{j}$
 \end_inset
 
- är skattad enbart på träningsdata.
+
+\series default
+\color inherit
+ är 
+\series bold
+\color blue
+skattad enbart på träningsdata
+\series default
+\color inherit
+.
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -2779,7 +3199,16 @@ Korsvalidering
 
 \begin_deeper
 \begin_layout Itemize
-Vilka observationer ska vara i träning respektive test? 
+Vilka observationer ska vara i träning respektive test?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tidsserier: låt de senare observationerna vara i test.
+\end_layout
+
+\begin_layout Itemize
+Regression: 
 \series bold
 \color blue
 Korsvalidering
@@ -2788,8 +3217,27 @@ Korsvalidering
 .
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/CrossValExcel.png
+	lyxscale 30
+	scale 16
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-Mått på modellens prognosförmåga: genomsnittligt 
+
+\series bold
+\color blue
+Mått på modellens prognosförmåga
+\series default
+\color inherit
+: genomsnittligt 
 \begin_inset Formula $Q_{\mathrm{test}}$
 \end_inset
 
@@ -2800,23 +3248,33 @@ Mått på modellens prognosförmåga: genomsnittligt
  testdataset.
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/CrossValExcel.png
-	lyxscale 30
-	scale 18
+\begin_layout Itemize
+Prognosförmåga på testdata kan användas för 
+\series bold
+\color blue
+modellval
+\series default
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+För mer info: masterkursen 
+\emph on
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Maskininlärning 7.5 hp"
+target "https://github.com/mattiasvillani/MLcourse"
+literal "false"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-Maskininlärning 7.5 hp
 \emph default
+\bar default
 .
 \end_layout
 
