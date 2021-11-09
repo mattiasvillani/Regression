@@ -806,7 +806,7 @@ kvadrerade residualer
 
 \begin_inset Formula 
 \[
-e^{2}=\tilde{a}+\tilde{b}_{1}x_{1}+\ldots+\tilde{b}_{k}x_{k}+\tilde{\varepsilon}
+e^{2}=\tilde{\alpha}+\tilde{\beta}_{1}x_{1}+\ldots+\tilde{\beta}_{k}x_{k}+\tilde{\varepsilon}
 \]
 
 \end_inset
@@ -820,7 +820,7 @@ använd t ex
 \end_inset
 
 -test för att testa 
-\begin_inset Formula $H_{0}:\tilde{b}_{1}=\ldots=\tilde{b}_{k}=0$
+\begin_inset Formula $H_{0}:\tilde{\beta}_{1}=\ldots=\tilde{\beta}_{k}=0$
 \end_inset
 
 .
