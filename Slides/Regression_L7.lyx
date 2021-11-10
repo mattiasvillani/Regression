@@ -1,0 +1,1559 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 7 - Icke-linjär regression.
+ Polynom- och exponentiella samband
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Polynomregression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponentiella modeller
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kvadratisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kvadratisk regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a+b_{1}x+b_{2}x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Samma som 
+\series bold
+\color blue
+multipel regression med två förklarande variabler
+\series default
+\color inherit
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $x_{1}=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{2}=x^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsmodell
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x+\beta_{2}x^{2}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Minsta-kvadratmetoden
+\series default
+\color inherit
+ för att beräkna 
+\begin_inset Formula $a$
+\end_inset
+
+,
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $b_{2}$
+\end_inset
+
+!
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kvadratisk regression 
+\series bold
+\color blue
+icke-linjär i 
+\begin_inset Formula $x$
+\end_inset
+
+
+\series default
+\color inherit
+, men linjär i 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kvadratisk regression - excel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carsQuadExcel.png
+	lyxscale 40
+	scale 29
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - linjär regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - residualer linjär regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carresidual.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - kvadratisk regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly2.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - residualer kvadratisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carresidual_quad.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tolkningar av parametrar i kvadratisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kvadratisk regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a+b_{1}x+b_{2}x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regressionskoefficienterna
+\series default
+\color inherit
+ tolkas som 
+\series bold
+\color blue
+derivator
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=b_{1}+2b_{2}\cdot x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Effekten av en liten förändring 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ i 
+\begin_inset Formula $x$
+\end_inset
+
+ beror på 
+\begin_inset Formula $x$
+\end_inset
+
+ själv:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/CarDerivata.pdf
+	lyxscale 40
+	scale 32
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynomregression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Polynomregression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a+b_{1}x+b_{2}x^{2}+\ldots+b_{k}x^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Polynomregression av ordning 
+\begin_inset Formula $k$
+\end_inset
+
+är detsamma som multipel regression med 
+\begin_inset Formula $k$
+\end_inset
+
+ förklarande variabler:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $x_{1}=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{2}=x^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{k}=x^{k}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsmodell
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x+\beta_{2}x^{2}+\ldots+\beta_{k}x^{k}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Minsta-kvadratmetoden
+\series default
+\color inherit
+ kan användas för att beräkna 
+\begin_inset Formula $a$
+\end_inset
+
+,
+\begin_inset Formula $b_{1},\ldots b_{k}$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Itemize
+Polynomregression är 
+\series bold
+\color blue
+icke-linjär i 
+\begin_inset Formula $x$
+\end_inset
+
+
+\series default
+\color inherit
+, men linjär i 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{1},\ldots\beta_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynomregression - excel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carsPolynomialExcel.png
+	lyxscale 40
+	scale 29
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - kubisk regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly3.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - polynomregression ordning 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly4.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - polynomregression ordning 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly5.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cars data - 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ och RMSE-CV(
+\begin_inset Formula $K=4)$
+\end_inset
+
+ på testdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carsR2_RMSEtest.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponentiella samband
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Du sätter in 200 kr på banken till 
+\begin_inset Formula $5\%$
+\end_inset
+
+ årsränta.
+ Utveckling:
+\begin_inset Formula 
+\begin{align*}
+1\text{ år: }200\cdot1.05 & =210.000\text{ kr}\\
+2\text{ år: }200\cdot1.05^{2} & =220.500\text{ kr}\\
+3\text{ år: }200\cdot1.05^{3} & =231.525\text{ kr}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Efter 
+\begin_inset Formula $x$
+\end_inset
+
+ år: 
+\begin_inset Formula $200\cdot1.05^{x}$
+\end_inset
+
+.
+ 
+\series bold
+\color blue
+Exponentiell tillväxt
+\series default
+\color inherit
+.
+ Samma procentuella ökning varje år.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponentiellt samband
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a\cdot b^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $a$
+\end_inset
+
+
+\series default
+\color inherit
+ är det 
+\series bold
+\color blue
+initiala
+\series default
+\color inherit
+ beloppet eller storheten.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $b$
+\end_inset
+
+
+\series default
+\color inherit
+ bestämmer 
+\series bold
+\color blue
+tillväxttakten
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+b>1 & \text{ ökande}\\
+b<1 & \text{ minskade}\\
+b=1 & \text{ konstant}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponentiell regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponentiell regression
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=a\cdot b^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logaritmera (10-logaritmer) båda sidor
+\begin_inset Formula 
+\[
+\underset{\tilde{y}}{\underbrace{\log y}}=\underset{\tilde{a}}{\underbrace{\log a}}+\underset{\tilde{b}}{\underbrace{\log b}}\cdot x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{y}=\tilde{a}+\tilde{b}x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{a}=\log a
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{b}=\log b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skatta 
+\begin_inset Formula $\tilde{a}$
+\end_inset
+
+ och 
+\begin_inset Formula $\tilde{b}$
+\end_inset
+
+ med 
+\series bold
+\color blue
+minsta-kvadrat
+\series default
+\color inherit
+ med 
+\begin_inset Formula $\tilde{y}=\log y$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Itemize
+Skattningar för 
+\begin_inset Formula $a$
+\end_inset
+
+ och 
+\begin_inset Formula $b$
+\end_inset
+
+ fås genom
+\begin_inset Formula 
+\[
+a=10^{\tilde{a}}\qquad\text{ och }\qquad b=10^{\tilde{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponentiell regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Responsvariabler
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+enbart positiva värden
+\series default
+\color inherit
+ (t ex lön):
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalfördelning
+\series default
+\color inherit
+ ofta 
+\series bold
+\color blue
+opassande
+\series default
+\color inherit
+ pga 
+\series bold
+\color blue
+skevhet
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+kan ge prediktioner för 
+\begin_inset Formula $y$
+\end_inset
+
+ som är negativa
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/salaryHist.pdf
+	lyxscale 40
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/LogSalariesVsPhdAge.pdf
+	lyxscale 40
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponentiell regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsmodell
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha\cdot\beta^{x}\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logaritmen av feltermen
+\series default
+\color inherit
+ 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ är 
+\series bold
+\color blue
+normalfördelad.
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi säger att feltermen 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ är 
+\series bold
+\color blue
+lognormal
+\series default
+\color inherit
+ fördelad.
+ Innebär 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logaritmera!
+\begin_inset Formula 
+\[
+\tilde{y}=\tilde{\alpha}+\tilde{\beta}\cdot x+\tilde{\varepsilon},\qquad\tilde{\varepsilon}\sim N\left(0,\sigma_{\tilde{\varepsilon}}^{2}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Notera att 
+\begin_inset Formula $\tilde{\beta}=0$
+\end_inset
+
+ innebär att 
+\begin_inset Formula $\beta=1$
+\end_inset
+
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Så 
+\begin_inset Formula $t$
+\end_inset
+
+-test för 
+\begin_inset Formula ${\color{blue}H_{0}:\tilde{\beta}=0}$
+\end_inset
+
+ är 
+\series bold
+\color blue
+test för konstant tillväxt
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktion
+\series default
+\color inherit
+ för 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\hat{y}=a\cdot b^{x_{0}}=10^{\tilde{a}}\cdot(10^{\tilde{b}})^{x_{0}}=10^{\tilde{a}+\tilde{b}x_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -48,7 +48,8 @@ Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/r
 Datamaterial: [cars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\
-Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
+Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L7.pdf) \
+Datamaterial: [salaries](https://github.com/mattiasvillani/Regression/raw/master/Data/salaries.csv)
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
 Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
