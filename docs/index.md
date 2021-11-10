@@ -44,7 +44,7 @@ Kod: [SAS kod för regression på cykeluthyrningsdata](https://github.com/mattia
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) 
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) | [Excelfil för analys av carsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) | [Excelfil för analys av carsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
 Datamaterial: [cars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\

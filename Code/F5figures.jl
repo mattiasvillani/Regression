@@ -152,7 +152,6 @@ savefig(figFolder*"cykelseason.pdf")
 
 # Create binary dummy variables for categorical covariates (one-hot encoding)
 Z = onehotbatch(bikeDay[!,:season], [:1, :2, :3, :4])'
-
 for k ∈ 2:size(Z,2)
 	bikeDay[!,Symbol("season",k)] = Z[:,k]
 end
@@ -169,3 +168,10 @@ rename!(bikeDay, :season2=>:spring, :season3=>:summer, :season4=>:fall)
 
 
 CSV.write(dataFolder*"bikeDayDummy.csv", bikeDay)
+
+
+fit = lm(@formula(nRides ~ temp + hum + windspeed), bikeDay)
+R2_R = r2(fit)
+
+fit = lm(@formula(nRides ~ temp + hum + windspeed + spring + summer + fall), bikeDay)
+R2_UR = r2(fit)
