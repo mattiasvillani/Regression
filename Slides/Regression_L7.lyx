@@ -432,11 +432,41 @@ Kvadratisk regression - excel
 \begin_inset Graphics
 	filename figs/carsQuadExcel.png
 	lyxscale 40
-	scale 29
+	scale 14
+	BoundingBox 0bp 100bp 797bp 1269bp
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Notera att 
+\family typewriter
+hp
+\family default
+ är normaliserad genom att dividera med 
+\begin_inset Formula $\max$
+\end_inset
+
+(
+\family typewriter
+hp
+\family default
+) i stickprovet.
+ Blir 
+\series bold
+\color blue
+numeriskt stabilare
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+om man normaliserar
+\series default
+\color inherit
+ så.
 \end_layout
 
 \end_deeper
@@ -581,6 +611,47 @@ Cars data - residualer kvadratisk regression
 	filename figs/carresidual_quad.pdf
 	lyxscale 30
 	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Linjär regression - tolkning 
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line_Coeff4.pdf
+	lyxscale 30
+	scale 50
 
 \end_inset
 
@@ -989,6 +1060,138 @@ status open
 
 \series bold
 \color orange
+Cars data - polynomregression ordning 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly10.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Lasso regularisering polynom ordning 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPolyLasso10.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+Q_{\lambda}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a=35.80$
+\end_inset
+
+, 
+\begin_inset Formula $b_{1}=-43.58$
+\end_inset
+
+,
+\series bold
+\color blue
+ 
+\series default
+\color inherit
+
+\begin_inset Formula $b_{3}=23.32$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $b_{2}=0$
+\end_inset
+
+
+\series default
+\color inherit
+ och 
+\begin_inset Formula ${\color{blue}b_{4}=\ldots=b_{10}=0}$
+\end_inset
+
+ (
+\series bold
+\color blue
+variabelselektion
+\series default
+\color inherit
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Cars data - 
 \begin_inset Formula $R^{2}$
 \end_inset
@@ -1192,7 +1395,34 @@ y=a\cdot b^{x}
 \end_layout
 
 \begin_layout Itemize
-Logaritmera (10-logaritmer) båda sidor
+
+\series bold
+\color blue
+Logaritmregler 
+\series default
+\color inherit
+(10-logaritmer 
+\begin_inset Formula $\log=\log_{10}$
+\end_inset
+
+)
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+\log(a\cdot b) & =\log a+\log b\text{ ("log av produkten är summan av log")}\\
+\log b^{x} & =x\log b\text{("exponenten hoppar ner framför")}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logaritmera båda sidor
+\size small
+
 \begin_inset Formula 
 \[
 \underset{\tilde{y}}{\underbrace{\log y}}=\underset{\tilde{a}}{\underbrace{\log a}}+\underset{\tilde{b}}{\underbrace{\log b}}\cdot x
@@ -1475,7 +1705,34 @@ lognormal
 \end_layout
 
 \begin_layout Itemize
-Logaritmera!
+
+\series bold
+\color blue
+Logaritmera
+\series default
+\color inherit
+ för att göra modellen 
+\series bold
+\color blue
+linjär
+\series default
+\color inherit
+!
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underset{\tilde{y}}{\underbrace{\log y}}=\underset{\tilde{\alpha}}{\underbrace{\log\alpha}}+\underset{\tilde{\beta}}{\underbrace{\log\beta}}\cdot x+\underset{\tilde{\varepsilon}}{\underbrace{\log\varepsilon}}
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \tilde{y}=\tilde{\alpha}+\tilde{\beta}\cdot x+\tilde{\varepsilon},\qquad\tilde{\varepsilon}\sim N\left(0,\sigma_{\tilde{\varepsilon}}^{2}\right).
@@ -1487,24 +1744,6 @@ Logaritmera!
 \end_layout
 
 \begin_layout Itemize
-Notera att 
-\begin_inset Formula $\tilde{\beta}=0$
-\end_inset
-
- innebär att 
-\begin_inset Formula $\beta=1$
-\end_inset
-
-.
- 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Så 
 \begin_inset Formula $t$
 \end_inset
 
@@ -1518,6 +1757,10 @@ Så
 test för konstant tillväxt
 \series default
 \color inherit
+ 
+\begin_inset Formula $\beta=1$
+\end_inset
+
 .
 \begin_inset VSpace medskip
 \end_inset
@@ -1541,6 +1784,200 @@ Prediktion
 \[
 \hat{y}=a\cdot b^{x_{0}}=10^{\tilde{a}}\cdot(10^{\tilde{b}})^{x_{0}}=10^{\tilde{a}+\tilde{b}x_{0}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Dvs, gör prediktion 
+\begin_inset Formula $\widehat{\log y}$
+\end_inset
+
+ och 
+\begin_inset Quotes eld
+\end_inset
+
+anti-logga
+\begin_inset Quotes erd
+\end_inset
+
+ för prognosen för 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kinesisk tillväxt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/chinaExcel.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kinesisk tillväxt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/China2012RegRes.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\tilde{a}=2.8498$
+\end_inset
+
+, så 
+\begin_inset Formula $a=10^{\tilde{a}}=707.62376$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\tilde{b}=0.0729005$
+\end_inset
+
+, så 
+\begin_inset Formula $b=10^{\tilde{b}}=10^{0.0729005}=1.18277$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kinesisk tillväxt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/chinagdp2000_12.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kinesisk tillväxt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/chinagdp2000_now.pdf
+	scale 50
 
 \end_inset
 

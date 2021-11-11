@@ -69,4 +69,4 @@ Läs: Övningstentamen på Athena.
 ### Bonusmaterial som inte ingår i kursen
 
 Jag översatte Maria Annas Datorövning 1 till [programspråket R](https://www.r-project.org/) för att visa hur man gör samma beräkningar i det språket. Koden är skriven som en s k R notebook för [RStudio](https://www.rstudio.com/products/rstudio/). Den som är nyfiken på R kan här se en PDF-version, en html-version eller ladda ner själva Notebooken som ni kan öppna i RStudio och interaktivt ändra i koden:\
-[PDF](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.pdf) | [html](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.html) | [R notebook](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.Rmd)
+[PDF](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.pdf) | [R notebook](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.Rmd)
