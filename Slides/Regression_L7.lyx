@@ -1111,7 +1111,20 @@ Lasso regularisering polynom ordning 10
 \begin_inset Graphics
 	filename figs/cars_mpg_vs_hpPolyLasso10.pdf
 	lyxscale 30
-	scale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
+\]
 
 \end_inset
 
