@@ -1,0 +1,2236 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 8 - Tidsserieanalys.
+ Komponenter.
+ Säsongsrensning med glidande medelvärden
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Saknade förklarande variabler
+\series default
+\color inherit
+ i regression
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Tidsserier
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trendskattning - parametriska modeller
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trendskattning - glidande medelvärden
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Säsongsrensning med glidande medelvärden
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Komponentsuppdelning av tidsserie.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Felspecifikation - saknade förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Population
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x^{2}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattad modell 
+\series bold
+\color blue
+korrekt specificerad
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+Väntevärderiktiga
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+\mathbb{E}(a)=\alpha,\;\mathbb{E}(b_{1})=\beta_{1}\;\text{och}\;\mathbb{E}(b_{2})=\beta_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Skattad modell
+\series default
+\color inherit
+ missar att ta med 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bias
+\begin_inset Formula 
+\[
+E(b_{1})\neq\beta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Storleken på biasen beror på
+\series bold
+\color blue
+ korrelationen mellan 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ plockar upp variation i 
+\begin_inset Formula $y$
+\end_inset
+
+ som egentligen förklaras av 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tidsserier
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Tvärsnittsdata 
+\series default
+\color inherit
+data uppmätta vid en tidpunkt.
+ Regression.
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Tidsseriedata: 
+\series default
+\color inherit
+data uppmätta över
+\series bold
+\color blue
+ tid
+\series default
+\color inherit
+.
+ 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $t=1,2,...$
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mäts ofta vid tidpunkter med 
+\series bold
+\color blue
+likstora avstånd
+\series default
+\color inherit
+ (varje månad).
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tidsserier är speciella:
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trender
+\series default
+\color inherit
+, 
+\series bold
+\color blue
+säsong
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Beroende observationer
+\series default
+\color inherit
+ över tid.
+ Värdet igår 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ kan användas för att prediktera dagens värde 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+.
+ 
+\series bold
+\color blue
+Autokorrelation
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kräver 
+\series bold
+\color blue
+speciella modeller
+\series default
+\color inherit
+ som tar hänsyn till beroenden.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tidsserier
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/InflSwedenPreds.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/sp500.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/globaltempanomaly.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/EEG_Cz.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Miljöskadliga partiklar i luften på Hornsgatan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/pm25_dagar_dec2019.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/pm25timme.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/pm25dag.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/pm25vecka.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airline.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - linjär trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linjär trend
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a+b\cdot t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Minsta kvadrat
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineLinearTrendFit.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - linjär trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineLinearTrend.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.853$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - kvadratisk trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kvadratisk trend
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a+b_{1}\cdot t+b_{2}\cdot t^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Minsta kvadrat
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/AirlineQuadFit.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - kvadratisk trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineQuadTrend.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.862$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - exponentiell trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponentiell trend
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=a\cdot b^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattas med minsta kvadrat genom att
+\series bold
+\color blue
+ logaritmera data
+\series default
+\size small
+\color inherit
+
+\begin_inset Formula 
+\[
+\underset{\tilde{y}}{\underbrace{\log y}}=\underset{\tilde{a}}{\underbrace{\log a}}+\underset{\tilde{b}}{\underbrace{\log b}}\cdot t
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{y}=\tilde{a}+\tilde{b}\cdot t
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{a}=\log a
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{b}=\log b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineTrendFit.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a=10^{\tilde{a}}=10^{2.09055}\approx123.183$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b=10^{\tilde{b}}=10^{0.00436396}\approx1.010$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - exponentiell trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineExpTrend.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.902$
+\end_inset
+
+ för logarimerade data.
+ Kan inte jämföras med tidigare modeller!
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - exponentiell trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineTrendFit.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Approximativt (
+\begin_inset Formula $n$
+\end_inset
+
+=144) 
+\series bold
+\color blue
+
+\begin_inset Formula $95$
+\end_inset
+
+% konfidensintervall för 
+\begin_inset Formula $\tilde{b}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+0.00436396\pm1.96\cdot0.0001211052=(0.004126594,0.00460133)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Approximativt (
+\begin_inset Formula $n$
+\end_inset
+
+=144)
+\series bold
+\color blue
+ 
+\begin_inset Formula $95$
+\end_inset
+
+% konfidensintervall för 
+\begin_inset Formula $b$
+\end_inset
+
+
+\series default
+\color inherit
+ genom att anti-logga gränserna
+\begin_inset Formula 
+\[
+(10^{0.004126594},10^{0.00460133})\approx(1.0095,1.0107)
+\]
+
+\end_inset
+
+dvs mellan 
+\begin_inset Formula $0.95\%$
+\end_inset
+
+ och 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $1.07\%$
+\end_inset
+
+ ökning per månad.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $1.07\%$
+\end_inset
+
+ ökning per månad blir 
+\begin_inset Formula $1.0107^{12}\approx1.1362$
+\end_inset
+
+, dvs ca 
+\begin_inset Formula $13.62\%$
+\end_inset
+
+ ökning per år.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Global temperatur - exponentiell trend
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/globaltempanomalyExpTrend.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.764$
+\end_inset
+
+ för logarimerade data.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Trendskattning genom glidande medelvärden
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+3-punkts (centrerat) 
+\series bold
+\color blue
+glidande medelvärde 
+\series default
+\color inherit
+med 
+\series bold
+\color blue
+lika vikter
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+M_{t}=\left(y_{t-1}+y_{t}+y_{t+1}\right)/3
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+3-punkts 
+\series bold
+\color blue
+glidande medelvärde 
+\series default
+\color inherit
+med 
+\series bold
+\color blue
+olika vikter
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+M_{t}=w_{-1}y_{t-1}+w_{0}y_{t}+w_{1}y_{t+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Notera att vikterna måste summera till 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $r$
+\end_inset
+
+-punkts
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+glidande medelvärde
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+M_{t}=\sum_{s-r}^{r}w_{s}y_{t+s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Trendskattning genom glidande medelvärden
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/globaltempanomaly_MA.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - glidande medelvärden
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airline_MA.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Trendskattning - glidande medelvärden - säsong
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Kvartalsdata (ex: 
+\begin_inset Formula $t=\mathrm{Kvartal}3$
+\end_inset
+
+):
+\size small
+
+\begin_inset Formula 
+\[
+M_{t}^{(5)}=\left(\underset{\mathrm{Kv}2}{\underbrace{y_{t-2}}}+2\underset{\mathrm{Kv}3}{\underbrace{y_{t-1}}}+2\underset{\mathrm{Kv}3}{\underbrace{y_{t}}}+2\underset{\mathrm{Kv}4}{\underbrace{y_{t+1}}}+\underset{\mathrm{Kv}1}{\underbrace{y_{t+2}}}\right)/8
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Månadsdata (ex: 
+\begin_inset Formula $t=\mathrm{juni}$
+\end_inset
+
+):
+\size small
+
+\begin_inset Formula 
+\[
+M_{t}^{(13)}=\left(\underset{\mathrm{dec}}{\underbrace{y_{t-6}}}+2\underset{\mathrm{jan}}{\underbrace{y_{t-5}}}+\ldots+2\underset{\mathrm{juni}}{\underbrace{y_{t}}}+\ldots+2\underset{\mathrm{nov}}{\underbrace{y_{t+5}}}+\underset{\mathrm{dec}}{\underbrace{y_{t+6}}}\right)/24
+\]
+
+\end_inset
+
+
+\size default
+´
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Trendskattning - glidande medelvärden - säsong
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+´
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airline_MAseasonal.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Komponentsuppdelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+En tidsserie kan delas upp i komponenter:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trend variation
+\series default
+\color inherit
+ (
+\begin_inset Formula $T$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Cyklisk variation
+\series default
+\color inherit
+ (
+\begin_inset Formula $C$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Säsongsvariation
+\series default
+\color inherit
+ (
+\begin_inset Formula $S$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Slumpkomponent
+\series default
+\color inherit
+ (
+\begin_inset Formula $E$
+\end_inset
+
+)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Additiv modell
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y_{t}=T_{t}+C_{t}+S_{t}+E_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Säsongseffekten är 
+\series bold
+\color blue
+visst värde över/under trend
+\series default
+\color inherit
+, t ex decemberförsäljningen är 200 tkr högre i december.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multiplikativ modell
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y_{t}=T_{t}\cdot C_{t}\cdot S_{t}\cdot E_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Säsongseffekten är 
+\series bold
+\color blue
+visst procent över/under trend
+\series default
+\color inherit
+, t ex decemberförsäljningen är 18% högre i december.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Additiv vs multiplikativ uppdelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/additiv_komp_uppdelning.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/multiplikativ_komp_uppdelning.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Komponentsuppdelning - additiv modell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Additiv model utan cyklisk komponent:
+\begin_inset Formula 
+\[
+y_{t}=T_{t}+S_{t}+E_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Steg 1: 
+\series bold
+\color blue
+Bedöm modelltypen 
+\series default
+\color inherit
+genom att plotta tidsserien: 
+\series bold
+\color blue
+additiv
+\series default
+\color inherit
+ eller 
+\series bold
+\color blue
+multiplikativ
+\series default
+\color inherit
+? Vilken
+\series bold
+\color blue
+ trendmodell
+\series default
+\color inherit
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Steg 2: Skatta 
+\series bold
+\color blue
+trendkomponenten
+\series default
+\color inherit
+ 
+\begin_inset Formula $\hat{T}_{t}$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+T ex parametrisk modell eller glidande medelvärde.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Steg 3: 
+\series bold
+\color blue
+Rensa
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+bort
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+trenden
+\series default
+\color inherit
+: 
+\begin_inset Formula $y_{t}-\hat{T_{t}}\approx S_{t}+E_{t}$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Steg 4: Skatta säsongskomponenten genom att beräkna medelvärden av 
+\begin_inset Formula $y_{t}-\hat{T_{t}}$
+\end_inset
+
+ för varje säsong separat.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Skattning av säsongskomponenten
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Steg 4: 
+\series bold
+\color blue
+Skatta säsongskomponenten
+\series default
+\color inherit
+.
+ Ex kvartalsdata:
+\begin_inset Formula 
+\begin{align*}
+\bar{S}_{1} & =\frac{\sum_{\text{alla t som är kvartal 1}}(y_{t}-\hat{T}_{t})}{\text{antal kvartal 1 observationer}}\\
+\bar{S}_{2} & =\frac{\sum_{\text{alla t som är kvartal 2}}(y_{t}-\hat{T}_{t})}{\text{antal kvartal 2 observationer}}\\
+\bar{S}_{3} & =\frac{\sum_{\text{alla t som är kvartal 3}}(y_{t}-\hat{T}_{t})}{\text{antal kvartal 3 observationer}}\\
+\bar{S}_{4} & =\frac{\sum_{\text{alla t som är kvartal 4}}(y_{t}-\hat{T}_{t})}{\text{antal kvartal 4 observationer}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Steg 5: 
+\series bold
+\color blue
+Korrigera säsongen
+\series default
+\color inherit
+ så summan av säsongskomponenterna är noll:
+\begin_inset Formula 
+\[
+S_{i}^{+}=\bar{S}_{i}-\frac{\bar{S}_{1}+\bar{S}_{2}+\bar{S}_{3}+\bar{S}_{4}}{4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Skattning av säsongskomponenten
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Steg 6: 
+\series bold
+\color blue
+Rensa bort säsongen
+\series default
+\color inherit
+ genom att:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+dra av 
+\begin_inset Formula $S_{1}^{+}$
+\end_inset
+
+ från alla observationer i kvartal 1
+\end_layout
+
+\begin_layout Itemize
+dra av 
+\begin_inset Formula $S_{2}^{+}$
+\end_inset
+
+ från alla observationer i kvartal 2, osv 
+\begin_inset Formula 
+\[
+y_{t}-\hat{T}_{t}-S_{i_{t}}^{+}\approx E_{t}
+\]
+
+\end_inset
+
+där 
+\begin_inset Formula $i_{t}$
+\end_inset
+
+ är säsongen vid tidpunkt 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ T ex 
+\begin_inset Formula $i_{7}=2$
+\end_inset
+
+ om tidpunkt 
+\begin_inset Formula $t=7$
+\end_inset
+
+ är i kvartal 2.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multiplikativ modell - Variant 1
+\series default
+\color inherit
+: logga för göra additiv
+\begin_inset Formula 
+\[
+\log y_{t}=\log T_{t}+\log C_{t}+\log S_{t}+\log E_{t}=\tilde{T}_{t}+\tilde{C}_{t}+\tilde{S}_{t}+\tilde{E}_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multiplikativ modell - Variant 2
+\series default
+\color inherit
+: uppdelning på orginalskala.
+ Dividera istället för subtrahera för att rensa, ex:
+\begin_inset Formula 
+\[
+\frac{y_{t}}{\hat{T_{t}}}\approx S_{t}\cdot E_{t}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - säsongskomponent 
+\begin_inset Formula $S_{i}^{+}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+´
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineSeasonalFactors.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - komponentanpassning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+´
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airline_component_fit.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

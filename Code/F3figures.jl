@@ -34,7 +34,7 @@ end
 β₁ = 1
 σ = 3
 theoreticalDist = Normal(β₁, σ/√(sum((x .- mean(x)).^2)))
-nRep = 500
+nRep = 5
 βdraws = zeros(nRep,2)
 @gif for i in 1:nRep
     y = simSimpleReg(x, β₀, β₁, σ)

@@ -2,7 +2,7 @@
 # Plot titles and legends in Swedish
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots, Measures
-using StatsBase, RCall, Statistics, Distributions
+using StatsBase, RCall, Statistics, Distributions, Lasso
 using RDatasets
 using Flux: onehot, onehotbatch
 import ColorSchemes: Paired_12; colors = Paired_12
@@ -181,6 +181,65 @@ p2 = plot(1:5, RMSEs, lw = 3, c = colors[4], ylab = L"\mathrm{RMSE}_\mathrm{test
 plot(size = (1000,400), p1, p2, layout = (1,2), margin = 5mm)
 savefig(figFolder*"carsR2_RMSEtest.pdf")
 
+
+# cars - polynomial order
+polyOrder = 10
+regFormula = @formula(mpg ~ hp + hp^2 + hp^3 + hp^4 + hp^5 + hp^6 + hp^7 + hp^8 + hp^9 + hp^10)
+RMSECV = RMSECVcars(cars, regFormula, shuffleIdx, K)
+plot(ylims = [0,40])
+fit = lm(regFormula, cars)
+βhat = coef(fit)
+Xgrid = ones(length(hpGrid),1);
+for r = 1:polyOrder
+    Xgrid = [Xgrid hpGrid.^r];
+end
+yPred = Xgrid*βhat
+plot!(hpGrid, yPred, color = colors[4], 
+title = L"R^2 = %$(round(r2(fit), digits = 3))\ \mathrm{and}\ \mathrm{RMSE}_{\mathrm{CV}} = %$(round(RMSECV, digits = 3))")
+scatter!(cars.hp, cars.mpg, xlab = "horsepower (hp)", ylab = "miles per gallon (mpg)")
+savefig(figFolder*"cars_mpg_vs_hpPoly$polyOrder.pdf")
+
+# Cars -plot R2 and RMSE_test
+p1 = plot(1:5, R2s, lw = 3, c = colors[2], ylab = L"R^2", xlab = "polynomgrad", title = L"R^2")
+p2 = plot(1:5, RMSEs, lw = 3, c = colors[4], ylab = L"\mathrm{RMSE}_\mathrm{test}", xlab = "polynomorder", title = L"\mathrm{RMSE}_\mathrm{test}")
+plot(size = (1000,400), p1, p2, layout = (1,2), margin = 5mm)
+savefig(figFolder*"carsR2_RMSEtest.pdf")
+
+
+# Lasso
+lassoFit = Lasso.fit(LassoModel, regFormula, cars)
+βhat = coef(lassoFit)
+yPred = Xgrid*βhat
+plot(ylims = [0,40], title = "Polynom ordning 10 - Lasso regularisering")
+plot!(hpGrid, yPred, color = colors[4])
+scatter!(cars.hp, cars.mpg, xlab = "horsepower (hp)", ylab = "miles per gallon (mpg)")
+savefig(figFolder*"cars_mpg_vs_hpPolyLasso$polyOrder.pdf")
+
+
+# China's growth 2000-2012
+china_gdp = DataFrame(CSV.File(dataFolder*"china_gdp.csv"))
+china_gdp = china_gdp[41:53,:]
+china_gdp.year = 1:13
+china_gdp.loggdp = log10.(china_gdp.gdp)
+fit = lm(@formula(loggdp ~ year), china_gdp)
+βtilde = coef(fit)
+β = 10 .^ βtilde
+scatter(Int.(2000 .+ china_gdp.year), china_gdp.gdp, xlab = "year", ylab = "GDP per capita (USD)")
+plot!(Int.(2000 .+ china_gdp.year), β[1]*β[2].^china_gdp.year, color = colors[4], lw = 3)
+annotate!([(2005,5000, (L"\mathbf{\mathrm{gdp} = %$(round(β[1],digits = 4)) \cdot %$(round(β[2],digits = 4)) ^{(\mathrm{year}-1999)}}", 12, :top, colors[2]))])
+savefig(figFolder*"chinagdp2000_12.pdf")
+
+china_gdp = DataFrame(CSV.File(dataFolder*"china_gdp.csv"))
+china_gdp = china_gdp[41:61,:]
+china_gdp.year = 1:21
+china_gdp.loggdp = log10.(china_gdp.gdp)
+fit = lm(@formula(loggdp ~ year), china_gdp)
+βtilde = coef(fit)
+β = 10 .^ βtilde
+scatter(Int.(2000 .+ china_gdp.year), china_gdp.gdp, xlab = "year", ylab = "GDP per capita (USD)")
+plot!(Int.(2000 .+ china_gdp.year), β[1]*β[2].^china_gdp.year, color = colors[4], lw = 3)
+annotate!([(2008,10000, (L"\mathbf{\mathrm{gdp} = %$(round(β[1],digits = 4)) \cdot %$(round(β[2],digits = 4)) ^{(\mathrm{year}-1999)}}", 12, :top, colors[2]))])
+savefig(figFolder*"chinagdp2000_now.pdf")
 # Reading the univerisity salaries dataset from the RDatasets package
 df = dataset("car","Salaries")
 df.logsalary = log.(df.Salary)
@@ -206,8 +265,11 @@ savefig(figFolder*"salaryHist.pdf")
 
 
 # Plot salary against phdage
-scatter(df.phdage, df.Salary, color = colors[2], 
+p1 = scatter(df.phdage, df.Salary, color = colors[2], 
     ylabel = "salary", xlabel = "years since PhD (normalized)", label = "")
+p2 = scatter(df.phdage, df.logsalary, color = colors[2], 
+    ylabel = "log salary", xlabel = "years since PhD (normalized)", label = "")
+plot(size = (1000,400), p1, p2, layout = (1,2))
 savefig(figFolder*"SalariesVsPhdAge.pdf")
 
 # Plot logsalary against phdage
