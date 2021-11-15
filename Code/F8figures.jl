@@ -235,3 +235,62 @@ plot(df.passengers, c = colors[1], label = L"\mathrm{original\ series}", legend 
 plot!(df.time, passPred, color = colors[4], label = L"\mathrm{exponential\ trend\ fit}")
 plot!(MApassMonth, c = colors[2], label = L"\mathrm{seasonal\ moving\ average}, M_t^{(13)}")
 savefig(figFolder*"airline_MAseasonal.pdf")
+
+# Seasonal decomp airline data - additive
+MAorder = 5
+season = 12
+y = airlinevect
+T = movingaverage(y, MAorder)
+yNoTrend = y - T
+sBar = zeros(season)
+for s = 1:season # the first period in the data is labelled season 1
+    sBar[s] = mean(skipmissing(yNoTrend[s:season:end]))
+end
+sPlus = sBar .- mean(sBar)
+bar(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], sPlus, lw = 0, ylab = "Additive seasonal factor", title = "additive model",)
+savefig(figFolder*"airlineAdditiveSeasonalFactors.pdf")
+
+seasonFit = repeat(sPlus, Int(length(y)/season))
+TrendFit = movingaverage(y - seasonFit, MAorder)
+plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers", 
+    title = "additive model", legend = :topleft )
+plot!(TrendFit, color = colors[1], label = "trend fit")
+plot!(TrendFit + seasonFit, color = colors[4], label = "trendfit + seasonfit")
+savefig(figFolder*"airline_component_additive_fit.pdf")
+
+# Seasonal decomp airline data - multiplicative
+MAorder = 5
+season = 12
+y = log10.(airlinevect)
+T = movingaverage(y, MAorder)
+yNoTrend = y - T
+sBar = zeros(season)
+for s = 1:season # the first period in the data is labelled season 1
+    sBar[s] = mean(skipmissing(yNoTrend[s:season:end]))
+end
+sPlus = sBar .- mean(sBar)
+p = bar(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], 
+    10 .^ sPlus, lw = 0, ylab = "Multiplicative seasonal factor", title = "multiplicative model")
+ylims!((0.8,1.15))
+savefig(figFolder*"airlineSeasonalFactors.pdf")
+
+seasonFit = repeat(sPlus, Int(length(y)/season))
+TrendFit = movingaverage(y - seasonFit, MAorder)
+plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers", 
+    title = "multiplicative model", legend = :topleft )
+plot!(10 .^ TrendFit, color = colors[1], label = "trend fit")
+plot!(10 .^ (TrendFit + seasonFit), color = colors[4], label = "trendfit + seasonfit")
+savefig(figFolder*"airline_component_fit.pdf")
+
+# Stockholm monthly temp - NOT USED CURRENTLY
+sthlmtemp = DataFrame(CSV.File(dataFolder*"sthlmMonthlyTemp.csv"; header = true))
+sthlmtempvec = Matrix(sthlmtemp[!,2:13])'[:]
+sthlmtempvec = sthlmtempvec'
+sthlmdates = Vector{Date}(undef,length(sthlmtempvec));
+t = 0;
+for y = 1756:2019
+    for m = 1:12
+        t = t + 1
+        sthlmdates[t]  = Date(string(y)*"-"*string(m), "yyyy-mm")
+    end
+end
