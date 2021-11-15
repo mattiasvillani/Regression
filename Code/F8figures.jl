@@ -2,7 +2,7 @@
 # Plot titles and legends in Swedish
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots, Dates
-using StatsBase, RCall, Statistics, Distributions
+using StatsBase, RCall, Statistics, Distributions, LaTeXTabulars
 import ColorSchemes: Paired_12; colors = Paired_12
 colors = Paired_12[[1,2,7,8,3,4,5,6,9,10,11,12]]
 courseFolder = "/home/mv/Dropbox/Teaching/Regression/"
@@ -15,6 +15,7 @@ gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=12,
     markersize = 4, markerstrokecolor = :auto)
 
 gr(legend = :bottomright, titlefontsize = 12)
+
 
 # OMITTED VARIABLE BIAS
 healthdata = DataFrame(CSV.File(download("https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv");header=true));
@@ -162,6 +163,18 @@ df.logpassengers = log10.(df.passengers)
 plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers")
 savefig(figFolder*"airline.pdf")
 
+# Make table with data
+latex_tabular(figFolder*"airlinetable.tex",
+    Tabular("l|llllllllllll"),
+    [Rule(:top),
+    ["Year";names(airline)[2:end]],
+    Rule(),           
+    Matrix(airline[1:5,1:end]),
+    repeat(["\\vdots"],13),
+    airline[end,1:end],
+    Rule(:bottom)]
+)
+
 # Linjär trend
 plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers")
 fit = lm(@formula(passengers ~ time), df)
@@ -209,6 +222,70 @@ function movingaverage(x, w)
     end
     return movavg
 end
+
+# Airline passenger additive decomp
+n = length(airlinevect)
+airlinedates = Vector{Date}(undef,length(airlinevect));
+t = 0;
+for y = 1949:1960
+    for m = 1:12
+        t = t + 1
+        airlinedates[t]  = Date(string(y)*"-"*string(m), "yyyy-mm")
+    end
+end
+airTable = DataFrame()
+airTable.dates = airlinedates
+airTable.nPassengers = Int.(airlinevect)
+airTable.trend = round.(movingaverage(airTable.nPassengers, 5), digits = 3)
+season = 12
+yNoTrend = airlinevect - airTable.trend
+airTable.GrovSasong = round.(yNoTrend, digits = 3)
+sBar = zeros(season)
+for s = 1:season # the first period in the data is labelled season 1
+    sBar[s] = mean(skipmissing(yNoTrend[s:season:end]))
+end
+sPlus = round.(sBar .- mean(sBar), digits = 3)
+airTable.sasong = repeat(sPlus, Int(n/season))
+airTable.sasongsrensad = round.(airTable.nPassengers - airTable.sasong, digits = 3)
+airTable.sasong = pad_digits(airTable.sasong)
+airTable.sasongsrensad = pad_digits(airTable.sasongsrensad)
+
+bluelatex = "\\cellcolor{blue}"
+lbluelatex = "\\cellcolor{lblue}"
+orange = "\\cellcolor{orange}"
+lorange = "\\cellcolor{lorange}"
+
+strMat1 = string.(Matrix(airTable[1:27,1:end]))
+strMat1[3:7,2] .= lorange.*strMat1[3:7,2]
+strMat1[5,3] = orange*strMat1[5,3]
+offset = 7
+strMat1[(3:7) .+ offset,2] .= lorange.*strMat1[(3:7) .+ offset,2]
+strMat1[5 + offset,3] = orange*strMat1[5 + offset,3]
+strMat1[3:12:27,4] .= lbluelatex.*strMat1[3:12:27,4]
+strMat1[3:12:27,5] .= bluelatex.*strMat1[3:12:27,5]
+strMat1[strMat1 .== "missing"] .= "\$ \\cdot \$"
+# Make table with additive decomp data
+latex_tabular(figFolder*"airlinetable_add_decomp.tex",
+    Tabular("l|rrrrr"),
+    [Rule(:top),
+    [" ";
+    "\\multicolumn{1}{c}{tidsserie}";
+    "\\multicolumn{1}{c}{trend}";
+    "\\multicolumn{1}{c}{grov säsong}";
+    "\\multicolumn{1}{c}{säsong}";
+    "\\multicolumn{1}{c}{säsongsjust.}"],
+    ["\\multicolumn{1}{c}{månad}";
+    "\\multicolumn{1}{c}{\$y_t\$}";
+    "\\multicolumn{1}{c}{\$ \\hat{T}_t\$}";
+    "\\multicolumn{1}{c}{\$ \\bar S = y_t - \\hat{T}_t\$}";
+    "\\multicolumn{1}{c}{\$ S^{+} \$}";
+    "\\multicolumn{1}{c}{\$ y_t - S^{+} \$}"],
+    Rule(),           
+    strMat1,
+    repeat(["\\vdots"],6),
+    #string.(Vector(airTable[end,1:end])),
+    Rule(:bottom)]
+)
 
 
 # Global temperatures

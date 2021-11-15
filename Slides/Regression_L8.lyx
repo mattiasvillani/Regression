@@ -40,6 +40,7 @@
 
 
 \definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{lblue}{RGB}{179, 230, 255}
 \definecolor{orange}{RGB}{255, 128, 0}
 \definecolor{lorange}{RGB}{255, 178, 102}
 \definecolor{llorange}{RGB}{255, 229,204 }
@@ -55,6 +56,7 @@
 \usetikzlibrary{arrows}
 \usetikzlibrary{positioning}
 
+\usepackage{booktabs} 
 \usepackage[ruled]{algorithm2e}
 \usepackage{wasysym}
 \SetKwInput{KwInput}{Input}
@@ -72,7 +74,7 @@
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman "palatino" "default"
 \font_sans "default" "default"
@@ -749,6 +751,44 @@ Miljöskadliga partiklar i luften på Hornsgatan
 	filename figs/pm25vecka.pdf
 	lyxscale 30
 	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size tiny
+\begin_inset CommandInset include
+LatexCommand include
+filename "figs/airlinetable.tex"
 
 \end_inset
 
@@ -1956,6 +1996,48 @@ Steg 4: Skatta säsongskomponenten genom att beräkna medelvärden av
 \end_inset
 
  för varje säsong separat.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline - additiv med 5-punkts glidande medel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size tiny
+\begin_inset VSpace -0.6cm
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "figs/airlinetable_add_decomp.tex"
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
