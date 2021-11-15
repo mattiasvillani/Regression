@@ -59,7 +59,7 @@ Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https:
 
 
 **Föreläsning 9 - Tidsserieanalys. Säsongsrensning med hjälp av regressionsanalys.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf) 
 
 **Föreläsning 10 - Prognosutvärdering. Autokorrelation. Autoregressiva modeller för tidsserier.**\
 Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 

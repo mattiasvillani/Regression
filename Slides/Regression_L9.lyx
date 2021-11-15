@@ -1,0 +1,1137 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{lblue}{RGB}{179, 230, 255}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage{booktabs} 
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 8 - Säsongsrensning med regression
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Repetition kategoriska förklarande variabler
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Säsongsrensning med regression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Saknade förklarande variabler
+\series default
+\color inherit
+ i regression
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binära förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Binära
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+dummy
+\series default
+\color inherit
+) 
+\series bold
+\color blue
+variabler
+\series default
+\color inherit
+ som bara kan anta två värden.
+ Ex:
+\begin_inset Formula 
+\[
+\mathrm{holiday}=\begin{cases}
+1 & \text{ om röd dag}\\
+0 & \text{ annars}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regressionsmodell med binär förklarande variabel:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}\cdot\mathrm{temp}+\beta_{2}\cdot\mathrm{holiday}+\varepsilon
+\]
+
+\end_inset
+
+innebär att vi får 
+\series bold
+\color blue
+två parallella regressionlinjer
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+y=\begin{cases}
+\alpha+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{holiday}=0}\\
+(\alpha+\beta_{2})+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{holiday}=1}
+\end{cases}
+\]
+
+\end_inset
+
+
+\size default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binära förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykelHolidayDummy.pdf
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SAScykelholidaydummy.png
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Säsongsrensning med regression - kvartalsdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skatta 
+\series bold
+\color blue
+regression
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+trendmodell + kvartalsdummies
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+c_{3}\cdot D_{3t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Formula 
+\[
+D_{1t}=\begin{cases}
+1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 1}\\
+0 & \text{annars}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Formula 
+\[
+D_{2t}=\begin{cases}
+1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 2}\\
+0 & \text{annars}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Formula 
+\[
+D_{3t}=\begin{cases}
+1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 3}\\
+0 & \text{annars}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Säsongsrensning med regression - månadsdata
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skatta 
+\series bold
+\color blue
+regression
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+trendmodell + månadsdummies
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+\ldots+c_{11}\cdot D_{11t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Formula 
+\[
+D_{kt}=\begin{cases}
+1 & \text{om observationen vid tidpunkt }t\text{ är månad nr }k\\
+0 & \text{annars}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiplikativ modell: logga 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+.´
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline passenger data - säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size tiny
+\begin_inset CommandInset include
+LatexCommand include
+filename "figs/airlinedummytable.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Säsongsrensning med regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skatta 
+\series bold
+\color blue
+regression
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+trendmodell + kvartalsdummies
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+c_{3}\cdot D_{3t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Uttrycket 
+\begin_inset Formula $a+b\cdot t$
+\end_inset
+
+ är 
+\series bold
+inte
+\series default
+ trendkomponenten.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Lutningen 
+\begin_inset Formula $b$
+\end_inset
+
+ är korrekt, men 
+\begin_inset Formula $a$
+\end_inset
+
+ är interceptet under vintern.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Den 
+\series bold
+\color blue
+genomsnittliga trenden
+\series default
+\color inherit
+:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+y_{t}=a_{0}+b\cdot t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi vet att:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\bar{y}=a_{0}+b\cdot\bar{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a_{0}=\bar{y}-b\cdot\bar{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Säsongen
+\series default
+\color inherit
+ som avvikelse från trenden
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+S_{1} & =a+c_{1}-a_{0}\text{ (vår})\\
+S_{2} & =a+c_{2}-a_{0}\text{ (sommar})\\
+S_{3} & =a+c_{3}-a_{0}\text{ (höst})\\
+S_{4} & =a-a_{0}\text{ (vinter})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline - regression med säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlinedummyregcoef.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $a_{0}=\bar{y}-b\cdot\bar{t}=280.299-2.66033\cdot72.5\approx87.425$
+\end_inset
+
+.
+ 
+\series bold
+\color blue
+Trend
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+87.425+2.660\cdot t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+\color blue
+Säsong januari
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+S_{1}=a+c_{1}-a_{0}=54.3277+9.18029-87.425\approx-23.917
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+\color blue
+Säsong december
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+S_{12}=a-a_{0}=54.3277-87.425\approx33.097
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline - regression med säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineAdditiveRegrSeasonalFactors.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline - regression med säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineRegrSeasonalFactorsFit.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Airline - regression med säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/airlineRegrSeasonalFactorsFitQuad.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Felspecifikation - saknade förklarande variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Population
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x^{2}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattad modell 
+\series bold
+\color blue
+korrekt specificerad
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+Väntevärderiktiga
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+\mathbb{E}(a)=\alpha,\;\mathbb{E}(b_{1})=\beta_{1}\;\text{och}\;\mathbb{E}(b_{2})=\beta_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Skattad modell
+\series default
+\color inherit
+ missar att ta med 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bias
+\begin_inset Formula 
+\[
+E(b_{1})\neq\beta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Storleken på biasen beror på
+\series bold
+\color blue
+ korrelationen mellan 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ plockar upp variation i 
+\begin_inset Formula $y$
+\end_inset
+
+ som egentligen förklaras av 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
