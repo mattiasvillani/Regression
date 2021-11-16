@@ -1313,7 +1313,7 @@ Notera att vikterna måste summera till
 
 \series bold
 \color blue
-\begin_inset Formula $r$
+\begin_inset Formula $2r+1$
 \end_inset
 
 -punkts
@@ -1328,7 +1328,7 @@ glidande medelvärde
 
 \begin_inset Formula 
 \[
-M_{t}=\sum_{s-r}^{r}w_{s}y_{t+s}
+M_{t}=\sum_{s=-r}^{r}w_{s}y_{t+s}
 \]
 
 \end_inset

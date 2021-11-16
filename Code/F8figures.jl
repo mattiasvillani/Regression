@@ -2,7 +2,7 @@
 # Plot titles and legends in Swedish
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots, Dates
-using StatsBase, RCall, Statistics, Distributions, LaTeXTabulars
+using StatsBase, RCall, Statistics, Distributions, LaTeXTabulars, Utils
 import ColorSchemes: Paired_12; colors = Paired_12
 colors = Paired_12[[1,2,7,8,3,4,5,6,9,10,11,12]]
 courseFolder = "/home/mv/Dropbox/Teaching/Regression/"
