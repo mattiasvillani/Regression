@@ -65,7 +65,7 @@ Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw
 Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf) 
 
 **Föreläsning 11 - Logistisk regression.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_11.pdf) 
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
 Läs: Övningstentamen på Athena.
