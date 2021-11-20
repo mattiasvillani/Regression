@@ -1221,7 +1221,7 @@ Global temperatur - exponentiell trend
 \begin_inset Formula $R^{2}=0.764$
 \end_inset
 
- för logarimerade data.
+ för logaritmerade data.
 \end_layout
 
 \end_deeper
@@ -1445,7 +1445,7 @@ Kvartalsdata (ex:
 
 \begin_inset Formula 
 \[
-M_{t}^{(5)}=\left(\underset{\mathrm{Kv}2}{\underbrace{y_{t-2}}}+2\underset{\mathrm{Kv}3}{\underbrace{y_{t-1}}}+2\underset{\mathrm{Kv}3}{\underbrace{y_{t}}}+2\underset{\mathrm{Kv}4}{\underbrace{y_{t+1}}}+\underset{\mathrm{Kv}1}{\underbrace{y_{t+2}}}\right)/8
+M_{t}^{(5)}=\left(\underset{\mathrm{Kv}1}{\underbrace{y_{t-2}}}+2\underset{\mathrm{Kv}2}{\underbrace{y_{t-1}}}+2\underset{\mathrm{Kv}3}{\underbrace{y_{t}}}+2\underset{\mathrm{Kv}4}{\underbrace{y_{t+1}}}+\underset{\mathrm{Kv}1}{\underbrace{y_{t+2}}}\right)/8
 \]
 
 \end_inset

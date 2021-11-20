@@ -62,7 +62,8 @@ Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https:
 Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf) 
 
 **Föreläsning 10 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
-Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf) 
+Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf)\
+Kod: [SAS kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/inflAR.sas)
 
 **Föreläsning 11 - Logistisk regression.**\
 Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_11.pdf) 

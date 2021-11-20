@@ -124,3 +124,59 @@ savefig(figFolder*"airlineRegrSeasonalFactorsFitQuad.pdf")
 
 # bikeShare
 bikeDay = DataFrame(CSV.File(dataFolder*"bikeDayDummy.csv"))
+bikeDay.time = 1:size(bikeDay,1)
+bikeDay.winter = 1 .- (bikeDay.spring .+ bikeDay.summer .+ bikeDay.fall)
+# Dummy variables - season
+
+scatter(bikeDay[bikeDay.spring .== true,:time],bikeDay[bikeDay.spring .== true,:nRides], 
+    xlabel = "temperatur (normaliserad)",  ylabel  = "antal uthyrningar", 
+    color = colors[5], titlefontsize=14, xticks = 0:0.1:1, legend = :topleft, 
+    label = "vår")
+
+scatter!(bikeDay[bikeDay.summer .== true,:time],bikeDay[bikeDay.summer .== true,:nRides],
+    color = colors[4], titlefontsize=14, xticks = 0:0.1:1, label = "sommar")
+
+scatter!(bikeDay[bikeDay.fall .== true,:time],bikeDay[bikeDay.fall .== true,:nRides],
+    color = colors[12], titlefontsize=14, xticks = 0:0.1:1, label = "höst")
+
+scatter!(bikeDay[bikeDay.winter .== true,:time],bikeDay[bikeDay.winter .== true,:nRides],
+    color = colors[1], titlefontsize=14, xticks = 0:0.1:1, label = "vinter")
+
+
+fit = lm(@formula(nRides ~ time + spring + summer + fall), bikeDay)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[2], lw = 3, label = "vinter")
+Plots.abline!(βhat[2], βhat[1]+βhat[3], color = colors[6], lw = 3, label = "vår")
+Plots.abline!(βhat[2], βhat[1]+βhat[4], color = colors[3], lw = 3, label = "sommar")
+Plots.abline!(βhat[2], βhat[1]+βhat[5], color = colors[11], lw = 3, label = "höst")
+savefig(figFolder*"cykelseasontime.pdf")
+
+
+
+# adding seasondummies
+
+# Create binary dummy variables for categorical covariates (one-hot encoding)
+Z = onehotbatch(bikeDay[!,:season], [:1, :2, :3, :4])'
+for k ∈ 2:size(Z,2)
+	bikeDay[!,Symbol("season",k)] = Z[:,k]
+end
+Z = onehotbatch(bikeDay[!,:weather], [:1, :2, :3])'
+for k ∈ 2:size(Z,2)
+	bikeDay[!,Symbol("weather",k)] = Z[:,k]
+end
+Z = onehotbatch(bikeDay[!,:weekday], [:0, :1, :2, :3, :4, :5, :6])'
+for k ∈ 1:6
+	bikeDay[!,Symbol("weekday",k)] = Z[:,k+1]
+end
+
+rename!(bikeDay, :season2=>:spring, :season3=>:summer, :season4=>:fall)
+
+
+CSV.write(dataFolder*"bikeDayDummy.csv", bikeDay)
+
+
+fit = lm(@formula(nRides ~ temp + hum + windspeed), bikeDay)
+R2_R = r2(fit)
+
+fit = lm(@formula(nRides ~ temp + hum + windspeed + spring + summer + fall), bikeDay)
+R2_UR = r2(fit)

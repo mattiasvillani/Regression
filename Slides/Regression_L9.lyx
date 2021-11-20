@@ -163,7 +163,7 @@ ST123G
 \begin_layout Subtitle
 
 \color orange
-Föreläsning 8 - Säsongsrensning med regression
+Föreläsning 9 - Säsongsrensning med regression
 \end_layout
 
 \begin_layout Author
@@ -244,9 +244,6 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-
-\series bold
-\color blue
 Repetition kategoriska förklarande variabler
 \begin_inset VSpace bigskip
 \end_inset
@@ -259,6 +256,17 @@ Repetition kategoriska förklarande variabler
 \series bold
 \color blue
 Säsongsrensning med regression
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Saknade förklarande variabler i regression
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -269,17 +277,10 @@ Säsongsrensning med regression
 
 \series bold
 \color blue
-Saknade förklarande variabler
+Interaktioner 
 \series default
 \color inherit
- i regression
-\series bold
-\color blue
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
+i regression
 \end_layout
 
 \end_deeper
@@ -339,6 +340,36 @@ variabler
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Varianter av 
+\series bold
+\color blue
+kodning
+\series default
+\color inherit
+: (
+\begin_inset Formula $0$
+\end_inset
+
+,
+\begin_inset Formula $1$
+\end_inset
+
+) eller (
+\begin_inset Formula $-1$
+\end_inset
+
+,
+\begin_inset Formula $1$
+\end_inset
+
+), eller 
+\family typewriter
+(true,false
+\family default
+).
 \end_layout
 
 \begin_layout Itemize
@@ -593,7 +624,7 @@ Multiplikativ modell: logga
 \begin_inset Formula $y_{t}$
 \end_inset
 
-.´
+.
 \end_layout
 
 \end_deeper
@@ -871,7 +902,7 @@ Säsong december
 :
 \begin_inset Formula 
 \[
-S_{12}=a-a_{0}=54.3277-87.425\approx33.097
+S_{12}=a-a_{0}=54.3277-87.425\approx-33.097
 \]
 
 \end_inset
@@ -1006,6 +1037,55 @@ status open
 
 \series bold
 \color orange
+Cykeluthyrning säsongsdummies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykelseasontime.pdf
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikeRegDummyTable.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Felspecifikation - saknade förklarande variabler
 \end_layout
 
@@ -1025,7 +1105,7 @@ Population
 :
 \begin_inset Formula 
 \[
-y=\alpha+\beta_{1}x_{1}+\beta_{2}x^{2}+\varepsilon
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon
 \]
 
 \end_inset
@@ -1072,7 +1152,7 @@ Skattad modell
 
 \begin_inset Formula 
 \[
-y=a+b_{1}x_{1}+\varepsilon
+y=a+b_{1}x_{1}
 \]
 
 \end_inset
@@ -1123,6 +1203,188 @@ Storleken på biasen beror på
 \end_inset
 
 .
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Interaktioner
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Additiv modell
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modell med 
+\series bold
+\color blue
+interaktion
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\beta_{3}x_{1}\cdot x_{2}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modell med 
+\series bold
+\color blue
+interaktion med dummy variabel
+\series default
+\color inherit
+ (
+\begin_inset Formula $d$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x+\beta_{2}d+\beta_{3}x\cdot d+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regressionslinjerna är inte längre parallella:
+\begin_inset Formula 
+\begin{align*}
+d=0:\qquad & y=\alpha+\beta_{1}x+\varepsilon\\
+d=1:\qquad & y=(\alpha+\beta_{2})+(\beta_{1}+\beta_{3})\cdot x+\varepsilon
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+cykelhyrningar - dummy utan interaktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykelHolidayDummy.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+cykelhyrningar - dummy med interaktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykelHolidayDummyInteract.pdf
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/dummyinteractTable.png
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper

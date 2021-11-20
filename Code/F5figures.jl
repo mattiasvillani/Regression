@@ -122,7 +122,19 @@ annotate!([(0.43, 2000, (L"\mathbf{y = %$(round(βhat[1]+βhat[3],digits = 2)) +
 #annotate!([(0.1, 2000, (L"\Bigg\(", 10, :bottom, colors[10]))])
 savefig(figFolder*"cykelHolidayDummy.pdf")
 
-# Dummy variables - holiday
+# Interactions with dummy variables - holiday
+scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "temperatur (normaliserad)", 
+    ylabel  = "antal uthyrningar", color = :lightgray, titlefontsize=14, xticks = 0:0.1:1, legend = :topleft, label = nothing)
+fit = lm(@formula(nRides ~ temp + holiday + temp*holiday), bikeDay)
+βhat = coef(fit)
+Plots.abline!(βhat[2], βhat[1], color = colors[8], lw = 3, label = "holiday = 0")
+Plots.abline!(βhat[2] + βhat[4], βhat[1] + βhat[3], color = colors[2], lw = 3, label = "holiday = 1")
+annotate!([(0.2, 3500, (L"\mathbf{y = %$(round(βhat[1],digits = 2)) + %$(round(βhat[2], digits =  2)) \cdot x}", 10, :bottom, colors[8]))])
+annotate!([(0.53, 2000, (L"\mathbf{y = %$(round(βhat[1]+βhat[3],digits = 2)) + %$(round(βhat[2] +βhat[4], digits =  2)) \cdot x}", 10, :bottom, colors[2]))])
+#annotate!([(0.1, 2000, (L"\Bigg\(", 10, :bottom, colors[10]))])
+savefig(figFolder*"cykelHolidayDummyInteract.pdf")
+
+# Dummy variables - workingday
 scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "temperatur (normaliserad)", 
     ylabel  = "antal uthyrningar", color = :lightgray, titlefontsize=14, xticks = 0:0.1:1, legend = :topleft, label = nothing)
 fit = lm(@formula(nRides ~ temp + workingday), bikeDay)
@@ -134,7 +146,7 @@ annotate!([(0.35, 2000, (L"\mathbf{y = %$(round(βhat[1]+βhat[3],digits = 2)) +
 savefig(figFolder*"cykelWorkingdayDummy.pdf")
 
 
-# Dummy variables - holiday
+# Dummy variables - season
 
 scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "temperatur (normaliserad)", 
     ylabel  = "antal uthyrningar", color = :lightgray, titlefontsize=14, xticks = 0:0.1:1, legend = :topleft, label = nothing)
