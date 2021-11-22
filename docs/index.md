@@ -67,6 +67,7 @@ Kod: [SAS kod för att skatta AR modeller för svensk inflation](https://github.
 
 **Föreläsning 11 - Logistisk regression.**\
 Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_11.pdf)\
+Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regression/raw/master/Data/breastcancer.csv)
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
