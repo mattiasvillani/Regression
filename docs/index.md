@@ -66,7 +66,8 @@ Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regr
 Kod: [SAS kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/inflAR.sas)
 
 **Föreläsning 11 - Logistisk regression.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_11.pdf) 
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_11.pdf)\
+Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regression/raw/master/Data/breastcancer.csv)
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
 Läs: Övningstentamen på Athena.

@@ -20,13 +20,13 @@ gr(legend = :bottomright)
 β = 1
 x = -5:0.01:5
 θ = exp.(x*β)./(1 .+ exp.(x*β))
-plot(x, θ, xlab = L"x", ylab = L"\mathrm{P(y=1 \vert x)}", title = L"\mathrm{Sannolikhet\  for\ } y = 1", label =  nothing)
+plot(x, θ, xlab = L"x", ylab = L"\mathrm{P(y=1 \vert x)}", title = L"\beta = 1 ", label =  nothing)
 savefig(figFolder*"LogisticFunc.pdf")
 
-plot(x, θ./(1 .- θ), xlab = L"x", ylab = L"\mathrm{Odds\ }(y=1 \vert x)", c = colors[6], title = "Odds", label =  nothing)
+plot(x, θ./(1 .- θ), xlab = L"x", ylab = L"\mathrm{Odds\ }(y=1 \vert x)", c = colors[6], title = L"\beta = 1", label =  nothing)
 savefig(figFolder*"OddsFunc.pdf")
 
-plot(x, log.(θ./(1 .- θ)), xlab = L"x", ylab = L"\mathrm{LogOdds\ }(y=1 \vert x)", c = colors[10], title = "LogOdds", label =  nothing)
+plot(x, log.(θ./(1 .- θ)), xlab = L"x", ylab = L"\mathrm{LogOdds\ }(y=1 \vert x)", c = colors[10], title = L"\beta = 1", label =  nothing)
 savefig(figFolder*"LogOddsFunc.pdf")
 
 """ 
@@ -68,23 +68,38 @@ p2 = heatmap(β₀grid, β₁grid, ℓ, c = :viridis, colorbar = true,  title = 
 plot!(β₀grid, β₁grid, ℓ, st = :contour, linecolor = :black, lw = 0.5)
 scatter!([β[1]],[β[2]], label = "population", color = colors[8])
 plot(size = (1000,400), p1, p2, layout = (1,2), margin = 5mm)
-savefig(figFolder*"LogisticLogLik.pdf")
+savefig(figFolder*"LogisticLogLik.png")
 
 
-
-Xgrid = [ones(1000) range(-4,4, length = 1000)]
+x = range(-4,4, length = 1000)
+Xgrid = [ones(1000) x]
 θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
-plot(x, θ, xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", title = L"\mathrm{Sannolikhet\  for\ } y = 1", label =  L"P(y=1|x)", legend = :bottomright, legendfontsize = 10)
+plot(x, θ, xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", 
+    label =  L"P(y=1|x)", legend = :right, legendfontsize = 10)
 scatter!(X[:,2],y, c = colors[1], label = "data")
 savefig(figFolder*"LogisticFuncWithData.pdf")
 
-
-Xgrid = [ones(1000) range(-4,4, length = 1000)]
+jitterish =  0.05*randn(n)
+x = range(-4,4, length = 1000)
+Xgrid = [ones(1000) x]
 θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
-plot(xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", legend = :right, legendfontsize = 8)
-scatter!(X[:,2],y + 0.05*randn(n), label = "data + jitter", color = colors[1])
-plot!(x, θ, label = L"\alpha = 1, \beta = 2. \ell = %$(round(ℓ(1,2), digits = 1))", color = colors[2])
-plot!(x, exp.(Xgrid*[1,1])./(1 .+ exp.(Xgrid*[1,1])), label = L"\alpha = 1, \beta = 1. \ell = %$(round(ℓ(1,1), digits = 1))", color = colors[4])
-plot!(x, exp.(Xgrid*[-3,2])./(1 .+ exp.(Xgrid*[-3,2])), label = L"\alpha = -3, \beta=2. \ell = %$(round(ℓ(1,-1), digits = 1))", color = colors[6])
+plot(x, θ, xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", 
+    label =  L"P(y=1|x)", legend = :right, legendfontsize = 10)
+scatter!(X[:,2], y + jitterish, c = colors[1], label = "data")
 savefig(figFolder*"LogisticFuncWithDataJitter.pdf")
 
+gr(legendfontsize = 10)
+θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
+plot(xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", legend = :right, legendfontsize = 6)
+scatter!(X[:,2],y + jitterish, label = "data + jitter", color = colors[1])
+plot!(x, θ, label = L"\alpha = 1, \beta = 2. \log L = %$(round(ℓ(1,2), digits = 1))", color = colors[2])
+plot!(x, exp.(Xgrid*[1,1])./(1 .+ exp.(Xgrid*[1,1])), label = L"\alpha = 1, \beta = 1. \log L = %$(round(ℓ(1,1), digits = 1))", color = colors[4])
+plot!(x, exp.(Xgrid*[-3,2])./(1 .+ exp.(Xgrid*[-3,2])), label = L"\alpha = -3, \beta=2. \log L = %$(round(ℓ(1,-1), digits = 1))", color = colors[6])
+savefig(figFolder*"LogisticFuncWithDataJitterLike.pdf")
+
+x = 0:0.1:10
+X = [ones(length(x)) x]
+β = [-4.9602,1.4887]
+logisticProb = exp.(X*β)./(1 .+ exp.(X*β))
+plot(0:0.1:10, logisticProb, label = nothing, xlabel = "cellstorlek", ylab = "Sannolikhet för malign cancer", lw = 3)
+savefig(figFolder*"breastcancersimpleProb.pdf")
