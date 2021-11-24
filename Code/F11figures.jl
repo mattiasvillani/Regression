@@ -103,3 +103,33 @@ X = [ones(length(x)) x]
 logisticProb = exp.(X*β)./(1 .+ exp.(X*β))
 plot(0:0.1:10, logisticProb, label = nothing, xlabel = "cellstorlek", ylab = "Sannolikhet för malign cancer", lw = 3)
 savefig(figFolder*"breastcancersimpleProb.pdf")
+
+
+gr(legend = nothing, grid = false, color = colors[2], lw = 2, legendfontsize=12,
+    xtickfontsize=12, ytickfontsize=12, ztickfontsize = 12, xguidefontsize=14, yguidefontsize=14, 
+    markersize = 4, markerstrokecolor = :auto, titlefontsize = 14)
+plot(-3:0.01:3, exp.(-3:0.01:3), xlab  =L"x", ylab = L"\exp(x)", title = "Exponentialfunktionen")
+savefig(figFolder*"ExponentialFunction.pdf")
+
+plot(0.01:0.01:3, log.(0.01:0.01:3), xlab  =L"x", ylab = L"\log(x)", title =  "Naturliga logaritmfunktionen")
+savefig(figFolder*"LnFunction.pdf")
+
+# Titanic data - odds
+age = 0:80
+plot(age, 0.3166684*13.543*6.66*0.972.^age, label = "kvinna i första klass", xlab = "ålder", ylab = "Odds överleva", title = "Odds att överleva", legend = :topright)
+plot!(age, 0.3166684*13.543*0.972.^age, label = "kvinna ej i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[8])
+plot!(age, 0.3166684*6.66*0.972.^age, label = "man i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[4])
+plot!(age, 0.3166684*0.972.^age, label = "man ej i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[6])
+savefig(figFolder*"titanicOdds.pdf")
+
+# Titanic data - probs
+age = 0:80
+odds = 0.3166684*13.543*6.66*0.972.^age
+plot(age, odds./(1 .+ odds), label = "kvinna i första klass", ylims = [0,1], xlab = "ålder", ylab = "Sannolikhet att överleva", title = "Sannolikhet att överleva", legend = :right)
+odds = 0.3166684*13.543*0.972.^age
+plot!(age, odds./(1 .+ odds), label = "kvinna ej i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[8])
+odds = 0.3166684*6.66*0.972.^age
+plot!(age, odds./(1 .+ odds), label = "man i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[4])
+odds = 0.3166684*0.972.^age
+plot!(age, odds./(1 .+ odds), label = "man ej i första klass", xlab = "ålder", ylab = "Odds överleva", color = colors[6])
+savefig(figFolder*"titanicProbs.pdf")
