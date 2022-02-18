@@ -38,7 +38,7 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   }
   
   # Variance inflation factors
-  if (vif_factors){
+  if (vif_factors & df_regr>1){
     X = lmobject$model[,2:(df_regr+1)]
     vif = rep(NA,df_regr)
     for (j in 1:df_regr){
@@ -57,14 +57,13 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   message("Parameter estimates\n------------------------------------------------")
   print(reg_tables$param_table, digits = 5, na.print = "")
   
-  return(list(param_table = param_table, rsqr_row = rsqr_row, anova_table = anova_table))
-  
+  return(NULL)
 }
 
 # Load bike share data to replicate SAS-output on Slide nr 8 here: https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf
 bike = read.csv(file = "https://raw.githubusercontent.com/mattiasvillani/Regression/master/Data/cykeluthyr.csv")
-lmfit = lm(nRides ~ 0 + temp + hum + windspeed, data = bike)
-reg_tables = lmsummary(lmfit, vif_factors = T, anova = T, conf_intervals = T)
+lmfit = lm(nRides ~ temp + hum + windspeed, data = bike)
 summary(lmfit)
+lmsummary(lmfit, vif_factors = T, anova = T, conf_intervals = T)
 
 
