@@ -2,8 +2,11 @@
 # Author: Mattias Villani
 lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   
+  if ("(Intercept)" %in% names(lmfit$coefficients)) intercept = 1 else intercept = 0
+  print(intercept)
+  
   lmsummary = summary(lmobject)
-  df_regr = lmsummary$df[1] - 1
+  df_regr = lmsummary$df[1] - intercept
   df_error = lmsummary$df[2]
   df_total = df_error + df_regr 
   sse = (lmsummary$sigma^2)*df_error
@@ -41,7 +44,8 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
     for (j in 1:df_regr){
       vif[j] = 1/summary(lm(X[,j] ~ data.matrix(X[,-j])))$r.squared
     }
-    param_table = cbind(param_table,c(NA,vif))
+    if (intercept) vif = c(NA,vif)
+    param_table = cbind(param_table,vif)
     colnames(param_table)[ncol(param_table)] = "VIF"
   }
   
@@ -59,7 +63,8 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
 
 # Load bike share data to replicate SAS-output on Slide nr 8 here: https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf
 bike = read.csv(file = "https://raw.githubusercontent.com/mattiasvillani/Regression/master/Data/cykeluthyr.csv")
-lmfit = lm(nRides ~ temp + hum + windspeed, data = bike)
+lmfit = lm(nRides ~ 0 + temp + hum + windspeed, data = bike)
 reg_tables = lmsummary(lmfit, vif_factors = T, anova = T, conf_intervals = T)
+summary(lmfit)
 
 
