@@ -1,5 +1,11 @@
 # SAS-like summary of regression
 # Author: Mattias Villani
+
+library(knitr)
+library(xtable)
+library(erify)
+kable(xtable(tabanova),format='markdown')
+
 lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   
   if ("(Intercept)" %in% names(lmfit$coefficients)) intercept = 1 else intercept = 0
@@ -27,7 +33,7 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   }
   
   rsqr_row = c(sqrt(sse/df_error), lmsummary$r.squared, lmsummary$adj.r.squared)
-  names(reg_tables$rsqr_row) <- c("Root MSE","R2","R2-adj")
+  names(rsqr_row) <- c("Root MSE","R2","R2-adj")
   
   # Confidence intervals on parameters
   if (conf_intervals){
@@ -50,12 +56,12 @@ lmsummary <- function(lmobject, vif_factors = F, anova = T, conf_intervals = F){
   }
   
   message("\nAnalysis of variance - ANOVA\n------------------------------------------------")
-  print(reg_tables$anova_table, digits = 5, na.print = "")
+  print(anova_table, digits = 5, na.print = "")
   message("\n")
-  print(reg_tables$rsqr_row, digits = 5)
+  print(rsqr_row, digits = 5)
   message("\n")
   message("Parameter estimates\n------------------------------------------------")
-  print(reg_tables$param_table, digits = 5, na.print = "")
+  print(param_table, digits = 5, na.print = "")
   
   return(NULL)
 }
