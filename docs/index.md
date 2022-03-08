@@ -73,7 +73,20 @@ Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regres
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
 Läs: Övningstentamen på Athena.
 
-### Bonusmaterial som inte ingår i kursen
+### Det statistiska programmeringsspråket R
 
-Jag översatte Maria Annas Datorövning 1 till [programspråket R](https://www.r-project.org/) för att visa hur man gör samma beräkningar i det språket. Koden är skriven som en s k R notebook för [RStudio](https://www.rstudio.com/products/rstudio/). Den som är nyfiken på R kan här se en PDF-version, en html-version eller ladda ner själva Notebooken som ni kan öppna i RStudio och interaktivt ändra i koden:\
-[PDF](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.pdf) | [R notebook](https://github.com/mattiasvillani/Regression/raw/master/Misc/Datorovning1_Rversion.Rmd)
+Kursen har ett eget R paket med några datamaterial som används på kursen och några hjälpfunktioner som kan vara praktiska.
+```
+# För att installera kurspaketet regkurs
+install.packages("remotes") # görs bara en gång på din dator
+library(remotes)  
+install_github("StatisticsSU/regkurs") # görs bara en gång på din dator
+library(regkurs)
+
+# För en lista med alla funktioner och datamaterial i paketet
+help(, "regkurs")
+
+# För information om ett specifikt datamaterial eller funktion i kurspaketet
+?namnet_på_datamaterialet
+?namnet_på_funktionen
+```
