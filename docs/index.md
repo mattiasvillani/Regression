@@ -75,7 +75,16 @@ Läs: Övningstentamen på Athena.
 
 ### Det statistiska programmeringsspråket R
 
-Kursen har ett eget R paket med några datamaterial som används på kursen och några hjälpfunktioner som kan vara praktiska.
+Kursen använder det mycket populära statistiska programmeringsspråket R. Programmet är helt gratis och kan laddas ner på alla datorer. 
+Du kan ladda ner R [här](https://ftp.acc.umu.se/mirror/CRAN/).
+
+R är lättast att jobba i från programmet RStudio. RStudio är en slags arbetsmiljö byggd kring R. 
+RStudio är gratis och kan ladda ner [här](https://www.rstudio.com/products/rstudio/download/#download).
+Det finns en massa bra videos och tutorials för R och RStudio. [Här](https://youtu.be/FIrsOBy5k58) är t ex en kort video som ge en rundtur i RStudio.
+
+Kursen har ett eget R paket med några datamaterial som används på kursen.
+Paketet innehåller också några hjälpfunktioner som kan vara praktiska. 
+För att kunna använda paketet behöver du installera det:
 ```
 # För att installera kurspaketet regkurs
 install.packages("remotes") # görs bara en gång på din dator
