@@ -37,8 +37,8 @@ Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/r
 Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
 **Föreläsning 4 - Multipel regression: Estimation, inferens, regularisering**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)\
-Kod: [SAS kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas) | [SAS kod för att simulera regressionsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/simdatareg.sas)
+Läs: AJÅ Kapitel 3 | [Slides](/Misc/larry.png)\
+Kod: [R kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) 

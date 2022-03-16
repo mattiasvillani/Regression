@@ -355,6 +355,17 @@ Samband mellan hälsovårdsbudget och livslängd
 
 \end_layout
 
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-healthbudget-orange.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1313,7 +1324,7 @@ status open
 
 \series bold
 \color orange
-Regression i SAS
+Regression i R
 \end_layout
 
 \end_inset
@@ -1325,9 +1336,9 @@ Regression i SAS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/procregSAS.png
+	filename figs/healthbudget_reg_R_code.png
 	lyxscale 50
-	scale 40
+	scale 25
 
 \end_inset
 
@@ -1337,9 +1348,9 @@ Regression i SAS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/HealthDataSAS.png
+	filename figs/healthbudget_reg_R_output_coef.png
 	lyxscale 40
-	scale 25
+	scale 35
 
 \end_inset
 
@@ -1470,6 +1481,44 @@ s_{e}^{2}=\frac{125.0824413}{30-2}\approx4.467\quad\quad\quad s_{e}=\sqrt{4.467}
 
 \end_deeper
 \begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_rootmse.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
 \begin_inset Separator parbreak
 \end_inset
 
@@ -2188,6 +2237,44 @@ status open
 
 \series bold
 \color orange
+ANOVA i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_anova.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Variansanalys (ANOVA)
 \end_layout
 
@@ -2328,6 +2415,47 @@ status open
 
 \series bold
 \color orange
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_r2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Samma regression på väldigt olika data 
 \begin_inset Graphics
 	filename /home/mv/Dropbox/IconsAndLogos/Exploding Face Emoji.png
@@ -2403,6 +2531,17 @@ observationer med stor påverkan
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename figs/badges/R-anscombe-blue.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -2627,6 +2766,17 @@ status open
 \begin_inset Graphics
 	filename figs/oring.pdf
 	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-orings-orange.png
 	scale 35
 
 \end_inset

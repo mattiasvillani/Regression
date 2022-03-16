@@ -1,4 +1,4 @@
-Rank,Discipline,YrsSincePhD,YrsService,Sex,Salary,logsalary,phdage,phdagesqr,rank2,rank3,sex,discipline
+Rank,Discipline,YrsSincePhD,YrsService,Sex,Salary,LogSalary,PhdAge,PhdAgeSqr,Rank2,Rank3,Sex,Discipline
 Prof,B,19,18,Male,139750,11.847610391017346,0.3392857142857143,0.11511479591836736,false,true,true,false
 Prof,B,20,16,Male,173200,12.062202275110472,0.35714285714285715,0.12755102040816327,false,true,true,false
 AsstProf,B,4,3,Male,79750,11.286652020647091,0.07142857142857142,0.00510204081632653,false,false,true,false

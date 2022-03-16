@@ -43,7 +43,6 @@
 \definecolor{orange}{RGB}{255, 128, 0}
 \definecolor{lorange}{RGB}{255, 178, 102}
 \definecolor{llorange}{RGB}{255, 229,204 }
-\definecolor{red}{RGB}{255, 128, 0}
 \definecolor{verylightgray}{RGB}{246, 246, 246}
 
 
@@ -144,14 +143,14 @@
 \begin_layout Title
 
 \color orange
-Regressions- och tidserieanalys
+Regressions- och tidsserieanalys
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
 
 \color gray
-Regressionskurs
+ST123G
 \end_layout
 
 \end_inset
@@ -162,7 +161,8 @@ Regressionskurs
 \begin_layout Subtitle
 
 \color orange
-Föreläsning 1 - Introduktion till kursen
+Föreläsning 1 - Introduktion till kursen.
+ Motivation.
 \end_layout
 
 \begin_layout Author
@@ -233,7 +233,7 @@ status open
 
 \series bold
 \color orange
-Course overview
+Översikt
 \end_layout
 
 \end_inset
@@ -249,24 +249,8 @@ Kursens
 
 \begin_inset CommandInset href
 LatexCommand href
-name "webbsida"
-target "https://github.com/mattiasvillani/MLcourse"
-literal "false"
-
-\end_inset
-
-
-\bar default
-\color inherit
-.
- Kursens 
-\bar under
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
 name "kursplan"
-target "https://sisu.it.su.se/pdf_creator/40476/60612/en"
+target "https://athena.itslearning.com/ContentArea/ContentArea.aspx?LocationID=11574&LocationType=1"
 literal "false"
 
 \end_inset
@@ -274,7 +258,7 @@ literal "false"
 
 \bar default
 \color inherit
-.
+ på Athena.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -282,8 +266,38 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Modes of teaching:
-\begin_inset VSpace smallskip
+Slides ligger på denna 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "webbsida"
+target "https://mattiasvillani.github.io/Regression/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ (länkat från Athena).
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kursstruktur
+\series default
+\color inherit
+ för Del 1 - Regressions- och tidsserieanalys:
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -291,7 +305,7 @@ Modes of teaching:
 
 \begin_deeper
 \begin_layout Itemize
-Föreläsningar 1-12 (
+Föreläsningar F1-F12 (
 \bar under
 \color blue
 
@@ -307,17 +321,29 @@ literal "false"
 \bar default
 \color inherit
 )
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Övningar (
+Övningar Ö1-Ö6 (Jon Lachmann)
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Datorövningar D1-D3 (
 \bar under
 \color blue
 
 \begin_inset CommandInset href
 LatexCommand href
-name "Frank Miller"
-target "http://www.adoptdesign.de/frankmillereu/"
+name "Maria Anna Di Lucca"
+target "https://www.su.se/profiles/madi6707-1.423540"
 literal "false"
 
 \end_inset
@@ -326,26 +352,7 @@ literal "false"
 \bar default
 \color inherit
 )
-\end_layout
-
-\begin_layout Itemize
-Datorövningar (
-\bar under
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Karl Sigfrid"
-target "https://www.su.se/english/profiles/kasi3175-1.513541"
-literal "false"
-
-\end_inset
-
-
-\bar default
-\color inherit
-)
-\begin_inset VSpace medskip
+\begin_inset VSpace smallskip
 \end_inset
 
 
@@ -353,7 +360,13 @@ literal "false"
 
 \end_deeper
 \begin_layout Itemize
-Moment:
+
+\series bold
+\color blue
+Delar
+\series default
+\color inherit
+:
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -363,23 +376,27 @@ Moment:
 \begin_deeper
 \begin_layout Itemize
 
-\series bold
-\color blue
+\color black
 Regressionsanalys
 \end_layout
 
 \begin_layout Itemize
 
-\series bold
-\color blue
+\color black
 Tidsserieanalys
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 
 \series bold
-\color red
+\color blue
 Examination
 \series default
 \color inherit
@@ -392,18 +409,17 @@ Examination
 
 \begin_deeper
 \begin_layout Itemize
-Three computer lab reports, 3 credits (in pairs of students)
+Inlämningsuppgift i regressions- och tidsserieanalys, 3 hp
 \end_layout
 
 \begin_layout Itemize
-Exam (5+1 hours computer-based exam.
- Take home this semester), 4.5 credits
+Salstentamen, 4.5 hp
 \end_layout
 
 \end_deeper
 \end_deeper
 \begin_layout Standard
-\begin_inset Separator plain
+\begin_inset Separator parbreak
 \end_inset
 
 
@@ -417,7 +433,44 @@ status open
 
 \series bold
 \color orange
-Översikt - Föreläsning 1
+Är dyra filmer mer populära? 2013-2017
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/movies_logpop_logbudget.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regressionsproblem finns överallt
 \end_layout
 
 \end_inset
@@ -431,33 +484,415 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-Regression är överallt - motiverande exempel:
+
+\series bold
+\color blue
+Regression
+\series default
+\color inherit
+ analyserar
+\series bold
+\color blue
+ samband mellan variabler
+\series default
+\color inherit
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Företagsekonomi: 
+Företags marknadsföringsbudget (
+\begin_inset Formula $x$
+\end_inset
+
+) och försäljning (
+\begin_inset Formula $y$
+\end_inset
+
+).
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Nationalekonomi: 
+Dos av smärtstillande (
+\begin_inset Formula $x$
+\end_inset
+
+) och upplevd smärtlindring (
+\begin_inset Formula $y$
+\end_inset
+
+).
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Statsvetenskap: predicting US elections: https://avehtari.github.io/ROS-Examples/E
-lectionsEconomy/hibbs.html
+Studietimmar (
+\begin_inset Formula $x$
+\end_inset
+
+) och tentaresultat (
+\begin_inset Formula $y$
+\end_inset
+
+).
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Psykologi: 
+Kvadratmeter (
+\begin_inset Formula $x$
+\end_inset
+
+) och bostadrättspris (
+\begin_inset Formula $y$
+\end_inset
+
+).
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Naturvetenskap: 
+Ränta (
+\begin_inset Formula $x$
+\end_inset
+
+) och inflation (
+\begin_inset Formula $y$
+\end_inset
+
+).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Regression handlar om 
+\series bold
+\color blue
+korrelation
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+Samvariation
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-AI: En maskin känner igen handskriva postnummer
+Samband kan utnyttjas för att göra 
+\series bold
+\color blue
+prediktioner
+\series default
+\color inherit
+.
+
+\series bold
+\color orange
+ 
+\series default
+\color inherit
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/HeartEyes.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Korrelation innebär inte 
+\series bold
+\color blue
+kausala samband
+\series default
+\color inherit
+ (orsak 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ verkan).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool i Washington DC
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/capitalbikesharemap.png
+	lyxscale 20
+	scale 11
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Företag som hyr ut cyklar vill
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+förstå
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+vilka faktorer
+\series default
+\color inherit
+ som påverkar användandet
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+göra
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+prediktioner
+\series default
+\color inherit
+ på kort och lång sikt över användandet
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+fatta beslut
+\series default
+\color inherit
+ om hur många cyklar de ska ha i poolen.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Data:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+2 års data på antalet uthyrda cyklar per dag
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Väderinformation
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Helger, ledigheter etc
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Originaldata inkl beskrivning finns 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ännu mer data, även i realtid, finns 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://www.capitalbikeshare.com/system-data"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Delmängd av data som jag använder finns:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://raw.githubusercontent.com/mattiasvillani/Regression/master/Data/cykeluthyr.csv"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ i CSV format.
+\end_layout
+
+\begin_layout Itemize
+I R-paketet 
+\family typewriter
+SUdatasets
+\family default
+.
+ 
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-bike-orange.png
+	scale 40
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -470,11 +905,1752 @@ AI: En maskin känner igen handskriva postnummer
 \end_layout
 
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool - data i CSV format
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikesharedataCSVformat.png
+	lyxscale 50
+	scale 17
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool - data i tabellform
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikesdatahead.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+dtedat
+\family default
+: datum (dag) för observationen.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+nRides
+\family default
+: antal uthyrningar för en given dag.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+temp: (normaliserad, 0 är kallast, 1 är varmast).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+hum
+\family default
+: luftfuktighet (normaliserad)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+windspeed
+\family default
+: vindhastighet (normaliserad)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+season
+\family default
+: (vinter = 1, vår = 2, sommar = 3, höst = 4).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool - hjälpen i SUdatasets paketet: ?bike
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikesdatapackagehelp.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förklarande variabel: temperatur
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regressionslinje
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regressionsekvation
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=1214.64+6640.71\cdot\text{temperatur}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prediktion för temp = 0.6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Pred.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Prediktion för temperatur = 
+\begin_inset Formula $0.6$
+\end_inset
+
+ (hyfsat varm dag)
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=1214.64+6640.71\cdot0.6\approx5199\text{ turer}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förklarande variabel: luftfuktighet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_hum.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förklarande variabler: temp och luftfuktighet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regressionsekvation
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=2657.9+6886.97\cdot\text{temperatur}-2492.85\cdot\text{{\color{orange}luftfuktighet}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktion
+\series default
+\color inherit
+ för hyfsat varm, 
+\series bold
+\color orange
+väldigt klibbig
+\series default
+\color inherit
+ dag
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=2657.9+6886.97\cdot0.6-2492.85\cdot{\color{orange}0.9}=4546.52
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktion
+\series default
+\color inherit
+ för hyfsat varm, 
+\series bold
+\color orange
+mycket torr
+\series default
+\color inherit
+ dag
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=2657.9+6886.97\cdot0.6-2492.85\cdot{\color{orange}0.1}=6540.80
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förklarande variabler: temp och säsong
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_by_season.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exempel på frågor som besvaras under kursen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Fler än en förklarande variabel? 
+\series bold
+\color blue
+Multipel regression
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Förklarande variabler som är 
+\series bold
+\color blue
+binära
+\series default
+\color inherit
+ (0 = vardag, 1 = helg)?
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Förklarande variabler som 
+\series bold
+\color blue
+kategoriska
+\series default
+\color inherit
+ (säsong)?
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Är en förklarande variabel 
+\emph on
+verkligen
+\emph default
+ korrelerad med målvariabeln? 
+\series bold
+\color blue
+Hypotesttest
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur 
+\series bold
+\color blue
+väljer
+\series default
+\color inherit
+ man modellens
+\series bold
+\color blue
+ förklarande variabler
+\series default
+\color inherit
+?
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hur träffsäker
+\series default
+\color inherit
+ är en 
+\series bold
+\color blue
+prediktion
+\series default
+\color inherit
+ från en regressionsmodell?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tidsserier - Data uppmätta över tid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_tidsserie.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trend
+\series default
+\color inherit
+ över tid?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Säsongsvariation
+\series default
+\color inherit
+?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förklarande variabel: gårdagens uthyrning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_lag.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gårdagens uthyrning och säsong
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_lag_by_season.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prognosticera slutpris på internetauktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Mål
+\series default
+\color inherit
+: statistisk modell för att förutsäga slutpriset i en auktion.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Data
+\series default
+\color inherit
+ från 1000 avslutade myntauktioner: 
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-ebaycoins-orange.png
+	scale 35
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Målvariabel
+\series default
+\color inherit
+: vinnande bud.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Förklarande variabler
+\series default
+\color inherit
+: 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+värde enligt myntkatalog
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+skadad?
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+säljarens aktivitet
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+säljarens feedback score 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+obruten förpackning?
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/ebaybids.png
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Är myntkatalogens värderingar en bra prediktor?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ebaycoins_bookval_price.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Skrämmer höga startbud bort budgivare?
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ebaycoins_bidders_minbidshare.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Riksbanken och styrräntan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Riksbankens mål är att hålla inflationen nära 2% per år.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Riksbanken bestämmer den s k reporäntan in ekonomin.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur beror inflationen på räntan?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Både 
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "inflation"
+target "https://www.riksbank.se/sv/statistik/makroindikatorer/underliggande-inflation/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+ och 
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "reporänta"
+target "https://www.riksbank.se/sv/statistik/sok-rantor--valutakurser/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+ är exempel på 
+\series bold
+\color blue
+tidsserier
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sambandet
+\series default
+\color inherit
+ mellan inflation och ränta: 
+\series bold
+\color blue
+regression
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-swedinfl-orange.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/inflrepo.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/inflreposcatter.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Var i hjärnan skapas vårt språk?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Person i MR scanner pratar omväxlande med att knyta handen.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/MR_skanner_aarhusSmaller.jpg
+	lyxscale 30
+	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/CFS-brain-scan-basal-ganglia-fMRI.png
+	lyxscale 20
+	scale 43
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\color darkgray
+Lars Kruse, AU Kommunikation, CC license
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Source"
+target "https://journals.plos.org/plosone/article/figures?id=10.1371/journal.pone.0098156"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+, CC license
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mäter mängden syresatt blod på tusentals ställen i hjärnan.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/sidenBrain.png
+	lyxscale 20
+	scale 13
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression
+\series default
+\color inherit
+ med förklarande variabeln pratar/knyter hand.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Förseningar i lokaltrafiken
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mål1: 
+\series bold
+\color blue
+förutsäga förseningar
+\series default
+\color inherit
+ för stadsbussar.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mål2: 
+\series bold
+\color blue
+säkerheten
+\series default
+\color inherit
+ i prediktionen:
+\color green
+ 
+\series bold
+5 min
+\series default
+\color inherit
+, 
+\series bold
+\color orange
+5 min
+\series default
+\color inherit
+, 
+\series bold
+\color red
+5 min
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data: alla förseningar för alla busslinjer i Sthlm under 1 år.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mål: förutsäga förseningen för 12.15-bussen till Tegnérgatan.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Förklarande variabler: 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+försening för 12.15-bussen vid hållplatser innan Tegnérgatan.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+förseningar för tidigare bussar vid hållplats Tegnérgatan.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+tid på dagen
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+rusningstid?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/slroutemap.pdf
+	lyxscale 30
+	scale 19
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/plot_sample_week_y.pdf
+	lyxscale 20
+	scale 13
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Artificiell intelligens och maskininlärning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mål: få en maskin att känna igen handskrivna siffor.
+\end_layout
+
+\begin_layout Itemize
+Data: 60000 handskrivna siffror mellan 0-9.
+\end_layout
+
+\begin_layout Itemize
+Förenkling: enbart skilja mellan 0:or och 1:or.
+\end_layout
+
+\begin_layout Itemize
+Varje bild har 28 x 28 pixlar med värde mellan 0 och 255:
+\end_layout
+
+\begin_layout Standard
+\align center
+0 = svart.
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+128 = 
+\color gray
+mellangrå
+\color inherit
+.
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+255 = 
+\color white
+vit
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/mnistOneWithRedVoxel.png
+	lyxscale 30
+	scale 6
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/mnistZeroWithRedVoxel.png
+	lyxscale 30
+	scale 6
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Använd alla pixlar.
+ Totalt 
+\begin_inset Formula $28\cdot28=784$
+\end_inset
+
+ förklarande variabler:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size tiny
+Gråhet i pixel (1,1)
+\end_layout
+
+\begin_layout Itemize
+
+\size tiny
+Gråhet i pixel (1,2)
+\end_layout
+
+\begin_layout Itemize
+
+\size tiny
+...
+\end_layout
+
+\begin_layout Itemize
+
+\size tiny
+Gråhet i pixel (28,28)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Målvariabeln är
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+binär
+\series default
+\color inherit
+: 0 eller 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistisk regression
+\series default
+\color inherit
+: modell för 
+\emph on
+sannolikheten
+\emph default
+ för 1:a.
+\end_layout
+
+\begin_layout Itemize
+Djupa neural nätverk (deep learning) är en form av regression.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Artificiell intelligens och maskininlärning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/statsrequiste.png
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Några datakällor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Statististikdatabasen SCB"
+target "http://www.statistikdatabasen.scb.se/pxweb/sv/ssd/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "OECD"
+target "https://stats.oecd.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Gapminder"
+target "https://www.gapminder.org/data/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "UCI - machine learning repository"
+target "https://archive.ics.uci.edu/ml/datasets.php"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Kaggle - machine learning "
+target "https://www.kaggle.com/datasets"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
 \end_inset
 
 

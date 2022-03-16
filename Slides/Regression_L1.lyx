@@ -328,22 +328,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Övningar Ö1-Ö6 (
-\bar under
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Maria Anna Di Lucca"
-target "https://www.su.se/profiles/madi6707-1.423540"
-literal "false"
-
-\end_inset
-
-
-\bar default
-\color inherit
- och Jon Lachmann)
+Övningar Ö1-Ö6 (Jon Lachmann)
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -351,7 +336,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Datorövningar D1-D4 (
+Datorövningar D1-D3 (
 \bar under
 \color blue
 
@@ -366,7 +351,7 @@ literal "false"
 
 \bar default
 \color inherit
- och Jon Lachmann)
+)
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -872,10 +857,14 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Delmängd av data som jag använder finns 
+Delmängd av data som jag använder finns:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
 \bar under
 \color blue
-
 \begin_inset CommandInset href
 LatexCommand href
 name "här"
@@ -890,6 +879,23 @@ literal "false"
  i CSV format.
 \end_layout
 
+\begin_layout Itemize
+I R-paketet 
+\family typewriter
+SUdatasets
+\family default
+.
+ 
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-bike-orange.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -955,9 +961,9 @@ Cykelpool - data i tabellform
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/bikesharedataTable.png
+	filename figs/bikesdatahead.png
 	lyxscale 50
-	scale 15.5
+	scale 40
 
 \end_inset
 
@@ -1008,6 +1014,43 @@ windspeed
 season
 \family default
 : (vinter = 1, vår = 2, sommar = 3, höst = 4).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykelpool - hjälpen i SUdatasets paketet: ?bike
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikesdatapackagehelp.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1625,7 +1668,14 @@ Mål
 Data
 \series default
 \color inherit
- från 1000 avslutade myntauktioner:
+ från 1000 avslutade myntauktioner: 
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-ebaycoins-orange.png
+	scale 35
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1943,6 +1993,7 @@ tidsserier
 \series default
 \color inherit
 .
+ 
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1963,6 +2014,20 @@ regression
 \series default
 \color inherit
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/badges/SUdatasets-swedinfl-orange.png
+	scale 35
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
