@@ -38,7 +38,7 @@ Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](http
 
 **Föreläsning 4 - Multipel regression: Estimation, inferens, regularisering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
-Kod: [R kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas)
+Kod: [R kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
@@ -57,18 +57,18 @@ Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw
 Datamaterial: [airpassengers](https://github.com/mattiasvillani/Regression/raw/master/Data/airpassenger.csv)  | [global temperature](https://github.com/mattiasvillani/Regression/raw/master/Data/globaltemp.csv)\
 Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https://github.com/mattiasvillani/Regression/raw/master/Misc/airlineDecomp.xlsx)
 
-
-**Föreläsning 9 - Tidsserieanalys. Säsongsrensning med hjälp av regressionsanalys.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
-
-**Föreläsning 10 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
+**Föreläsning 9 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
 Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
-Kod: [SAS kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/inflAR.sas)
+Kod: [R kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)
 
-**Föreläsning 11 - Logistisk regression.**\
+**Föreläsning 10 - ARMA modeller för tidserier. Logistisk regression.**\
 Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regression/raw/master/Data/breastcancer.csv)
+
+**Föreläsning 11 - Logistisk regression, forts.**\
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
+Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
 Läs: Övningstentamen på Athena.
