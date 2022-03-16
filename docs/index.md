@@ -37,36 +37,36 @@ Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/r
 Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
 **Föreläsning 4 - Multipel regression: Estimation, inferens, regularisering**\
-Läs: AJÅ Kapitel 3 | [Slides](/Misc/larry.png)\
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
 Kod: [R kod för regression på cykeluthyrningsdata](https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) 
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) | [Excelfil för analys av carsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) | [Excelfil för analys av carsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
 Datamaterial: [cars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)\
 Extramaterial: [gif om bias när man missar att inkludera en förklarande variabel](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/omitted_var_bias.gif)
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\
-Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L7.pdf) \
+Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) \
 Datamaterial: [salaries](https://github.com/mattiasvillani/Regression/raw/master/Data/salaries.csv) | [BNP-tillväxt Kina](https://github.com/mattiasvillani/Regression/raw/master/Data/china_gdp.csv)
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L8.pdf)\
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
 Datamaterial: [airpassengers](https://github.com/mattiasvillani/Regression/raw/master/Data/airpassenger.csv)  | [global temperature](https://github.com/mattiasvillani/Regression/raw/master/Data/globaltemp.csv)\
 Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https://github.com/mattiasvillani/Regression/raw/master/Misc/airlineDecomp.xlsx)
 
 
 **Föreläsning 9 - Tidsserieanalys. Säsongsrensning med hjälp av regressionsanalys.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf) 
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) 
 
 **Föreläsning 10 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
-Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf)\
+Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
 Kod: [SAS kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/inflAR.sas)
 
 **Föreläsning 11 - Logistisk regression.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L11.pdf)\
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regression/raw/master/Data/breastcancer.csv)
 
@@ -82,8 +82,7 @@ R är lättast att jobba i från programmet RStudio. RStudio är en slags arbets
 RStudio är gratis och kan ladda ner [här](https://www.rstudio.com/products/rstudio/download/#download).
 Det finns en massa bra videos och tutorials för R och RStudio. [Här](https://youtu.be/FIrsOBy5k58) är t ex en kort video som ge en rundtur i RStudio.
 
-Kursen har ett eget R paket med några datamaterial som används på kursen.
-Paketet innehåller också några hjälpfunktioner som kan vara praktiska. 
+Kursen har ett eget R paket med några hjälpfunktioner som används på kursen. 
 För att kunna använda paketet behöver du installera det:
 ```
 # För att installera kurspaketet regkurs
@@ -92,7 +91,11 @@ library(remotes)
 install_github("StatisticsSU/regkurs") # görs bara en gång på din dator
 library(regkurs)
 
-# För en lista med alla funktioner och datamaterial i paketet
+# För att installera kursen datamaterial
+install_github("StatisticsSU/SUdatasets") # görs bara en gång på din dator
+library(SUdatasets)
+
+# För en lista med alla funktioner i paketet regkurs
 help(, "regkurs")
 
 # För information om ett specifikt datamaterial eller funktion i kurspaketet
