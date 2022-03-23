@@ -524,6 +524,24 @@ Regression som sannolikhetsmodell
 
 \begin_deeper
 \begin_layout Itemize
+Underliggande 
+\series bold
+\color blue
+populationsmodell
+\series default
+\color inherit
+ för regression:
+\begin_inset Formula 
+\[
+y=\alpha+\beta x+\varepsilon,\quad\varepsilon\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 Stickprov/datamaterial med 
 \begin_inset Formula $n$
 \end_inset
@@ -560,7 +578,7 @@ Vanligt att anta oberoende feltermer
 \end_layout
 
 \begin_layout Itemize
-Antar oftast också samma varians 
+Antar oftast också samma varians.
 \end_layout
 
 \begin_layout Itemize
@@ -699,7 +717,7 @@ Bestäm
 \begin_inset Formula $x_{1},\ldots,x_{n}$
 \end_inset
 
-(som antas vara icke-slumpmässiga)
+ (som antas vara icke-slumpmässiga)
 \begin_inset VSpace medskip
 \end_inset
 
@@ -728,9 +746,25 @@ Beräkna
 \end_inset
 
  för varje observation.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/regsimulateR.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1714,16 +1748,6 @@ Root MSE =
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-Sum of Squares Regression (SSR) heter 
-\series bold
-\color blue
-Sum of Squares Model
-\series default
-\color inherit
- (SSM) i SAS.
 \end_layout
 
 \end_deeper
