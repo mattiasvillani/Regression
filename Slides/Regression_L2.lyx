@@ -358,8 +358,8 @@ Samband mellan hälsovårdsbudget och livslängd
 \begin_layout Standard
 \align right
 \begin_inset Graphics
-	filename figs/badges/SUdatasets-healthbudget-orange.png
-	scale 35
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/healthbudget.pdf
+	scale 45
 
 \end_inset
 
@@ -1290,7 +1290,7 @@ gif-time!
 
 \begin_deeper
 \begin_layout Itemize
-På webbsidan ligger en animerad gif:en com visar hur olika regressionlinjer
+På webbsidan ligger en animerad gif som visar hur olika regressionlinjer
  ger olika SSE.
  
 \bar under
@@ -2168,26 +2168,7 @@ ANOVA-uppdelningen:
 
 \end_layout
 
-\begin_layout Itemize
-SSR kallas för 
-\series bold
-\color blue
-S
-\series default
-\color inherit
-um of 
-\series bold
-\color blue
-S
-\series default
-\color inherit
-quares 
-\series bold
-\color blue
-M
-\series default
-\color inherit
-odel is SAS.
+\begin_layout Standard
 \begin_inset VSpace medskip
 \end_inset
 
@@ -2534,8 +2515,8 @@ observationer med stor påverkan
 \begin_layout Standard
 \align right
 \begin_inset Graphics
-	filename figs/badges/R-anscombe-blue.png
-	scale 35
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/anscombe.pdf
+	scale 45
 
 \end_inset
 
@@ -2558,7 +2539,7 @@ status open
 
 \series bold
 \color orange
-Samband mellan hälsovårdsbudget och livslängd
+Inflytelserika observationer
 \end_layout
 
 \end_inset
@@ -2776,8 +2757,8 @@ status open
 \begin_layout Standard
 \align right
 \begin_inset Graphics
-	filename figs/badges/SUdatasets-orings-orange.png
-	scale 35
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/orings.pdf
+	scale 45
 
 \end_inset
 

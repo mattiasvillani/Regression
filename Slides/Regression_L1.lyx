@@ -887,7 +887,7 @@ SUdatasets
 .
  
 \begin_inset Graphics
-	filename figs/badges/SUdatasets-bike-orange.png
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/bike.pdf
 	scale 35
 
 \end_inset
@@ -1670,7 +1670,7 @@ Data
 \color inherit
  från 1000 avslutade myntauktioner: 
 \begin_inset Graphics
-	filename figs/badges/SUdatasets-ebaycoins-orange.png
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/ebaycoins.pdf
 	scale 35
 
 \end_inset
@@ -2022,7 +2022,7 @@ regression
 
 
 \begin_inset Graphics
-	filename figs/badges/SUdatasets-swedinfl-orange.png
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/swedinfl.pdf
 	scale 35
 
 \end_inset
