@@ -334,7 +334,7 @@ X_{1},\ldots,X_{n}\overset{\mathrm{ober}}{\sim}N(\mu,\sigma^{2}),\quad\sigma^{2}
 \end_layout
 
 \begin_layout Itemize
-Medelvärdet 
+Medelvärdet
 \begin_inset Formula 
 \[
 \bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}

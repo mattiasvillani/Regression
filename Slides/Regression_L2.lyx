@@ -2195,7 +2195,7 @@ Hälsobudgetdata:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\mathrm{SSR}=\mathrm{SST}-\mathrm{SSR}=56.908$
+\begin_inset Formula $\mathrm{SSR}=\mathrm{SST}-\mathrm{SSE}=56.908$
 \end_inset
 
 .
