@@ -1207,6 +1207,18 @@ Bevis
 \end_layout
 
 \begin_layout Itemize
+Skattning av intercept:
+\begin_inset Formula 
+\[
+a=\bar{y}-b\cdot\bar{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 Hälsobudgetdata
 \begin_inset Formula 
 \begin{align*}
@@ -1558,7 +1570,7 @@ graden av linjärt samband
 
 \begin_inset Formula 
 \[
-r=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})(y_{i}-\bar{y}_{i})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
+r=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
 \]
 
 \end_inset

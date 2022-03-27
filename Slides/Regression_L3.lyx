@@ -579,6 +579,13 @@ Vanligt att anta oberoende feltermer
 
 \begin_layout Itemize
 Antar oftast också samma varians.
+ 
+\series bold
+\color blue
+Homoskedastisk
+\series default
+\color inherit
+ modell.
 \end_layout
 
 \begin_layout Itemize

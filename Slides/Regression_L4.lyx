@@ -360,7 +360,16 @@ Fler förklarande variabler - multipel regression
 
 \begin_deeper
 \begin_layout Itemize
-Dåligt: skatta enkel regression för varje förklarande variabel.
+Skatta enkel regression för varje förklarande variabel.
+ 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Thumbs Down Emoji [Free Download IOS Emojis].png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \begin_inset VSpace medskip
 \end_inset
 
@@ -368,7 +377,16 @@ Dåligt: skatta enkel regression för varje förklarande variabel.
 \end_layout
 
 \begin_layout Itemize
-Bra: skatta multipel regression med alla förklarande variabler.
+Skatta multipel regression med alla förklarande variabler.
+ 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Thumbs Up Emoji [Free Download IOS Emojis].png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \begin_inset VSpace medskip
 \end_inset
 
@@ -582,7 +600,7 @@ Med
 \begin_inset Formula $k$
 \end_inset
 
- förklarande variabler får 
+ förklarande variabler får vi 
 \begin_inset Formula $k+1$
 \end_inset
 
@@ -617,7 +635,7 @@ status open
 
 \series bold
 \color orange
-Enkel regression temp - SAS
+Enkel regression temp - R
 \end_layout
 
 \end_inset
@@ -629,9 +647,9 @@ Enkel regression temp - SAS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/SAScykelRegTemp.png
+	filename figs/RcykelRegTemp.png
 	lyxscale 30
-	scale 38
+	scale 35
 
 \end_inset
 
@@ -650,22 +668,6 @@ Skattad modell
 
 \end_layout
 
-\begin_layout Itemize
-
-\bar under
-\begin_inset CommandInset href
-LatexCommand href
-name "SAS-kod"
-target "https://github.com/mattiasvillani/Regression/raw/master/Code/cykeluthyrning.sas"
-literal "false"
-
-\end_inset
-
-
-\bar default
- finns på webbsidan.
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -682,7 +684,7 @@ status open
 
 \series bold
 \color orange
-Multipel regression temp och hum - SAS
+Multipel regression temp och hum - R
 \end_layout
 
 \end_inset
@@ -694,9 +696,9 @@ Multipel regression temp och hum - SAS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/SAScykelRegTempHum.png
+	filename figs/RcykelRegTempHum.png
 	lyxscale 30
-	scale 42
+	scale 37
 
 \end_inset
 
@@ -733,7 +735,7 @@ status open
 
 \series bold
 \color orange
-Multipel regression temp, hum, wind - SAS
+Multipel regression temp, hum, wind - R
 \end_layout
 
 \end_inset
@@ -745,9 +747,9 @@ Multipel regression temp, hum, wind - SAS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/SAScykelRegTempHumWind.png
+	filename figs/RcykelRegTempHumWind.png
 	lyxscale 30
-	scale 37
+	scale 35
 
 \end_inset
 
@@ -1113,7 +1115,7 @@ t_{0.975}(n-k-1)=t_{0.975}(727)=1.963
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/SASBikeShareWithCI.png
+	filename figs/RBikeShareWithCI.png
 	scale 35
 
 \end_inset
@@ -1124,7 +1126,7 @@ t_{0.975}(n-k-1)=t_{0.975}(727)=1.963
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/SASRegwithCICode.png
+	filename figs/RRegwithCICode.png
 	scale 30
 
 \end_inset
@@ -1997,15 +1999,11 @@ kan sätta vissa
 
 \end_deeper
 \begin_layout Itemize
-SAS GLMSELECT med SELECTION=LASSO som option gör Lasso regression.
-\begin_inset VSpace medskip
-\end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-glmnet paketet i R gör Lasso och mycket mer.
+\family typewriter
+glmnet
+\family default
+ paketet i R gör både L1 och L2 regularisering och mer.
 \begin_inset VSpace medskip
 \end_inset
 
