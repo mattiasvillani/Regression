@@ -562,6 +562,27 @@ Normalitetstest
 
 \series bold
 \color blue
+Outliers
+\series default
+\color inherit
+: 
+\series bold
+\color blue
+studentized residuals
+\series default
+\color inherit
+.
+ Standardiserade residualer.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
 Oberoende residualer
 \series default
 \color inherit
