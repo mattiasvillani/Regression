@@ -44,8 +44,8 @@ Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw
 R kod: [regression med bike data](https://github.com/mattiasvillani/Regression/raw/master/Code/bike.R) | [regression healthbudget data](https://github.com/mattiasvillani/Regression/raw/master/Code/healthbudget.R)
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
-Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) | [Excelfil för analys av carsdata](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
-Datamaterial: [cars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)\
+Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) | [Excelfil för analys av mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
+Datamaterial: [mtcars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)\
 R kod: [regression med mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Code/mtcars.R)\ 
 Extramaterial: [gif om bias när man missar att inkludera en förklarande variabel](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/omitted_var_bias.gif)
 
