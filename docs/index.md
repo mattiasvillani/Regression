@@ -36,11 +36,12 @@ Extramaterial: [Kalkylark för beräkning av residualer - hälsobudget](https://
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L3.pdf)\
 Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
-**Föreläsning 4 - Multipel regression: Estimation, inferens, regularisering**\
+**Föreläsning 4 - Multipel regression: Estimation, inferens**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) \
+R notebook: [Variabelselektion - R notebook](https://github.com/mattiasvillani/Regression/raw/master/Notebooks/VariableSelection.Rmd) | [Variabelselektion - pdf](https://github.com/mattiasvillani/Regression/raw/master/Notebooks/VariableSelection.pdf) \
 R kod: [regression med bike data](https://github.com/mattiasvillani/Regression/raw/master/Code/bike.R) | [regression healthbudget data](https://github.com/mattiasvillani/Regression/raw/master/Code/healthbudget.R)
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
