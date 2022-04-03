@@ -1,9 +1,9 @@
 ---
 title: "Forward and Backward selection"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 header-includes:
   - \usepackage{titling}
   - \pretitle{\begin{center}
@@ -11,9 +11,28 @@ header-includes:
   - \posttitle{\end{center}}
 ---
 
+&nbsp;
+<center><img src="cat_variableselection.jpg" alt="cat" width="500"></center>
+&nbsp;
+
+Populationsmodellen för multipel regression är
+$$
+y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k + \varepsilon
+$$
+Men hur ska veta vilka förklarande variabler man ska använda i modellen? Ofta kan man hitta ett antal variabler som tycker rimligtvis borde påverka y. Men finns det något sätt att välja bland dessa rimliga förklarande variabler utifrån data? Vi ska här titta på två sådana automatiska metoder för **variabelselektion**: **forward selection** och **backward elimination**. Dessa två metoder kan kombineras på olika sätt,  men vi ska här titta på dem separat.
+
+Jag ska här visa hur dessa metoder fungerar i datamaterialet **bike**, där vi försöker förklara variationen i responsvariabeln `nRides` (antal uthyrda cyklar under en given dag) med följande fem förklarande variabler:
+
+- `temp`
+- `hum`
+- `windspeed`
+- `holiday` (dummyvariabel som är 1 för helgdag)
+- `workingday` (dummyvariabel som är 1 för arbetsdag)
+ 
 # Forward selection
 
-Vid den s k **forward selection** metoden börjar man enbart ett intercept och lägger sedan till en variabel i taget. Vid varje steg lägger man till en ny variabel tills dess ingen ny variabel har en t-kvot som överstiger tröskeln $t_{obs} = 2$. Valet av just talet 2 som tröskelvärde är rätt godtyckligt, men innebär att man bara lägger till en variabel om den är signifikant på ungefär 5% signifikansnivå (det exakta kritiska värdet är kring 2, men beror ju på antalet frihetsgrader).
+**Forward selection**-metoden börjar man enbart ett intercept och lägger sedan till en variabel i taget. Vid varje steg lägger man till en ny variabel tills dess ingen ny variabel har en t-kvot som överstiger tröskeln $t_{obs} = 2$. Valet av just talet 2 som tröskelvärde är rätt godtyckligt, men innebär att man bara lägger till en variabel om den är signifikant på ungefär 5% signifikansnivå (det exakta kritiska värdet är kring 2, men beror ju på antalet frihetsgrader).
+
 
 ```{r, include = F}
 library(regkurs)
@@ -101,9 +120,9 @@ regsummary(lmfit, anova = F)
 ```
 \newpage 
 
-# Backward selection
+# Backward elimination
 
-Backward selection metoden börjar med alla variabler i modellen och börjar sen ta bort icke-signifikanta variabler, en och en i taget. I varje steg tar vi bort den variabel som har lägst t-kvot, om den t-kvoten är mindre än 2 i absolutbelopp. Om den minsta t-kvoten är större än 2 i absolutbelopp drar vi slutsatsen att alla kvarvarande variabler behövs i modellen, och vi stannar då med den modellen som vårt slutgiltiga modell. Here we go:
+Backward elimination metoden börjar med alla variabler i modellen och börjar sen ta bort icke-signifikanta variabler, en och en i taget. Elimination betyder just att ta bort, eller avlägsna. I varje steg tar vi bort den variabel som har lägst t-kvot, om den t-kvoten är mindre än 2 i absolutbelopp. Om den minsta t-kvoten är större än 2 i absolutbelopp drar vi slutsatsen att alla kvarvarande variabler behövs i modellen, och vi stannar då med den modellen som vårt slutgiltiga modell. Here we go:
 
 ## Steg 1 - kan någon variabel tas bort?
 
@@ -135,5 +154,22 @@ regsummary(lmfit)
 ```
 Variabeln `windspeed` har lägst t-kvot i absolutbelopp, men $|-6.7808|=6.7808$ är större än 2, så vi vill inte ta bort `windspeed` från modellen. Vi stannar alltså här och vår slutliga modell blir alltså modellen med `temp`, `hum` och `windspeed`. 
 
-I det här exemplet gav forward och backward selection samma slutliga modell. Så är dock inte alltid.
+I det här exemplet gav forward och backward selection samma slutliga modell. Så är det dock inte alltid.
 
+\newpage 
+
+# Använda R-paket för variabelselektion
+
+Det finns många R-paket som gör variabelselektion. Det inbyggda paketet `stats` innehåller t ex funktionen `step()` som automatiskt gör alla stegen ovan för forward och backward selection. Funktionen `step()` använder inte t-kvoter för att bestämma vilken variabel som ska läggas till eller ta bort, det använder ett annat kriterium som heter AIC. Men principen för forward och backward selection är densamma.
+
+Paketet `leaps` kan användas för att undersöka t ex justerad $R^2$ för alla möjliga kombinationer av förklarande variabler. Justerad $R^2$ heter adjusted $R^2$ på engelska och förkortas som `R2-adj` i utskrifter. Adjusted $R^2$ kan, till skillnad från vanliga $R^2$, minska om man lägger till förklarande variabler som inte är relaterade (korrelerade) med responsvariabeln. Vi kan därför välja den kombination av förklarande variabler som har högst adjusted $R^2$.
+
+```{r}
+library(leaps)
+allmodels<-regsubsets(nRides ~ temp + hum + windspeed + holiday + workingday, 
+                      method = "exhaustive", nbest=10, data = bike)
+summary_all = summary(allmodels)
+adjr2 = summary_all$adjr2
+cbind(summary_all$outmat[order(adjr2, decreasing = T),], sort(adjr2, decreasing = T))
+```
+Vi ser att modellen med alla variabler utom `workingday` har högst justerad $R^2$ (sista kolumnen). Modellen med `temp`, `hum` och `windspeed` som hittades av forward selection och backward elimination är den fjärde bästa modellen enligt justerad $R^2$.

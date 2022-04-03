@@ -51,7 +51,8 @@ R kod: [regression med mtcars data](https://github.com/mattiasvillani/Regression
 Extramaterial: [gif om bias när man missar att inkludera en förklarande variabel](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/omitted_var_bias.gif)
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\
-Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) \
+Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L7.pdf) \
+Kod: [R kod för polynomregression mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Code/mtcars_polynom.R)\
 Datamaterial: [salaries](https://github.com/mattiasvillani/Regression/raw/master/Data/salaries.csv) | [BNP-tillväxt Kina](https://github.com/mattiasvillani/Regression/raw/master/Data/china_gdp.csv)
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
