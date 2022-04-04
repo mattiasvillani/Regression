@@ -404,7 +404,13 @@ skattad enbart på träningsdata
 \end_layout
 
 \begin_layout Itemize
-överanpassning på träningsdata 
+
+\series bold
+\color blue
+överanpassning
+\series default
+\color inherit
+ på träningsdata 
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
@@ -2004,7 +2010,7 @@ tillväxttakten
 \begin{align*}
 b>1 & \text{ ökande}\\
 b<1 & \text{ minskade}\\
-b=1 & \text{ konstant}
+b=1 & \text{ konstant (nolltillväxt)}
 \end{align*}
 
 \end_inset
