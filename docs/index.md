@@ -13,7 +13,7 @@ Data  som  har  insamlats  över  tid  är  vanligt  förekommande inom ett stor
 ### Kurslitteratur
 
 * Andersson, G. Jorner, U. och Ågren, A. (2007). Regressions- och tidsserieanalys, Studentlitteratur. Boken förkortas **AJÅ** nedan.
-* Ytterligare kompletterande material som delas ut under kursens gång. 
+* Ytterligare kompletterande material som delas ut under kursens gång.  
 
 Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e5Z4n0wknyaQhxnZclQln_3nbZH05QcTcn_sl3516Qy6d685606y65060501ZWyQo#contentlinks).
 
@@ -36,21 +36,23 @@ Extramaterial: [Kalkylark för beräkning av residualer - hälsobudget](https://
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L3.pdf)\
 Extramaterial: [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
-**Föreläsning 4 - Multipel regression: Estimation, inferens, regularisering**\
+**Föreläsning 4 - Multipel regression: Estimation, inferens**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) \
+R notebook: [Variabelselektion - R notebook](https://github.com/mattiasvillani/Regression/raw/master/Notebooks/VariableSelection.Rmd) | [Variabelselektion - pdf](https://github.com/mattiasvillani/Regression/raw/master/Notebooks/VariableSelection.pdf) \
 R kod: [regression med bike data](https://github.com/mattiasvillani/Regression/raw/master/Code/bike.R) | [regression healthbudget data](https://github.com/mattiasvillani/Regression/raw/master/Code/healthbudget.R)
 
 **Föreläsning 6 - Enkel/Multipel regression (sammanfattning)**\
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L6.pdf) | [Excelfil för analys av mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Misc/CarsSimpleReg.xlsx)\
 Datamaterial: [mtcars](https://github.com/mattiasvillani/Regression/raw/master/Data/cars.csv)\
-R kod: [regression med mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Code/mtcars.R) \ 
+R kod: [regression med mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Code/mtcars.R)\ 
 Extramaterial: [gif om bias när man missar att inkludera en förklarande variabel](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/omitted_var_bias.gif)
 
 **Föreläsning 7 - Icke-linjär regression. Polynomsamband och exponentiella samband. Regularisering.**\
-Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png) \
+Läs: AJÅ Kapitel 4 (ej 4.4) | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L7.pdf) \
+Kod: [R kod för polynomregression mtcars data](https://github.com/mattiasvillani/Regression/raw/master/Code/mtcars_polynom.R)\
 Datamaterial: [salaries](https://github.com/mattiasvillani/Regression/raw/master/Data/salaries.csv) | [BNP-tillväxt Kina](https://github.com/mattiasvillani/Regression/raw/master/Data/china_gdp.csv)
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
@@ -72,7 +74,7 @@ Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larr
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\
-Läs: Övningstentamen på Athena.
+Läs: Övningstenta på Athena.
 
 ### Det statistiska programmeringsspråket R
 

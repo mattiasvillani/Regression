@@ -1,0 +1,175 @@
+---
+title: "Forward and Backward selection"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=4in,height=4in]{cat_variableselection.jpg}\LARGE\\}
+  - \posttitle{\end{center}}
+---
+
+&nbsp;
+<center><img src="cat_variableselection.jpg" alt="cat" width="500"></center>
+&nbsp;
+
+Populationsmodellen för multipel regression är
+$$
+y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k + \varepsilon
+$$
+Men hur ska veta vilka förklarande variabler man ska använda i modellen? Ofta kan man hitta ett antal variabler som tycker rimligtvis borde påverka y. Men finns det något sätt att välja bland dessa rimliga förklarande variabler utifrån data? Vi ska här titta på två sådana automatiska metoder för **variabelselektion**: **forward selection** och **backward elimination**. Dessa två metoder kan kombineras på olika sätt,  men vi ska här titta på dem separat.
+
+Jag ska här visa hur dessa metoder fungerar i datamaterialet **bike**, där vi försöker förklara variationen i responsvariabeln `nRides` (antal uthyrda cyklar under en given dag) med följande fem förklarande variabler:
+
+- `temp`
+- `hum`
+- `windspeed`
+- `holiday` (dummyvariabel som är 1 för helgdag)
+- `workingday` (dummyvariabel som är 1 för arbetsdag)
+ 
+# Forward selection
+
+**Forward selection**-metoden börjar man enbart ett intercept och lägger sedan till en variabel i taget. Vid varje steg lägger man till en ny variabel tills dess ingen ny variabel har en t-kvot som överstiger tröskeln $t_{obs} = 2$. Valet av just talet 2 som tröskelvärde är rätt godtyckligt, men innebär att man bara lägger till en variabel om den är signifikant på ungefär 5% signifikansnivå (det exakta kritiska värdet är kring 2, men beror ju på antalet frihetsgrader).
+
+
+```{r, include = F}
+library(regkurs)
+```
+\newpage
+
+## Steg 1 - val av den första förklarande variabeln
+
+Vi skattar enkla regressioner för var och en av den fem variablerna separat:
+
+```{r}
+lmfit = lm(nRides ~ temp, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ hum, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ windspeed, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ holiday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ workingday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+```
+
+Det största t-värdet i absolutbelopp (dvs bortsett från tecknet framför t-värdet) får vi för variabeln `temp` som har $t_{obs} = 21.7594$. Det t-värdet är också större än 2 (i absolutbelopp), så vi inkluderar därför `temp` i modellen. Notera att vi bryr oss inte om t-värdet för interceptet här. Interceptet är alltid med i modellen.
+
+## Steg 2 - val av den andra förklarande variabeln
+
+Nu fortsätter vi och lägger till en andra förklarande variabel, givet att `temp` redan är med i modellen. Vi skattar där nya regressioner där var och en har `temp` och ytterligare en variabel som förklarande variabler:
+
+```{r}
+
+lmfit = lm(nRides ~ temp + hum, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + windspeed, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + holiday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + workingday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+```
+Givet att `temp` är med i modellen så har `hum` det största t-värdet i absolutbelopp; vi har $t_{obs} = -6.4789$ för `hum` i utskriften ovan. Eftersom detta t-värde är större än 2 (i absolutbelopp) så lägger vi även till variabeln `hum` i modellen. Vi har nu en modell med både `temp` och `hum` som förklarande variabler. Notera att det spelar ingen roll att `temp` har större t-värde än `hum`. Variabeln `temp` är ju redan vald i steg 1 och det är inte längre en fråga om den variabel ska vara med eller inte. Steg 2 här handlar enbart om valet bland de andra variablerna utöver `temp`. Vi fortsätter nu och ser om det är värt att lägga till en tredje variabel.
+
+## Steg 3 - val av den tredje förklarande variabeln
+
+Nu skattar vi regressioner med `temp`, `hum` och ytterligare en variabel som förklarande variabler:
+```{r}
+
+lmfit = lm(nRides ~ temp + hum + windspeed, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + hum + holiday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + hum + workingday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+```
+Vi lägger även till `windspeed` som förklarande variabel efter dess t-värde är störst i absolutebelopp i utskrifterna ovan och större än 2. 
+
+\newpage
+
+## Steg 4 - fjärde variabeln
+
+Vi fortsätter och frågar oss om det är värt att lägga till någon ytterligare variabel utöver de redan valda `temp`, `hum` och `windspeed`. Vi skattar därför regressionerna:
+
+```{r}
+
+lmfit = lm(nRides ~ temp + hum + windspeed + holiday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+
+lmfit = lm(nRides ~ temp + hum + windspeed + workingday, data = bike)
+regsummary(lmfit, anova = F, fit_measures = F)
+```
+Variabeln `holiday` har $t_{obs} = -1.9470$ vilket är större i absolutbelopp än t-värdet för `workingday` (som är $t_{obs} = 1.1079$). `holiday` verkar därför vara en aningens bättre variabel än `workingday`. Men, $t_{obs} = -1.9470$ för `holiday` är mindre än 2 i absolutbelopp vilket innebär att `holiday` inte ska tas med i modellen. Vi stannar där för här och väljer modellen med variablerna `temp`, `hum` och `windspeed`:
+
+```{r}
+lmfit = lm(nRides ~ temp + hum + windspeed , data = bike)
+regsummary(lmfit, anova = F)
+```
+\newpage 
+
+# Backward elimination
+
+Backward elimination metoden börjar med alla variabler i modellen och börjar sen ta bort icke-signifikanta variabler, en och en i taget. Elimination betyder just att ta bort, eller avlägsna. I varje steg tar vi bort den variabel som har lägst t-kvot, om den t-kvoten är mindre än 2 i absolutbelopp. Om den minsta t-kvoten är större än 2 i absolutbelopp drar vi slutsatsen att alla kvarvarande variabler behövs i modellen, och vi stannar då med den modellen som vårt slutgiltiga modell. Here we go:
+
+## Steg 1 - kan någon variabel tas bort?
+
+Vi skattar först modellen med alla fem förklarande variabler:
+
+```{r}
+lmfit = lm(nRides ~ temp + hum + windspeed + holiday + workingday , data = bike)
+regsummary(lmfit)
+```
+
+Vi ser från utskriften att variabeln `workingday` har lägst t-kvot (i absolutebelopp, dvs $|0.63994| < |-1.72236|$). Eftersom och eftersom t-kvoten för `workingday` är mindre än 2 i absolutbelopp så kastar vi ut denna variabel från modellen, och fortsätter med variablerna `temp`, `hum`, `windspeed` och `holiday` till nästa steg.
+
+\newpage
+
+## Steg 2 - kan ytterligare en variabel tas bort?
+```{r}
+lmfit = lm(nRides ~ temp + hum + windspeed + holiday, data = bike)
+regsummary(lmfit)
+```
+
+Vi ser att `holiday` har lägst t-kvot i absolutbelopp, och att denna absoluta t-kvot är mindre än 2. Även `holiday` åker ut ur modellen. Vi fortsätter och ser om vi ska göra oss med ytterligare en variabel.
+
+\newpage
+
+## Steg 3 - kan vi göra oss av med ytterligare en variabel?
+```{r}
+lmfit = lm(nRides ~ temp + hum + windspeed, data = bike)
+regsummary(lmfit)
+```
+Variabeln `windspeed` har lägst t-kvot i absolutbelopp, men $|-6.7808|=6.7808$ är större än 2, så vi vill inte ta bort `windspeed` från modellen. Vi stannar alltså här och vår slutliga modell blir alltså modellen med `temp`, `hum` och `windspeed`. 
+
+I det här exemplet gav forward och backward selection samma slutliga modell. Så är det dock inte alltid.
+
+\newpage 
+
+# Använda R-paket för variabelselektion
+
+Det finns många R-paket som gör variabelselektion. Det inbyggda paketet `stats` innehåller t ex funktionen `step()` som automatiskt gör alla stegen ovan för forward och backward selection. Funktionen `step()` använder inte t-kvoter för att bestämma vilken variabel som ska läggas till eller ta bort, det använder ett annat kriterium som heter AIC. Men principen för forward och backward selection är densamma.
+
+Paketet `leaps` kan användas för att undersöka t ex justerad $R^2$ för alla möjliga kombinationer av förklarande variabler. Justerad $R^2$ heter adjusted $R^2$ på engelska och förkortas som `R2-adj` i utskrifter. Adjusted $R^2$ kan, till skillnad från vanliga $R^2$, minska om man lägger till förklarande variabler som inte är relaterade (korrelerade) med responsvariabeln. Vi kan därför välja den kombination av förklarande variabler som har högst adjusted $R^2$.
+
+```{r}
+library(leaps)
+allmodels<-regsubsets(nRides ~ temp + hum + windspeed + holiday + workingday, 
+                      method = "exhaustive", nbest=10, data = bike)
+summary_all = summary(allmodels)
+adjr2 = summary_all$adjr2
+cbind(summary_all$outmat[order(adjr2, decreasing = T),], sort(adjr2, decreasing = T))
+```
+Vi ser att modellen med alla variabler utom `workingday` har högst justerad $R^2$ (sista kolumnen). Modellen med `temp`, `hum` och `windspeed` som hittades av forward selection och backward elimination är den fjärde bästa modellen enligt justerad $R^2$.
