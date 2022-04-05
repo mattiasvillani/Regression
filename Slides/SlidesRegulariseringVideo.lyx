@@ -1,0 +1,1002 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regularisering i regression
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - linjär regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prognosförmåga på nya data - Korsvalidering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/mtcars4foldCV.png
+	lyxscale 30
+	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prognosfel i testdata
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{MSE}_{CV}=\frac{\sum_{j=1}^{n}(y_{j}-\textcolor{orange}{\hat{y}_{j}^{\star}})^{2}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lättare att tolka 
+\series bold
+\color blue
+Root MSE
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\mathrm{RMSE}_{CV}=\sqrt{\mathrm{MSE}_{CV}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - linjär regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - kvadratisk regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly2.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - kubisk regression mot hp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly3.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - polynomregression ordning 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly4.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - polynomregression ordning 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly5.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - polynomregression ordning 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly10.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ och RMSE-CV(
+\begin_inset Formula $K=4)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/carsR2_RMSEtest.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L2-regularisering (Ridge regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+För många x-variabler
+\series default
+\color inherit
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ MK-metoden överanpassar data.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modellen är 
+\series bold
+\color blue
+överparametriserad
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Variabelselektion (t ex forward selection) är en lösning.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+L2-regularisering
+\series default
+\color inherit
+ minimerar en 
+\series bold
+\color blue
+straffad SSE
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+Q_{\lambda}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\textcolor{orange}{\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Stort 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ kommer 
+\series bold
+\color blue
+krympa
+\series default
+\color inherit
+ estimaten av 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ mot noll.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattningen är nu 
+\series bold
+\color blue
+biased
+\series default
+\color inherit
+, men har 
+\series bold
+\color blue
+lägre varians
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bias-Variance trade-off
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L1-regularisering (Lasso regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+L1-regularisering
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+Lasso
+\series default
+\color inherit
+) straffar med 
+\series bold
+\color blue
+absolutbelopp
+\series default
+\color inherit
+:\SpecialChar softhyphen
+
+\begin_inset Formula 
+\[
+Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\textcolor{orange}{\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso har två effekter:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+krymper 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ mot noll (
+\series bold
+\color blue
+shrinkage
+\series default
+\color inherit
+)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+kan sätta vissa 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ exakt till noll (
+\series bold
+\color blue
+selection
+\series default
+\color inherit
+)
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+glmnet
+\family default
+ paketet i R gör både L1 och L2 regularisering och mer.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso är extremt populär.
+ Go-to när man har väldigt många förklarande variabler.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynom ordning 10 - ingen regularisering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly10.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynom ordning 10 - L1-regularisering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPolyLasso10.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+Q_{\lambda}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a=35.80$
+\end_inset
+
+, 
+\begin_inset Formula $b_{1}=-43.58$
+\end_inset
+
+,
+\series bold
+\color blue
+ 
+\series default
+\color inherit
+
+\begin_inset Formula $b_{3}=23.32$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $b_{2}=0$
+\end_inset
+
+
+\series default
+\color inherit
+ och 
+\begin_inset Formula ${\color{blue}b_{4}=\ldots=b_{10}=0}$
+\end_inset
+
+ (
+\series bold
+\color blue
+variabelselektion
+\series default
+\color inherit
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

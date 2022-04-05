@@ -477,9 +477,9 @@ folds
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/CrossValExcel.png
+	filename figs/mtcars4foldCV.png
 	lyxscale 30
-	scale 24
+	scale 15
 
 \end_inset
 
@@ -514,9 +514,9 @@ Korsvalidering
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/CrossValExcel.png
+	filename figs/mtcars4foldCV.png
 	lyxscale 30
-	scale 9
+	scale 10
 
 \end_inset
 
@@ -527,26 +527,18 @@ Korsvalidering
 
 \series bold
 \color blue
-Mått på prognosförmåga
+Prognosfel i testdata
 \series default
 \color inherit
-:
+
 \begin_inset Formula 
 \[
-\mathrm{SSE}_{\mathrm{CV}}=\sum_{k=1}^{K}\mathrm{SSE}_{\mathrm{test}}^{(k)}
+\mathrm{MSE}_{CV}=\frac{\sum_{j=1}^{n}(y_{j}-\textcolor{orange}{\hat{y}_{j}^{\star}})^{2}}{n}
 \]
 
 \end_inset
 
-där 
-\begin_inset Formula $\mathrm{SSE}_{\mathrm{test}}^{(k)}$
-\end_inset
 
- är SSE för testdata i fold 
-\begin_inset Formula $k$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Itemize
@@ -556,10 +548,10 @@ Lättare att tolka
 Root MSE
 \series default
 \color inherit
- (utan korrektion för frihetsgrader)
+ 
 \begin_inset Formula 
 \[
-\mathrm{RMSE}_{CV}=\sqrt{\frac{\mathrm{SSE}_{Cv}}{n}}
+\mathrm{RMSE}_{CV}=\sqrt{\mathrm{MSE}_{CV}}
 \]
 
 \end_inset
@@ -1558,7 +1550,7 @@ L2-regularisering (Ridge regression)
 
 \series bold
 \color blue
-För många förklarande variabler
+För många x-variabler
 \series default
 \color inherit
  
@@ -1566,17 +1558,34 @@ För många förklarande variabler
 \end_inset
 
  MK-metoden överanpassar data.
- Modellen är 
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modellen är 
 \series bold
 \color blue
 överparametriserad
 \series default
 \color inherit
 .
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Variabelselektion försöker minska antalet skattade parametrar.
+Variabelselektion (t ex forward selection) är en lösning.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1586,59 +1595,21 @@ Variabelselektion försöker minska antalet skattade parametrar.
 L2-regularisering
 \series default
 \color inherit
- (
+ minimerar en 
 \series bold
 \color blue
-ridge
-\series default
-\color inherit
- 
-\series bold
-\color blue
-regression
-\series default
-\color inherit
-) behåller alla variabler i modellen men minimerar en 
-\series bold
-\color blue
-straffad residualkvadratsumma
+straffad SSE
 \series default
 \color inherit
 :
 \begin_inset Formula 
 \[
-Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}
+Q_{\lambda}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\textcolor{orange}{\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-Straff/kostnad för att introducera en variabel i modellen
-\begin_inset Formula 
-\[
-\lambda\cdot\sum_{j=1}^{k}b_{j}^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Hur hårt vi straffar bestäms av 
-\series bold
-\color blue
-regulariseringsparametern 
-\begin_inset Formula $\lambda$
-\end_inset
-
-
-\series default
-\color inherit
-.
 \end_layout
 
 \begin_layout Itemize
@@ -1646,32 +1617,53 @@ Stort
 \begin_inset Formula $\lambda$
 \end_inset
 
- kommer krympa estimaten av 
+ kommer 
+\series bold
+\color blue
+krympa
+\series default
+\color inherit
+ estimaten av 
 \begin_inset Formula $b_{j}$
 \end_inset
 
  mot noll.
  
-\begin_inset Newline newline
+\begin_inset VSpace medskip
 \end_inset
 
-Biased, men lägre varians.
+
+\end_layout
+
+\begin_layout Itemize
+Skattningen är nu 
+\series bold
+\color blue
+biased
+\series default
+\color inherit
+, men har 
+\series bold
+\color blue
+lägre varians
+\series default
+\color inherit
+.
  
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
 \series bold
 \color blue
 Bias-Variance trade-off
 \series default
 \color inherit
 .
-\end_layout
-
-\begin_layout Itemize
-Vi kan bestämma 
-\begin_inset Formula $\lambda$
-\end_inset
-
- själva, eller skatta via korsvalidering.
- 
 \end_layout
 
 \end_deeper
@@ -1722,7 +1714,7 @@ absolutbelopp
 
 \begin_inset Formula 
 \[
-Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|
+Q_{\mathrm{\lambda}}=\sum_{i=1}^{n}(y_{i}-a-b_{1}x_{1i}-\ldots-b_{k}x_{ki})^{2}+\textcolor{orange}{\lambda\cdot\sum_{j=1}^{k}\left|b_{j}\right|}
 \]
 
 \end_inset
@@ -1769,7 +1761,7 @@ selection
 \series default
 \color inherit
 )
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -1782,7 +1774,7 @@ selection
 glmnet
 \family default
  paketet i R gör både L1 och L2 regularisering och mer.
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
