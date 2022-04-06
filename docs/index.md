@@ -56,7 +56,7 @@ Kod: [R kod för polynomregression mtcars data](https://github.com/mattiasvillan
 Datamaterial: [salaries](https://github.com/mattiasvillani/Regression/raw/master/Data/salaries.csv) | [BNP-tillväxt Kina](https://github.com/mattiasvillani/Regression/raw/master/Data/china_gdp.csv)
 
 **Föreläsning 8 - Tidsserieanalys. Komponenter. Säsongsrensning med glidande medelvärden.**\
-Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
+Läs: AJÅ Kapitel 5 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L8.pdf)\
 Datamaterial: [airpassengers](https://github.com/mattiasvillani/Regression/raw/master/Data/airpassenger.csv)  | [global temperature](https://github.com/mattiasvillani/Regression/raw/master/Data/globaltemp.csv)\
 Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https://github.com/mattiasvillani/Regression/raw/master/Misc/airlineDecomp.xlsx)
 

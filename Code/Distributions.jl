@@ -16,6 +16,7 @@ xGrid = 0.0:0.01:6
 xGridFill = Fcrit:0.01:maximum(xGrid)
 plot(xGridFill, pdf.(FDist(ν₁, ν₂), xGridFill), fill = (0, 0.5, colors[9]),
     title = "Under "*L"H_0:"*L"F \sim F(k,n-k-1)", 
+    background_color = RGB(245/255,245/255,245/255),
     c = colors[10], lw = 3, xlab = L"F", yaxis = false, yticks = [], margin = 3mm)
 plot!(xGrid, pdf.(FDist(ν₁, ν₂), xGrid), c = colors[10], lw = 3)
 annotate!(Fcrit-0.25, 2.5*pdf(FDist(ν₁, ν₂), Fcrit), L"F_{\mathrm{crit}}")
