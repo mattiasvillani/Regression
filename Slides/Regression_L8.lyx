@@ -1801,7 +1801,7 @@ trendkomponenten
 \begin_inset Newline newline
 \end_inset
 
-T ex parametrisk modell eller glidande medelvärde.
+T ex parametrisk modell eller glidande medelvärde (ev säsongsvariant).
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1862,7 +1862,7 @@ status open
 
 \series bold
 \color orange
-Airline - additiv med 5-punkts glidande medel
+Airline - additiv med glidande säsongsmedel
 \end_layout
 
 \end_inset

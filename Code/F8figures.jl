@@ -223,6 +223,19 @@ function movingaverage(x, w)
     return movavg
 end
 
+function movingaveragemonthly(x)
+    n = length(x)
+    w = (2/24)*ones(13)
+    w[1] = w[end] = 1/24
+    nwindow = length(w)
+    nside = floor(Int,nwindow/2)
+    movavg = Vector{Union{Missing,Float64}}(missing,n)
+    for t = (nside+1):(n-nside)
+        movavg[t] = sum(w.*x[t-nside:t+nside])
+    end
+    return movavg
+end
+
 # Airline passenger additive decomp
 n = length(airlinevect)
 airlinedates = Vector{Date}(undef,length(airlinevect));
@@ -236,7 +249,8 @@ end
 airTable = DataFrame()
 airTable.dates = airlinedates
 airTable.nPassengers = Int.(airlinevect)
-airTable.trend = round.(movingaverage(airTable.nPassengers, 5), digits = 3)
+#airTable.trend = round.(movingaverage(airTable.nPassengers, 5), digits = 3)
+airTable.trend = round.(movingaveragemonthly(airTable.nPassengers), digits = 3)
 season = 12
 yNoTrend = airlinevect - airTable.trend
 airTable.GrovSasong = round.(yNoTrend, digits = 3)
@@ -255,14 +269,14 @@ lbluelatex = "\\cellcolor{lblue}"
 orange = "\\cellcolor{orange}"
 lorange = "\\cellcolor{lorange}"
 
-strMat1 = string.(Matrix(airTable[1:27,1:end]))
-strMat1[3:7,2] .= lorange.*strMat1[3:7,2]
-strMat1[5,3] = orange*strMat1[5,3]
-offset = 7
-strMat1[(3:7) .+ offset,2] .= lorange.*strMat1[(3:7) .+ offset,2]
-strMat1[5 + offset,3] = orange*strMat1[5 + offset,3]
-strMat1[3:12:27,4] .= lbluelatex.*strMat1[3:12:27,4]
-strMat1[3:12:27,5] .= bluelatex.*strMat1[3:12:27,5]
+strMat1 = string.(Matrix(airTable[1:29,1:end]))
+strMat1[3:15,2] .= lorange.*strMat1[3:15,2]
+strMat1[9,3] = orange*strMat1[9,3]
+offset = 14
+strMat1[(3:15) .+ offset,2] .= lorange.*strMat1[(3:15) .+ offset,2]
+strMat1[9 + offset,3] = orange*strMat1[9 + offset,3]
+strMat1[7:12:27,4] .= lbluelatex.*strMat1[7:12:27,4]
+strMat1[7:12:27,5] .= bluelatex.*strMat1[7:12:27,5]
 strMat1[strMat1 .== "missing"] .= "\$ \\cdot \$"
 # Make table with additive decomp data
 latex_tabular(figFolder*"airlinetable_add_decomp.tex",
@@ -277,7 +291,7 @@ latex_tabular(figFolder*"airlinetable_add_decomp.tex",
     ["\\multicolumn{1}{c}{månad}";
     "\\multicolumn{1}{c}{\$y_t\$}";
     "\\multicolumn{1}{c}{\$ \\hat{T}_t\$}";
-    "\\multicolumn{1}{c}{\$ \\bar S = y_t - \\hat{T}_t\$}";
+    "\\multicolumn{1}{c}{\$ y_t - \\hat{T}_t\$}";
     "\\multicolumn{1}{c}{\$ S^{+} \$}";
     "\\multicolumn{1}{c}{\$ y_t - S^{+} \$}"],
     Rule(),           
@@ -317,18 +331,18 @@ savefig(figFolder*"airline_MAseasonal.pdf")
 MAorder = 5
 season = 12
 y = airlinevect
-T = movingaverage(y, MAorder)
+T = movingaveragemonthly(y)
 yNoTrend = y - T
 sBar = zeros(season)
 for s = 1:season # the first period in the data is labelled season 1
     sBar[s] = mean(skipmissing(yNoTrend[s:season:end]))
 end
 sPlus = sBar .- mean(sBar)
-bar(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], sPlus, lw = 0, ylab = "Additive seasonal factor", title = "additive model",)
+bar(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], sPlus, lw = 0, ylab = "Additive seasonal factor", title = "additive model", label = "")
 savefig(figFolder*"airlineAdditiveSeasonalFactors.pdf")
 
 seasonFit = repeat(sPlus, Int(length(y)/season))
-TrendFit = movingaverage(y - seasonFit, MAorder)
+TrendFit = T #movingaverage(y - seasonFit, MAorder)
 plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers", 
     title = "additive model", legend = :topleft )
 plot!(TrendFit, color = colors[1], label = "trend fit")
@@ -339,20 +353,21 @@ savefig(figFolder*"airline_component_additive_fit.pdf")
 MAorder = 5
 season = 12
 y = log10.(airlinevect)
-T = movingaverage(y, MAorder)
+T = movingaveragemonthly(y)
 yNoTrend = y - T
 sBar = zeros(season)
 for s = 1:season # the first period in the data is labelled season 1
     sBar[s] = mean(skipmissing(yNoTrend[s:season:end]))
 end
 sPlus = sBar .- mean(sBar)
-p = bar(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], 
-    10 .^ sPlus, lw = 0, ylab = "Multiplicative seasonal factor", title = "multiplicative model")
+hline([1], color = colors[1], label = "")
+bar!(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"], 
+    10 .^ sPlus, lw = 0, ylab = "Multiplicative seasonal factor", title = "multiplicative model", label = "")
 ylims!((0.8,1.15))
 savefig(figFolder*"airlineSeasonalFactors.pdf")
 
 seasonFit = repeat(sPlus, Int(length(y)/season))
-TrendFit = movingaverage(y - seasonFit, MAorder)
+TrendFit = T #movingaverage(y - seasonFit, MAorder)
 plot(airlinevect, label = "data", xlab = "month (t)", ylab = "number of passengers", 
     title = "multiplicative model", legend = :topleft )
 plot!(10 .^ TrendFit, color = colors[1], label = "trend fit")
