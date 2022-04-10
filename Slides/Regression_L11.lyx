@@ -163,7 +163,7 @@ ST123G
 \begin_layout Subtitle
 
 \color orange
-Föreläsning 11 - Logistisk regression.
+Föreläsning 11 - Multipel logistisk regression.
 \end_layout
 
 \begin_layout Author
@@ -259,40 +259,6 @@ status open
 
 \series bold
 \color blue
-Odds
-\series default
-\color inherit
- och 
-\series bold
-\color blue
-logodds
-\series default
-\color inherit
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Enkel logistisk regression
-\series default
-\color inherit
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
 Multipel logistisk regression
 \series default
 \color inherit
@@ -333,1019 +299,6 @@ status open
 
 \series bold
 \color orange
-Odds och logodds
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Låt 
-\begin_inset Formula $\mathrm{P}(A)$
-\end_inset
-
- vara 
-\series bold
-\color blue
-sannolikheten
-\series default
-\color inherit
- för en händelse 
-\begin_inset Formula $A$
-\end_inset
-
-.
- 
-\begin_inset Formula 
-\[
-\mathrm{P}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{antal möjliga fall}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Odds
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-\mathrm{Odds}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{\text{antal fall där }A\text{ inte inträffar}}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathrm{Odds}(A)=\frac{\mathrm{P}(A)}{1-\mathrm{P}(A)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Exempel: Sannolikheten att slå en 6:a med en vanlig tärning:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Sannolikhet 
-\begin_inset Formula $\mathrm{P}(A)=1/6$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Odds
-\begin_inset Formula 
-\[
-\mathrm{Odds}(A)=\frac{1/6}{5/6}=\frac{1}{5}
-\]
-
-\end_inset
-
-Oddset är 
-\begin_inset Formula $1:5$
-\end_inset
-
- (
-\begin_inset Quotes eld
-\end_inset
-
-
-\begin_inset Formula $1$
-\end_inset
-
-mot 
-\begin_inset Formula $5$
-\end_inset
-
-
-\begin_inset Quotes erd
-\end_inset
-
-).
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Exponentialfunktionen
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Exponentialfunktionen
-\series default
-\color inherit
- 
-\begin_inset Formula 
-\[
-\exp(x)=e^{x}
-\]
-
-\end_inset
-
-där 
-\begin_inset Formula $e\approx2.71828$
-\end_inset
-
- är 
-\series bold
-\color blue
-Eulers tal
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Naturliga logaritmen 
-\begin_inset Formula $\ln(x)$
-\end_inset
-
-
-\series default
-\color inherit
- är inversa funktionen till 
-\begin_inset Formula $\exp(x)$
-\end_inset
-
-.
- 
-\begin_inset Formula 
-\[
-\ln(\exp(x))=\ln(e^{x})=x
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/ExponentialFunction.pdf
-	lyxscale 50
-	scale 20
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename figs/LnFunction.pdf
-	lyxscale 50
-	scale 20
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - sannolikhet för 
-\begin_inset Formula $y=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Binär responsvariabel: 
-\begin_inset Formula $y=0$
-\end_inset
-
- och 
-\begin_inset Formula $y=1$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-Logistisk regression
-\begin_inset Formula 
-\[
-\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathrm{P}(y=0\vert x)=1-\mathrm{P}(y=1\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/LogisticFunc.pdf
-	lyxscale 50
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - oddskvot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Logistisk regression
-\size footnotesize
-
-\begin_inset Formula 
-\[
-\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathrm{P}(y=0\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Odds
-\begin_inset Formula 
-\[
-\mathrm{Odds}(y=1\vert x)=\frac{\mathrm{P}(y=1\vert x)}{\mathrm{P}(y=0\vert x)}=\exp(\beta_{0}+\beta_{1}x)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series bold
-\color blue
-Oddskvot
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- för att tolka 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
-
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset Formula 
-\[
-\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\exp(\beta_{1})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\size scriptsize
-Bevis:
-\size tiny
-
-\begin_inset Formula 
-\[
-\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\frac{\exp(\beta_{0}+\beta_{1}x+\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\frac{\exp(\beta_{0}+\beta_{1}x)\exp(\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\exp(\beta_{1})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - oddskvot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/OddsFunc.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - log-odds
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Repetition: Logaritm med bas 
-\begin_inset Formula $10$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-\log(10^{a})=a
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Naturlig logaritm
-\series default
-\color inherit
- (bas 
-\begin_inset Formula $e\approx2.7183$
-\end_inset
-
-)
-\begin_inset Formula 
-\[
-\ln(\exp(a))=\ln e^{a}=a
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Logistisk regression
-\begin_inset Formula 
-\[
-\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Odds
-\begin_inset Formula 
-\[
-\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0}+\beta_{1}x)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Log-odds
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-\mathrm{LogOdds}(y=1\vert x)=\beta_{0}+\beta_{1}x
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Logistisk regression är en 
-\series bold
-\color blue
-linjär modell
-\series default
-\color inherit
- för log-oddset.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - logodds
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/LogOddsFunc.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Enkel logistisk regression - Wisconsin Cancer
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $n=699$
-\end_inset
-
- samples klassificerade som 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-'
-\family typewriter
-benign
-\family default
-' (
-\begin_inset Formula $458$
-\end_inset
-
- fall)
-\end_layout
-
-\begin_layout Itemize
-'
-\family typewriter
-malignant
-\family default
-' (
-\begin_inset Formula $241$
-\end_inset
-
- fall).
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Ett antal mått (ordinalskala 1-10) som förklarande variabler:
-\end_layout
-
-\begin_layout Standard
-\align center
-
-\size tiny
-\begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="2">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Variabelnamn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Mått
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Cl.thickness
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Clump Thickness
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Cell.size
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Uniformity of Cell Size
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Cell.shape
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Uniformity of Cell Shape
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Marg.adhesion
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Marginal Adhesion
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Epith.c.size
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Single Epithelial Cell Size
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Bl.cromatin
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Bland Chromatin
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Normal.nucleoli
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Normal Nucleoli
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Mitoses
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size tiny
-Mitoses
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastCancerTable.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Enkel logistisk regression - Wisconsin Cancer
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastCancerSimpleEstSAS.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastCancerSimpleSASCode.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Ökning av 
-\family typewriter
-Cellsize
-\family default
- med en enhet ökar risken (oddset) för malign 
-\begin_inset Formula $\exp(1.4887)=4.431\text{ ggr}$
-\end_inset
-
-, eller med 
-\begin_inset Formula $443.1$
-\end_inset
-
-%.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Enkel logistisk regression - Wisconsin Cancer
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/breastcancersimpleProb.pdf
-	lyxscale 40
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
 Multipel logistisk regression
 \end_layout
 
@@ -1358,7 +311,12 @@ Multipel logistisk regression
 \begin_layout Itemize
 
 \family roman
-Multipel logistisk regression med 
+\series bold
+\color blue
+Multipel logistisk regression
+\series default
+\color inherit
+ med 
 \begin_inset Formula $k$
 \end_inset
 
@@ -1374,10 +332,17 @@ Multipel logistisk regression med
 \end_layout
 
 \begin_layout Itemize
-Logodds
+
+\series bold
+\color blue
+Odds
+\series default
+\size small
+\color inherit
+
 \begin_inset Formula 
 \[
-\mathrm{LogOdds}(y=1\vert x_{1},\ldots,x_{k})=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{k}x_{k}
+\mathrm{Odds}(y=1\vert\text{alla }x)=\frac{\mathrm{P}(y=1\vert\text{alla }x)}{\mathrm{P}(y=0\vert\text{alla }x)}=\exp\left(\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{k}x_{k}\right)
 \]
 
 \end_inset
@@ -1388,7 +353,12 @@ Logodds
 \begin_layout Itemize
 
 \family roman
-Oddskvot - multipel regression
+\series bold
+\color blue
+Oddskvot
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 \mathrm{OR}_{j}=\frac{\mathrm{Odds}(y=1\vert x_{j}+1,\text{allt annat lika})}{\mathrm{Odds}(y=1\vert x_{j},\text{allt annat lika})}=\exp(\beta_{j})
@@ -1415,169 +385,7 @@ status open
 
 \series bold
 \color orange
-Multipel logistisk regression - Wisconsin Cancer
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastcancerMultipleEstSAS_1.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastcancerMultipleEstSAS_2.png.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-Cellsize
-\family default
- inte signifikant (oddskvotens KI innehåller värdet 
-\begin_inset Formula $1$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Itemize
-Om 
-\family typewriter
-Clthinkness
-\family default
- ökar med en enhet så ökar oddskvoten för 
-\family typewriter
-malign
-\family default
- med 
-\begin_inset Formula $1.708$
-\end_inset
-
-, dvs risken för 
-\family typewriter
-malign
-\family default
- ökar med 
-\begin_inset Formula $70.8$
-\end_inset
-
-%.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Modellutvärdering - Wisconsin Cancer
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Hur ofta predikterar
-\series default
-\color inherit
- den skattade modellen 
-\series bold
-\color blue
-rätt?
-\end_layout
-
-\begin_layout Itemize
-Enkel logistisk regression - cellsize:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastCancerSimpleConfusionSAS.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Multipel logistisk regression
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/BreastCancerMultipleConfusionSAS.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Bättre att göra detta på en 
-\series bold
-\color blue
-träning-test split
-\series default
-\color inherit
- av data.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Vilka överlevde Titanic?
+Vilka överlevde Titanic? Multipel logistisk
 \end_layout
 
 \end_inset
@@ -1630,8 +438,8 @@ FirstClass (1=Första klass, 0 = Ej första klass)
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/titanicSAS.png
-	scale 30
+	filename figs/titanicmultipleR.png
+	scale 27
 
 \end_inset
 
@@ -1666,7 +474,26 @@ Vilka överlevde Titanic?
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/TitanicOddsSAS.png
+	filename figs/titanicmultiple_onlyest.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/oddstitanic.png
 	scale 30
 
 \end_inset
@@ -1696,8 +523,8 @@ Interceptet
 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{Odds}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=0,\texttt{First}=0)=\exp(\beta_{0})=\exp(-1.1499)=0.3166684\\
-\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=0,\texttt{First}=0)=\frac{\mathrm{Odds}}{1+\mathrm{Odds}}=\frac{0.3166684}{1+0.3166684}=0.2405073
+\mathrm{Odds}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=0,\texttt{First}=0)=\exp(\beta_{0})=\exp(-1.190302)=0.30413\\
+\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=0,\texttt{First}=0)=\frac{\mathrm{Odds}}{1+\mathrm{Odds}}=\frac{0.30413}{1+0.30413}=0.23321
 \end{align*}
 
 \end_inset
@@ -1712,8 +539,8 @@ Nyfödd flicka, ej i första klass:
 \begin_inset Formula 
 \begin{align*}
 \mathrm{Odds}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{First}=0)=\exp(\beta_{0}+\beta_{2})=\exp(\beta_{0})\textcolor{orange}{\exp(\beta_{2})}\\
- & =0.3166684\cdot\textcolor{orange}{13.543}=4.28864\\
-\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{First}=0)=\frac{4.28864}{1+4.28864}=0.8109155
+ & =0.30413\cdot\textcolor{orange}{13.28098}=4.039144\\
+\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{First}=0)=\frac{4.039144}{1+4.039144}=0.8015536
 \end{align*}
 
 \end_inset
@@ -1749,7 +576,26 @@ Vilka överlevde Titanic?
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/TitanicOddsSAS.png
+	filename figs/titanicmultiple_onlyest.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/oddstitanic.png
 	scale 30
 
 \end_inset
@@ -1764,8 +610,8 @@ Nyfödd flicka, första klass:
 \begin_inset Formula 
 \begin{align*}
 \mathrm{Odds}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{FirstClass}=1)=\exp(\beta_{0}+\beta_{2}+\beta_{3})\\
- & =\exp(\beta_{0})\exp(\beta_{2})\textcolor{orange}{\exp(\beta_{3})}=4.28864\cdot\textcolor{orange}{6.66}=28.56234\\
-\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{28.56234}{1+28.56234}=0.9661732
+ & =\exp(\beta_{0})\exp(\beta_{2})\textcolor{orange}{\exp(\beta_{3})}=4.039144\cdot\textcolor{orange}{7.08995}=28.63733\\
+\mathrm{P}(y & =1\vert\texttt{Age}=0,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{28.63733}{1+28.63733}=0.9662588
 \end{align*}
 
 \end_inset
@@ -1780,8 +626,8 @@ Nyfödd flicka, första klass:
 \begin_inset Formula 
 \begin{align*}
 \mathrm{Odds}(y & =1\vert\texttt{Age}=1,\texttt{Sex}=1,\texttt{FirstClass}=1)=\exp(\beta_{0}+\beta_{1}\cdot1+\beta_{2}+\beta_{3})\\
- & =\exp(\beta_{0})\textcolor{orange}{\exp(\beta_{1})}\exp(\beta_{2})\exp(\beta_{3})=28.56234\cdot\textcolor{orange}{0.972}=27.7626\\
-\mathrm{P}(y & =1\vert\texttt{Age}=1,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{27.76264}{1+27.7626}=0.9652326
+ & =\exp(\beta_{0})\textcolor{orange}{\exp(\beta_{1})}\exp(\beta_{2})\exp(\beta_{3})=28.63733\cdot\textcolor{orange}{0.973}=27.86412\\
+\mathrm{P}(y & =1\vert\texttt{Age}=1,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{27.86412}{1+27.86412}=0.9653549
 \end{align*}
 
 \end_inset
@@ -1817,7 +663,26 @@ Vilka överlevde Titanic?
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/TitanicOddsSAS.png
+	filename figs/titanicmultiple_onlyest.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/oddstitanic.png
 	scale 30
 
 \end_inset
@@ -1833,8 +698,8 @@ Vilka överlevde Titanic?
 \begin{align*}
 \mathrm{Odds}(y & =1\vert\texttt{Age}=2,\texttt{Sex}=1,\texttt{FirstClass}=1)=\exp(\beta_{0}+\beta_{1}\cdot2+\beta_{2}+\beta_{3})\\
  & =\exp(\beta_{0}+\beta_{1}+\beta_{1}+\beta_{2}+\beta_{3})\\
- & =\exp(\beta_{0})\exp(\beta_{1})\textcolor{orange}{\exp(\beta_{1})}\exp(\beta_{2})\exp(\beta_{3})=27.7626\cdot\textcolor{orange}{0.972}=26.98525\\
-\mathrm{P}(y & =1\vert\texttt{Age}=2,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{26.98525}{1+26.98525}=\textcolor{blue}{0.9642669}
+ & =\exp(\beta_{0})\exp(\beta_{1})\textcolor{orange}{\exp(\beta_{1})}\exp(\beta_{2})\exp(\beta_{3})=27.86412\cdot\textcolor{orange}{0.973}=27.11179\\
+\mathrm{P}(y & =1\vert\texttt{Age}=2,\texttt{Sex}=1,\texttt{FirstClass}=1)=\frac{27.11179}{1+27.11179}=\textcolor{blue}{0.9644277}
 \end{align*}
 
 \end_inset
@@ -1849,7 +714,7 @@ Kontroll:
 \begin_inset Formula 
 \begin{align*}
 \mathrm{P}(y & =1\vert\texttt{Age}=2,\texttt{Sex}=1,\texttt{FirstClass}=1)\\
- & =\frac{\exp(-1.1499-0.0283\cdot2+2.6052+1.896)}{1+\exp(1-1.1499-0.0283\cdot2+2.6052+1.896)}=\textcolor{blue}{0.9642465}
+ & =\frac{\exp(-1.190302-0.027371\cdot2+2.586333+1.958678)}{1+\exp(-1.190302-0.027371\cdot2+2.586333+1.958678)}=\textcolor{blue}{0.9644277}
 \end{align*}
 
 \end_inset
@@ -2088,11 +953,11 @@ Data
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $\alpha=1$
+\begin_inset Formula $\beta_{0}=1$
 \end_inset
 
  och 
-\begin_inset Formula $\beta=2$
+\begin_inset Formula $\beta_{1}=2$
 \end_inset
 
 
@@ -2310,44 +1175,6 @@ Multinomial logistisk regression
 \series default
 \color inherit
 .
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Klassificeringsyta - spotify data 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-´
-\begin_inset Graphics
-	filename figs/SpotifyLogisticRegression.png
-	lyxscale 40
-	scale 50
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper

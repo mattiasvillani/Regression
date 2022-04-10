@@ -61,16 +61,16 @@ Datamaterial: [airpassengers](https://github.com/mattiasvillani/Regression/raw/m
 Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https://github.com/mattiasvillani/Regression/raw/master/Misc/airlineDecomp.xlsx)
 
 **Föreläsning 9 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
-Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
-Kod: [R kod för att skatta AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)
+Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf)\
+Kod: [R kod för att skatta AR och ARMA modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/swedinflARMA.R)
 
-**Föreläsning 10 - ARMA modeller för tidserier. Logistisk regression.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
+**Föreläsning 10 - ARMA modeller för tidserier. Enkel logistisk regression.**\
+Läs: AJÅ Kapitel 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10.pdf)\
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
-Datamaterial: [Wisconsin breast cancer](https://github.com/mattiasvillani/Regression/raw/master/Data/breastcancer.csv)
+Kod: [R kod för att logistisk regression på titanic data](https://github.com/mattiasvillani/Regression/raw/master/Code/titanic.R) 
 
-**Föreläsning 11 - Logistisk regression, forts.**\
-Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Misc/larry.png)\
+**Föreläsning 11 - Multipel logistisk regression.**\
+Läs: [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L11.pdf)\
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 
 **Föreläsning 12 - Genomgång av en övningstentamen.**\

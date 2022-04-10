@@ -163,8 +163,7 @@ ST123G
 \begin_layout Subtitle
 
 \color orange
-Föreläsning 10 - Autokorrelation.
- Autoregressiva modeller.
+Föreläsning 10 - ARMA modeller och Enkel logistisk regression.
 \end_layout
 
 \begin_layout Author
@@ -173,6 +172,14 @@ Föreläsning 10 - Autokorrelation.
 Mattias Villani
 \series default
  
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \begin_inset Argument 1
 status collapsed
 
@@ -252,7 +259,7 @@ status open
 
 \series bold
 \color blue
-Autokorrelation
+ARMA modeller
 \series default
 \color inherit
 
@@ -266,7 +273,7 @@ Autokorrelation
 
 \series bold
 \color blue
-Autoregressiva modeller
+Regression för tidsserier
 \series default
 \color inherit
 
@@ -280,7 +287,13 @@ Autoregressiva modeller
 
 \series bold
 \color blue
-Tidsserieregression
+Odds
+\series default
+\color inherit
+ och 
+\series bold
+\color blue
+logodds
 \series default
 \color inherit
 
@@ -294,7 +307,14 @@ Tidsserieregression
 
 \series bold
 \color blue
-Prognosutvärderingsmått
+Enkel logistisk regression
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -313,7 +333,7 @@ status open
 
 \series bold
 \color orange
-Repetition - Korrelation
+Autokorrelationsfunktion - AR(1)
 \end_layout
 
 \end_inset
@@ -323,16 +343,13 @@ Repetition - Korrelation
 
 \begin_deeper
 \begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
 
-\series bold
-\color blue
-Kovarians 
-\series default
-\color inherit
-mellan två variabler
+ som populationsmodell:
 \begin_inset Formula 
 \[
-s_{xy}=\mathrm{cov}(x,y)=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
 \]
 
 \end_inset
@@ -344,527 +361,7 @@ s_{xy}=\mathrm{cov}(x,y)=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1
 
 \series bold
 \color blue
-Korrelation
-\series default
-\color inherit
- mellan två variabler:
-\begin_inset Formula 
-\[
-r_{xy}=\mathrm{corr}(x,y)=\frac{s_{xy}}{s_{x}s_{y}}
-\]
-
-\end_inset
-
-där 
-\begin_inset Formula 
-\[
-s_{x}^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Samma formel som i F2, men med andra symboler:
-\begin_inset Formula 
-\[
-r_{xy}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})(y_{i}-\bar{y}_{i})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Repetition - Korrelation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/correlationexamples.pdf
-	lyxscale 30
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Autokorrelation av ordning 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Observationerna i en 
-\series bold
-\color blue
-tidsserie 
-\begin_inset Formula $y_{t}$
-\end_inset
-
- 
-\series default
-\color inherit
-är ofta beroende/
-\series bold
-\color blue
-korrelerade
-\series default
-\color inherit
-.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Autokorrelation 
-\series default
-\color inherit
-av 
-\series bold
-\color blue
-ordning 1
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-r_{1}=\mathrm{corr}(y_{t},y_{t-1})
-\]
-
-\end_inset
-
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Korrelation mellan dagens värde och gårdagens värde.
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Korrelation mellan denna månad och förra månaden
-\begin_inset Quotes erd
-\end_inset
-
-.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Första laggen
-\begin_inset Quotes erd
-\end_inset
-
-: 
-\begin_inset Formula $y_{t-1}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Inflation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/infl.pdf
-	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Laggade variabler - inflation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/InflLagTable.png
-	lyxscale 40
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Inflation - autokorrelation lag 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/inflACFLag1.pdf
-	lyxscale 40
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Autokorrelation av ordning 2
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Autokorrelation 
-\series default
-\color inherit
-av 
-\series bold
-\color blue
-ordning 2
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-r_{2}=\mathrm{corr}(y_{t},y_{t-2})
-\]
-
-\end_inset
-
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Korrelation mellan dagens värde och förrgårs värde.
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Korrelation mellan denna månad och förrförra månaden
-\begin_inset Quotes erd
-\end_inset
-
-.
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Andra laggen
-\begin_inset Quotes erd
-\end_inset
-
-: 
-\begin_inset Formula $y_{t-2}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Inflation - autokorrelation lag 2
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/inflACFLag2.pdf
-	lyxscale 40
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Autokorrelationsfunktionen
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Autokorrelation 
-\series default
-\color inherit
-av 
-\series bold
-\color blue
-ordning 
-\begin_inset Formula $k$
-\end_inset
-
-
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-r_{k}\mathrm{=corr}(y_{t},y_{t-k})
-\]
-
-\end_inset
-
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-Korrelation mellan månadens värde och 
-\begin_inset Formula $k$
-\end_inset
-
- månader innan
-\begin_inset Quotes erd
-\end_inset
-
-.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Autokorrelationsfunktionen
+Autokorrelationsfunktion
 \series default
 \color inherit
  (
@@ -873,94 +370,10 @@ Autokorrelationsfunktionen
 ACF
 \series default
 \color inherit
-) är 
-\begin_inset Formula $r_{k}$
-\end_inset
-
- som en funktion av tidsavståndet 
-\begin_inset Formula $k$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Inflation - autokorrelationsfunktion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/inflACF.pdf
-	lyxscale 40
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Autoregressiva modeller
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Autoregressiv modell av ordning 1 (
-\series bold
-\color blue
-
-\begin_inset Formula $\mathrm{AR}(1)$
-\end_inset
-
-
-\series default
-\color inherit
 )
 \begin_inset Formula 
 \[
-y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\rho_{k}=\mathrm{corr}(y_{t},y_{t-k}),\text{ för }k=1,2,...
 \]
 
 \end_inset
@@ -972,232 +385,14 @@ y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_
 
 \series bold
 \color blue
-\begin_inset Formula $\mathrm{AR}(1)$
-\end_inset
-
- 
+ACF
 \series default
 \color inherit
-är 
-\series bold
-\color blue
-regression med 
-\begin_inset Formula $y_{t-1}$
-\end_inset
-
- som förklarande variabel
-\series default
-\color inherit
-!
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Skattas med 
-\series bold
-\color blue
-minstakvadrat-metoden
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-y_{t}=a+by_{t-1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Autoregressiv modell av ordning 
-\begin_inset Formula $p$
-\end_inset
-
- (
-\series bold
-\color blue
-
-\begin_inset Formula $\mathrm{AR}(p)$
-\end_inset
-
-
-\series default
-\color inherit
-)
-\begin_inset Formula 
-\[
-y_{t}=\alpha+\beta_{1}y_{t-1}+\ldots+\beta_{p}y_{t-p}+\varepsilon_{t}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-\begin_inset Formula $\mathrm{AR}(p)$
-\end_inset
-
-
-\series default
-\color inherit
- är en 
-\series bold
-\color blue
-multipel regression
-\series default
-\color inherit
- med de 
-\begin_inset Formula $p$
-\end_inset
-
- förklarande variablerna 
-\begin_inset Formula $y_{t-1},...,y_{t-p}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-AR(1) för inflation - SAS
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/InflAR1SAS.png
-	lyxscale 40
-	scale 33
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/SAS_AR1Code.png
-	lyxscale 40
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-AR(4) för inflation - SAS
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/inflAR4SAS.png
-	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Autoregressiva modeller
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
+ för 
 \begin_inset Formula $\mathrm{AR}(1)$
 \end_inset
 
 
-\begin_inset Formula 
-\[
-y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Autokorrelationsfunktion för 
-\begin_inset Formula $\mathrm{AR}(1)$
-\end_inset
-
- i populationen:
 \begin_inset Formula 
 \[
 \rho_{k}=\beta^{k},\text{ för }k=1,2,\ldots
@@ -1213,7 +408,7 @@ Autokorrelationsfunktion för
 \begin_inset Graphics
 	filename figs/ACF_theo_AR1.pdf
 	lyxscale 40
-	scale 33
+	scale 28
 
 \end_inset
 
@@ -1236,7 +431,7 @@ status open
 
 \series bold
 \color orange
-Autoregressiva modeller - stationäritet
+Partiell autokorrelationsfunktion - AR(1)
 \end_layout
 
 \end_inset
@@ -1249,26 +444,72 @@ Autoregressiva modeller - stationäritet
 \begin_inset Formula $\mathrm{AR}(1)$
 \end_inset
 
- är 
-\series bold
-\color blue
-stationär
-\series default
-\color inherit
- (icke-explosiv) modell om 
-\begin_inset Formula $-1<\beta<1$
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
 \end_inset
 
-.
- 
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Partiell ACF
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+PACF
+\series default
+\color inherit
+) multipel regressions-variant av 
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\rho_{k}^{\star}=\mathrm{corr}\left(y_{t},y_{t-k}\vert\textcolor{orange}{y_{t-1},\ldots,y_{t-k-1}}\right),\text{ för }k=1,2,...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+för 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ i populationen:
+\begin_inset Formula 
+\begin{align*}
+\rho_{1}^{\star} & =\beta\\
+\rho_{k}^{\star} & =0,\text{ för }k=2,3,\ldots
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/simulateAR1.pdf
+	filename figs/PACF_theo_AR1.pdf
 	lyxscale 40
-	scale 40
+	scale 35
+	BoundingBox 0bp 420bp 1250bp 834bp
+	clip
 
 \end_inset
 
@@ -1291,7 +532,7 @@ status open
 
 \series bold
 \color orange
-Autoregressiva modeller - prognoser
+Partiell autokorrelationsfunktion - AR(2)
 \end_layout
 
 \end_inset
@@ -1301,36 +542,13 @@ Autoregressiva modeller - prognoser
 
 \begin_deeper
 \begin_layout Itemize
-Skattad AR(1)-modell
-\begin_inset Formula 
-\[
-y_{t}=a+b\cdot y_{t-1}
-\]
-
+\begin_inset Formula $\mathrm{AR}(2)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-Vid tidpunkt 
-\begin_inset Formula $T$
-\end_inset
-
-, 
-\series bold
-\color blue
-prognos för nästa månad 
-\begin_inset Formula $T+1$
-\end_inset
-
-
-\series default
-\color inherit
 
 \begin_inset Formula 
 \[
-\hat{y}_{T+1}=a+b\cdot y_{T}
+y_{t}=\alpha+\beta_{1}y_{t-1}+\beta_{2}y_{t-2}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
 \]
 
 \end_inset
@@ -1342,18 +560,20 @@ prognos för nästa månad
 
 \series bold
 \color blue
-Prognos för 
-\begin_inset Formula $T+2$
-\end_inset
-
-
+Partiell ACF
 \series default
 \color inherit
+ för 
+\begin_inset Formula $\mathrm{AR}(2)$
+\end_inset
 
+ i populationen:
 \begin_inset Formula 
-\[
-\hat{y}_{T+2}=a+b\cdot\hat{y}_{T+1}
-\]
+\begin{align*}
+\rho_{1}^{\star} & =\frac{\beta_{1}}{1-\beta_{2}}\\
+\rho_{2}^{\star} & =\beta_{2}\\
+\rho_{k}^{\star} & =0,\text{ för }k=3,4,\ldots
+\end{align*}
 
 \end_inset
 
@@ -1363,9 +583,346 @@ Prognos för
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/inflpred.pdf
+	filename figs/PACF_theo_AR2.pdf
 	lyxscale 40
-	scale 28
+	scale 26
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi kan 
+\series bold
+\color blue
+identifiera
+\series default
+\color inherit
+ vilken 
+\series bold
+\color blue
+ordning AR
+\series default
+\color inherit
+ modell ska ha från 
+\series bold
+\color blue
+PACF
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ARMA modeller
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+AR(
+\begin_inset Formula $1$
+\end_inset
+
+) modell beror på laggad tidsserie 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\phi_{1}y_{t-1}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+MA(1) 
+\series default
+\color inherit
+modell beror på laggad felterm 
+\begin_inset Formula $\varepsilon_{t-1}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\varepsilon_{t}+\textcolor{orange}{\theta_{1}\varepsilon_{t-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+ för MA(1)
+\begin_inset Formula 
+\begin{align*}
+\rho_{1} & =\theta_{1}\\
+\rho_{k} & =0,\text{ för }k=2,3,\ldots
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Box-Jenkins identifiering
+\series default
+\color inherit
+ av AR och MA ordning:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ACF noll efter 
+\begin_inset Formula $q$
+\end_inset
+
+ laggar 
+\begin_inset Formula $\:\:\Longleftrightarrow\:\:$
+\end_inset
+
+ MA(
+\begin_inset Formula $q$
+\end_inset
+
+) modell.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+PACF noll efter 
+\begin_inset Formula $p$
+\end_inset
+
+ laggar
+\begin_inset Formula $\:\:\Longleftrightarrow\:\:$
+\end_inset
+
+ AR(
+\begin_inset Formula $p$
+\end_inset
+
+) modell.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kombinera AR och MA: ARMA modeller
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ARMA
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ modell
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\textcolor{blue}{\phi_{1}y_{t-1}}+\varepsilon_{t}+\textcolor{orange}{\theta_{1}\varepsilon_{t-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ARMA(
+\begin_inset Formula $p,q$
+\end_inset
+
+) modell
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\textcolor{blue}{\phi_{1}y_{t-1}+\ldots+\phi_{p}y_{t-p}}+\varepsilon_{t}+\textcolor{orange}{\theta_{1}\varepsilon_{t-1}+\ldots+\theta_{p}\varepsilon_{t-p}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ARMA(
+\begin_inset Formula $p,q$
+\end_inset
+
+) modeller är svårare att välja från ACF och PACF.
+ ARMA(
+\begin_inset Formula $p,q$
+\end_inset
+
+) har inte tydliga nollor i ACF och PACF.
+\end_layout
+
+\begin_layout Itemize
+Ibland måste man analysera 
+\series bold
+\color blue
+skillnaden mellan två tidsperioder
+\series default
+\color inherit
+ för att få tidsserien 
+\series bold
+\color blue
+stationär
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+\Delta y_{t}=y_{t}-y_{t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi har 
+\series bold
+\color blue
+differentierat
+\series default
+\color inherit
+ tidsserien.
+ Kan 
+\begin_inset Quotes eld
+\end_inset
+
+diffa
+\begin_inset Quotes erd
+\end_inset
+
+ flera gånger.
+ 
+\end_layout
+
+\begin_layout Itemize
+En 
+\series bold
+\color blue
+ARIMA(
+\begin_inset Formula $p,d,q$
+\end_inset
+
+)
+\series default
+\color inherit
+ modell är en ARMA(
+\begin_inset Formula $p,q$
+\end_inset
+
+) modell för en tidsserie 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ som vi diffat 
+\begin_inset Formula $d$
+\end_inset
+
+ gånger.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Estimation av en ARMA(2,2) modell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/swedinfl_arma22.png
+	lyxscale 40
+	scale 45
 
 \end_inset
 
@@ -1651,6 +1208,10 @@ får ofta korrelerade residualer.
 \end_inset
 
 
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1741,7 +1302,6 @@ Standardfel och hypotestest måste korrigeras om laggar av
 \end_inset
 
  används som förklarande variabel.
- SAS proc autoreg gör detta.
 \end_layout
 
 \end_deeper
@@ -1954,7 +1514,42 @@ Durbin-Watson test - cykeluthyrning
 
 \end_layout
 
+\begin_layout Frame
+
+\end_layout
+
 \begin_deeper
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/DurbinWatsonBikeSimple.png
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/DurbinWatsonComplex.png
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \align center
 \begin_inset Tabular
@@ -2279,11 +1874,11 @@ Cykeluthyrningar
 
 \begin_deeper
 \begin_layout Itemize
-Training data: Jan 1, 2011 - Aug 31, 2012.
+Träningsdata: Jan 1, 2011 - Aug 31, 2012.
 \end_layout
 
 \begin_layout Itemize
-Test data: Sept 1, 2012 - Dec 31, 2012.
+Testdata: Sept 1, 2012 - Dec 31, 2012.
 \end_layout
 
 \begin_layout Standard
@@ -2386,8 +1981,6 @@ temp
 \family typewriter
 \size tiny
 temp,hum,windspeed,holiday,workingday,säsong,yr
-\size default
- 
 \end_layout
 
 \end_inset
@@ -2782,7 +2375,788 @@ Lasso
 
 \end_layout
 
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Odds och logodds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Låt 
+\begin_inset Formula $\mathrm{P}(A)$
+\end_inset
+
+ vara 
+\series bold
+\color blue
+sannolikheten
+\series default
+\color inherit
+ för en händelse 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\mathrm{P}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{antal möjliga fall}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{\text{antal fall där }A\text{ inte inträffar}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{\mathrm{P}(A)}{1-\mathrm{P}(A)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exempel: Sannolikheten att slå en 6:a med en vanlig tärning:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikhet 
+\begin_inset Formula $\mathrm{P}(A)=1/6$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{1/6}{5/6}=\frac{1}{5}
+\]
+
+\end_inset
+
+Oddset är 
+\begin_inset Formula $1:5$
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $1$
+\end_inset
+
+mot 
+\begin_inset Formula $5$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponentialfunktionen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponentialfunktionen
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\exp(x)=e^{x}
+\]
+
+\end_inset
+
+där 
+\begin_inset Formula $e\approx2.71828$
+\end_inset
+
+ är 
+\series bold
+\color blue
+Eulers tal
+\series default
+\color inherit
+ som 
+\series bold
+\color blue
+bas
+\series default
+\color inherit
+, istället för basen 
+\begin_inset Formula $10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Naturliga logaritmen 
+\begin_inset Formula $\ln(x)$
+\end_inset
+
+
+\series default
+\color inherit
+ är inversa funktionen till 
+\begin_inset Formula $\exp(x)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\ln(e^{x})=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/ExponentialFunction.pdf
+	lyxscale 50
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/LnFunction.pdf
+	lyxscale 50
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - sannolikhet för 
+\begin_inset Formula $y=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Binär responsvariabel: 
+\begin_inset Formula $y=0$
+\end_inset
+
+ och 
+\begin_inset Formula $y=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=0\vert x)=1-\mathrm{P}(y=1\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/LogisticFunc.pdf
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - oddskvot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Logistisk regression
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=0\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\frac{\mathrm{P}(y=1\vert x)}{\mathrm{P}(y=0\vert x)}=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series bold
+\color blue
+Oddskvot
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ för att tolka 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\size scriptsize
+Bevis:
+\size tiny
+
+\begin_inset Formula 
+\[
+\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\frac{\exp(\beta_{0}+\beta_{1}x+\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\frac{\exp(\beta_{0}+\beta_{1}x)\exp(\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - oddskvot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/OddsFunc.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - log-odds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Repetition: Logaritm med bas 
+\begin_inset Formula $10$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\log(10^{a})=a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Naturlig logaritm
+\series default
+\color inherit
+ (bas 
+\begin_inset Formula $e\approx2.7183$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\ln(\exp(a))=\ln e^{a}=a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Log-odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{LogOdds}(y=1\vert x)=\beta_{0}+\beta_{1}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression är en 
+\series bold
+\color blue
+linjär modell
+\series default
+\color inherit
+ för log-oddset.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - logodds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/LogOddsFunc.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vilka överlevde Titanic? Enkel logistisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $n=891$
+\end_inset
+
+ personer på Titanic, varav 
+\begin_inset Formula $342$
+\end_inset
+
+ överlevande.
+\end_layout
+
+\begin_layout Itemize
+Responsvariabel: 
+\begin_inset Formula $y=1$
+\end_inset
+
+ om överlevde, annars 
+\begin_inset Formula $y=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Förklarande variabel: age
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vilka överlevde Titanic? Enkel logistisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR_onlyest.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR_onlyodds.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för att överleva för en nyfödd (age=0
+\family typewriter
+) är 
+\family default
+
+\begin_inset Formula $\exp(-0.2091888)=0.81124$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sannolikheten för att överleva för en nyfödd (age=0
+\family typewriter
+) är 
+\family default
+
+\begin_inset Formula $0.81124/(1+0.81124)=0.4478927$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Oddset för att överleva för en 1-åring: 
+\begin_inset Formula $0.81124\cdot0.99126=0.8041498$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+...
+ vilket är en minskning med 
+\begin_inset Formula $(1-0.99126)\cdot100=0.874\%$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Varje extra levnadsår minskar oddset med 
+\begin_inset Formula $0.874\%$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
 
 \end_layout
 

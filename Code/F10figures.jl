@@ -2,7 +2,7 @@
 # Plot titles and legends in Swedish
 
 using Plots, LaTeXStrings, CSV, DataFrames, GLM, LinearAlgebra, Dates, StatsPlots, Dates
-using StatsBase, RCall, Statistics, Distributions, LaTeXTabulars, RegressionTables
+using StatsBase, RCall, Statistics, Distributions, LaTeXTabulars #RegressionTables
 using StatsBase, HypothesisTests, Lasso
 import ColorSchemes: Paired_12; colors = Paired_12
 colors = Paired_12[[1,2,7,8,3,4,5,6,9,10,11,12]]
@@ -21,7 +21,7 @@ gr(legend = :bottomright)
 # AR(1) - inflation
 # Time series plot - Inflation and repo rate
 inflrepo = DataFrame(CSV.File(dataFolder*"InflationReporanta.csv"; header = true))
-inflrepo.Datum = Date.(inflrepo.Datum,"mm/dd/yyyy")
+inflrepo.Datum = Date.(inflrepo.Date,"mm/dd/yyyy")
 inflrepo.lag1 = lag(inflrepo.KPIF,1)
 inflrepo.lag2 = lag(inflrepo.KPIF,2)
 inflrepo.lag3 = lag(inflrepo.KPIF,3)
@@ -44,7 +44,7 @@ savefig(figFolder*"inflACFLag2.pdf")
 
 plot(1:10, autocor(inflrepo.KPIF, collect(1:10)), ylab = L"\mathrm{Korr}(y_t,y_{t-k})", 
     xlab = L"\mathrm{lag,} k", label = nothing, linestyle = :solid, markershape = :circle, 
-    title = L"\mathrm{Autokorrelationsfunktionen}, r_k", ylims = ylimits)
+    title = L"\mathrm{Autokorrelationsfunktionen}, r_k")
 savefig(figFolder*"inflACF.pdf")
 
 model = @formula(KPIF ~ lag1);
@@ -97,7 +97,21 @@ p4 = plot(1:20,ϕ.^(1:20), label = nothing, title = L"\beta = %$(ϕ)", ylab = L"
 plot(p1,p2,p3,p4, layout = (2,2))
 savefig(figFolder*"ACF_theo_AR1.pdf")
 
+ϕ = 0.8
+p1 = plot(1:20,[ϕ;zeros(19)], label = nothing, title = L"\beta = %$(ϕ)", ylab = L"\rho_k^\star", xlab = L"\mathrm{lag,} k", markershape = :circle)
+ϕ = -0.8
+p2 = plot(1:20,[ϕ;zeros(19)], label = nothing, title = L"\beta = %$(ϕ)", ylab = L"\rho_k^\star", xlab = L"\mathrm{lag,} k", markershape = :circle)
+ϕ = 0.0
+p3 = plot(1:20,[ϕ;zeros(19)], label = nothing, title = L"\beta = %$(ϕ)", ylab = L"\rho_k^\star", xlab = L"\mathrm{lag,} k", markershape = :circle)
+ϕ = 0.95
+p4 = plot(1:20,[ϕ;zeros(19)], label = nothing, title = L"\beta = %$(ϕ)", ylab = L"\rho_k^\star", xlab = L"\mathrm{lag,} k", markershape = :circle)
+plot(p1,p2,p3,p4, layout = (2,2))
+savefig(figFolder*"PACF_theo_AR1.pdf")
 
+ϕ₁ = 0.7
+ϕ₂ = -0.2
+p1 = plot(1:20,[ϕ₁/(1-ϕ₂);ϕ₂;zeros(18)], label = nothing, title = L"\beta_1 = %$(ϕ₁)"*" and  "*L"\beta_2 = %$(ϕ₂)", ylab = L"\rho_k^\star", xlab = L"\mathrm{lag,} k", markershape = :circle)
+savefig(figFolder*"PACF_theo_AR2.pdf")
 
 # bikeshare data
 bikeDay = DataFrame(CSV.File(dataFolder*"bikeDayDummy.csv"))

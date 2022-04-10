@@ -1,0 +1,2789 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+\usepackage{media9}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 2 - Enkel linjär regression
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Enkel linjär regression
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Minsta-kvadratmetoden
+\series default
+\color inherit
+ för att skatta regression.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Korrelation
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Variansanalys
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Inflytelserika observationer
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Extrapolation
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthdata.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/healthbudget.pdf
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthdata_text.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthdata_text_fit.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skattad regressionslinje hälsobudget (
+\begin_inset Formula $x$
+\end_inset
+
+) 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ livslängd (
+\begin_inset Formula $y$
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{align*}
+\text{livslängd} & =76.035+1.03757\cdot\mathrm{\text{hälsobudget}}\\
+\\
+y & =\underset{a}{\underbrace{76.035}}+\underset{b}{\underbrace{1.038}}\cdot x
+\end{align*}
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Förväntade livslängden är ca 
+\begin_inset Formula $76$
+\end_inset
+
+ år om 
+\begin_inset Formula $\text{hälsobudget}=0$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Livslängden ökar med 
+\begin_inset Formula $1.038$
+\end_inset
+
+ år om hälsobudgeten ökar med 1 (tusen US dollar per capita).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykeluthyrningar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regressionsekvation
+\begin_inset Formula 
+\[
+\text{antal uthyrningar }=1214.64+6640.71\cdot\text{temperatur}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Interceptet 
+\begin_inset Formula $a$
+\end_inset
+
+ - värdet på y när x=0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line_Coeff1.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Lutningen 
+\begin_inset Formula $b$
+\end_inset
+
+ - hur ändras y när x ändras en enhet?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line_Coeff2.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Lutningen 
+\begin_inset Formula $b$
+\end_inset
+
+ - hur ändras y när x ändras en enhet?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Line_Coeff4.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Skattning av regressionslinjen - minsta kvadrat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktion
+\series default
+\color inherit
+ för den 
+\begin_inset Formula $i$
+\end_inset
+
+:te observationen i stickprovet:
+\begin_inset Formula 
+\[
+\hat{y}_{i}=a+b\cdot x_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykel_rides_vs_temp_Pred.pdf
+	lyxscale 30
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktionsfel
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+residualer
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+e_{i}=y_{i}-\hat{y}_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Välj 
+\begin_inset Formula $a$
+\end_inset
+
+ och 
+\begin_inset Formula $b$
+\end_inset
+
+ som 
+\series bold
+\color blue
+minimerar residualkvadratsumman
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Q=\sum_{i=1}^{n}e_{i}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sum of Squared Errors
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+SSE
+\series default
+\color inherit
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Kalkylark (Excel) kan beräkna residualer och kvadrater etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\color orange
+Orange
+\color inherit
+ 
+\color orange
+cell
+\color inherit
+ är residualkvadratsumman 
+\begin_inset Formula $Q$
+\end_inset
+
+ för 
+\begin_inset Formula $a$
+\end_inset
+
+ och 
+\begin_inset Formula $b$
+\end_inset
+
+ i 
+\color blue
+blå
+\color inherit
+ 
+\color blue
+cell
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Notera att t ex 
+\begin_inset Formula $\hat{y}_{1}=77+1\cdot3.357=80.357.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Se länk på kurssida till kalkylarket.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ResidualsHealthSheet.png
+	lyxscale 20
+	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/LeastSquaresPluto1.png
+	lyxscale 20
+	scale 15
+	BoundingBox 0bp 620bp 909bp 1502bp
+	clip
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/LeastSquaresPluto3.png
+	lyxscale 20
+	scale 15
+	BoundingBox 0bp 620bp 905bp 1493bp
+	clip
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samband mellan hälsovårdsbudget och livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/LeastSquaresPluto1.png
+	lyxscale 20
+	scale 14
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/LeastSquaresPluto3.png
+	lyxscale 20
+	scale 14
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Skattning av regressionslinjen - minsta kvadrat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Residualkvadratsumman beror på 
+\begin_inset Formula $a$
+\end_inset
+
+ och 
+\begin_inset Formula $b$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+Q(a,b)=\sum_{i=1}^{n}e_{i}^{2}=\sum_{i=1}^{n}\left(y_{i}-\hat{y}_{i}\right)^{2}=\sum_{i=1}^{n}\left(y_{i}-a-b\cdot x_{i}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Q(a,b)$
+\end_inset
+
+ minimeras när partialderivatorna är noll:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial Q}{\partial a} & =-2\sum_{i=1}^{n}\left(y_{i}-a-b\cdot x_{i}\right)=0\\
+\frac{\partial Q}{\partial b} & =-2\sum_{i=1}^{n}\left(y_{i}-a-b\cdot x_{i}\right)x_{i}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Ovalbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Itemize
+
+\size footnotesize
+Derivatan av en summa: 
+\begin_inset Formula $\frac{d}{dx}\left(f(x)+g(x)\right)=\frac{df(x)}{dx}+\frac{dg(x)}{dx}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Potensregeln för derivator: 
+\begin_inset Formula $\frac{dx^{p}}{dx}=px^{p-1}$
+\end_inset
+
+, t ex 
+\begin_inset Formula $\frac{dx^{2}}{dx}=2x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Kedjeregeln för derivator (specialfall): 
+\begin_inset Formula $\frac{d}{dx}f(g(x))=f^{'}(g(x))\cdot g'(x)$
+\end_inset
+
+, där 
+\begin_inset Formula $f'(x)=\frac{d}{dx}f(x)$
+\end_inset
+
+ är ett alternativt sätt att uttrycka derivatan.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Minsta kvadrat - alternativa formler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Minstakvadratskattningar
+\begin_inset Formula 
+\[
+b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alternativ formel för 
+\begin_inset Formula $b$
+\end_inset
+
+ för handberäkning:
+\begin_inset Formula 
+\[
+b=\frac{\sum_{i=1}^{n}x_{i}y_{i}-n\bar{x}\bar{y}}{\sum_{i=1}^{n}x_{i}^{2}-n\bar{x}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bevis
+\size tiny
+
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}=\sum_{i=1}^{n}(x_{i}^{2}+\bar{x}^{2}-2\bar{x}x_{i})=\sum_{i=1}^{n}x_{i}^{2}+n\bar{x}^{2}-2\bar{x}\sum_{i=1}^{n}x_{i}=\sum_{i=1}^{n}x_{i}^{2}+n\bar{x}^{2}-2\bar{x}n\bar{x}=\sum_{i=1}^{n}x_{i}^{2}-n\bar{x}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattning av intercept:
+\begin_inset Formula 
+\[
+a=\bar{y}-b\cdot\bar{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata
+\begin_inset Formula 
+\begin{align*}
+b & =\frac{7151.8229-30\cdot2.989333333\cdot79.13666667}{320.944068-30\cdot2.989333333{}^{2}}\approx1.03757
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a=79.13666667-1.03757\cdot2.989333333\approx76.03502
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Minsta kvadrat i kalkylark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/MinstaKvadratHealthSheet.png
+	lyxscale 20
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+gif-time!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+På webbsidan ligger en animerad gif som visar hur olika regressionlinjer
+ ger olika SSE.
+ 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "gif"
+target "https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquares.gif"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_code.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_coef.png
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Residualvarians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Residualvariansen 
+\series default
+\color inherit
+- hur bra regressionslinjen passar data:
+\begin_inset Formula 
+\[
+s_{e}^{2}=\frac{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}{n-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kom ihåg: stickprovsvariansen delar med 
+\begin_inset Formula $n-1$
+\end_inset
+
+ eftersom vi måste beräkna 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ först:
+\begin_inset Formula 
+\[
+s_{y}^{2}=\frac{\sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Residualvariansen delar med 
+\begin_inset Formula $n-2$
+\end_inset
+
+ eftersom vi måste beräkna både 
+\begin_inset Formula $a$
+\end_inset
+
+ och 
+\begin_inset Formula $b$
+\end_inset
+
+ först.
+ 
+\series bold
+\color blue
+Väntevärdesriktig
+\series default
+\color inherit
+.
+ Se F3.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Residualstandardavvikelsen
+\series default
+\color inherit
+ (residualspridningen):
+\begin_inset Formula 
+\[
+s_{e}=\sqrt{s_{e}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata
+\begin_inset Formula 
+\[
+s_{e}^{2}=\frac{125.0824413}{30-2}\approx4.467\quad\quad\quad s_{e}=\sqrt{4.467}\approx2.11\mathrm{\text{ år}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_rootmse.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Korrelationskoefficienten 
+\series default
+\color inherit
+mäter 
+\series bold
+\color blue
+graden av linjärt samband
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+r=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alternativ formel för handräkning
+\begin_inset Formula 
+\[
+r=\frac{n\sum x_{i}y_{i}-\left(\sum x_{i}\right)\left(\sum y_{i}\right)}{\sqrt{\left(n\sum x_{i}^{2}-\left(\sum x_{i}\right)^{2}\right)\left(n\sum y_{i}^{2}-\left(\sum y_{i}\right)^{2}\right)}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Korrelationskoefficienten är ett normerat mått:
+\begin_inset Formula 
+\[
+-1\leq r\leq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/correlationexamples.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation hälsobudget vs livslängd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthcorr.pdf
+	lyxscale 39
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation mäter linjärt samband
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/correlationislinear.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression är korrelation, inte kausalitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Regression handlar om 
+\series bold
+\color blue
+korrelation
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+Samvariation
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Korrelation kan användas för 
+\series bold
+\color blue
+prediktion
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kausala samband
+\series default
+\color inherit
+ (orsak 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ verkan):
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Studietimmar 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Tentaresultat.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Smärtstillande 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Smärtlindring.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Marknadsföring 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Försäljning.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length -0.5cm
+\end_inset
+
+Eller kan det också vara tvärtom? 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/ThinkingEmoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset space \hspace{}
+\length -1cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/DavidHume.jpg
+	lyxscale 50
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+David Hume
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Filosof
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/donrubin.jpg
+	lyxscale 50
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Donald Rubin
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Statistiker
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/judeapearl.jpg
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Judea Pearl
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Datavetare
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation innebär inte kausalitet 
+\begin_inset Formula $\hat{\rho}=0.952$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/marriageratekentucky.pdf
+	lyxscale 20
+	scale 15.5
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Korrelation innebär inte kausalitet 
+\begin_inset Formula $\hat{\rho}=0.666$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/nicholascage.pdf
+	lyxscale 20
+	scale 15.5
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Variansanalys (Analysis of Variance - ANOVA)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+ANOVA-uppdelningen:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\[
+\underset{\mathrm{SST}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}}=\underset{\mathrm{SSE}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}}+\underset{\mathrm{SSR}}{\underbrace{\sum_{i=1}^{n}(\hat{y}_{i}-\bar{y})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{Total variation i }y=\text{Oförklarad variation i }y+\text{Förklarad variation}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{SST}=\mathrm{SSE}+\mathrm{SSR}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SSE}=125.082$
+\end_inset
+
+ (Excelark ovan)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SST}=181.990$
+\end_inset
+
+ (kan beräknas med liknande Excelark)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{SSR}=\mathrm{SST}-\mathrm{SSE}=56.908$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ANOVA i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_anova.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Variansanalys (ANOVA)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size small
+\begin_inset Formula 
+\[
+\underset{\mathrm{SST}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}}=\underset{\mathrm{SSE}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}}+\underset{\mathrm{SSR}}{\underbrace{\sum_{i=1}^{n}(\hat{y}_{i}-\bar{y})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/anovaillustration.pdf
+	lyxscale 40
+	scale 38
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Andel förklarad variation - R
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ANOVA:
+\begin_inset Formula 
+\[
+\mathrm{SST}=\mathrm{SSE}+\mathrm{SSR}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Andel förklarad variation (
+\series bold
+\color blue
+determinationskoefficienten
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För regression med 
+\series bold
+\color blue
+en
+\series default
+\color inherit
+ förklarande variabel gäller att
+\begin_inset Formula 
+\[
+R^{2}=r^{2}\quad\text{ (}r\text{ är korrelationskoefficienten)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetdata:
+\begin_inset Formula 
+\[
+R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}=\frac{\mathrm{56.908}}{\mathrm{181.990}}\approx0.313.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthbudget_reg_R_output_r2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align left
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samma regression på väldigt olika data 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Exploding Face Emoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/anscombeQuartet.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Samma linjära regression trots väldigt olika samband.
+ 
+\end_layout
+
+\begin_layout Itemize
+Se upp för: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+icke-linjära samband
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+outliers 
+\series default
+\color inherit
+(både i 
+\begin_inset Formula $x$
+\end_inset
+
+ och 
+\begin_inset Formula $y$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+observationer med stor påverkan
+\series default
+\color inherit
+ på anpassningen.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename figs/badges/R-anscombe-blue.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflytelserika observationer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/healthdata_text_fit_USA.pdf
+	lyxscale 30
+	scale 36
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Med USA
+\begin_inset Formula 
+\[
+\text{livslängd}=76.035+1.038\cdot\mathrm{\text{hälsobudget}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Utan USA
+\begin_inset Formula 
+\[
+\text{livslängd}=74.164+1.763\cdot\mathrm{\text{hälsobudget}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Extrapolering
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/extrapolate.pdf
+	lyxscale 40
+	scale 38
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Extrapolering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "85col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Itemize
+Rymdfärjan Challenger exploderade strax efter start.
+\end_layout
+
+\begin_layout Itemize
+Gummi-packningar (O-rings) hade skadats av kylan.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "10col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/Challenger.jpg
+	lyxscale 30
+	scale 300
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/oring.pdf
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/orings.pdf
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

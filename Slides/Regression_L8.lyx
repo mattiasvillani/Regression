@@ -631,12 +631,21 @@ Airline passenger data
 
 \begin_deeper
 \begin_layout Standard
-\align center
+\align right
 
 \size tiny
 \begin_inset CommandInset include
 LatexCommand include
 filename "figs/airlinetable.tex"
+
+\end_inset
+
+
+\size default
+
+\begin_inset Graphics
+	filename figs/badges/AirPassengers.pdf
+	scale 45
 
 \end_inset
 
@@ -1211,6 +1220,17 @@ Global temperatur - exponentiell trend
 	filename figs/globaltempanomalyExpTrend.pdf
 	lyxscale 30
 	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/globaltemp.pdf
+	scale 45
 
 \end_inset
 

@@ -163,7 +163,8 @@ ST123G
 \begin_layout Subtitle
 
 \color orange
-Föreläsning 9 - Säsongsrensning med regression
+Föreläsning 9 - Autokorrelation.
+ Autoregressiva modeller.
 \end_layout
 
 \begin_layout Author
@@ -182,6 +183,10 @@ status collapsed
 Mattias Villani
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -220,7 +225,7 @@ Stockholms och Linköpings universitet
 \end_inset
 
 
-\begin_inset VSpace medskip
+\begin_inset VSpace smallskip
 \end_inset
 
 
@@ -244,18 +249,10 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-Repetition kategoriska förklarande variabler
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 
 \series bold
 \color blue
-Säsongsrensning med regression
+Autokorrelation
 \series default
 \color inherit
 
@@ -266,7 +263,13 @@ Säsongsrensning med regression
 \end_layout
 
 \begin_layout Itemize
-Saknade förklarande variabler i regression
+
+\series bold
+\color blue
+Autoregressiva modeller
+\series default
+\color inherit
+
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -277,10 +280,7 @@ Saknade förklarande variabler i regression
 
 \series bold
 \color blue
-Interaktioner 
-\series default
-\color inherit
-i regression
+Prognosutvärderingsmått
 \end_layout
 
 \end_deeper
@@ -299,7 +299,7 @@ status open
 
 \series bold
 \color orange
-Binära förklarande variabler
+Repetition - Korrelation
 \end_layout
 
 \end_inset
@@ -312,29 +312,13 @@ Binära förklarande variabler
 
 \series bold
 \color blue
-Binära
+Kovarians 
 \series default
 \color inherit
- (
-\series bold
-\color blue
-dummy
-\series default
-\color inherit
-) 
-\series bold
-\color blue
-variabler
-\series default
-\color inherit
- som bara kan anta två värden.
- Ex:
+mellan två variabler
 \begin_inset Formula 
 \[
-\mathrm{holiday}=\begin{cases}
-1 & \text{ om röd dag}\\
-0 & \text{ annars}
-\end{cases}
+s_{xy}=\mathrm{cov}(x,y)=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}
 \]
 
 \end_inset
@@ -343,65 +327,41 @@ variabler
 \end_layout
 
 \begin_layout Itemize
-Varianter av 
+
 \series bold
 \color blue
-kodning
+Korrelation
 \series default
 \color inherit
-: (
-\begin_inset Formula $0$
+ mellan två variabler:
+\begin_inset Formula 
+\[
+r_{xy}=\mathrm{corr}(x,y)=\frac{s_{xy}}{s_{x}s_{y}}
+\]
+
 \end_inset
 
-,
-\begin_inset Formula $1$
+där 
+\begin_inset Formula 
+\[
+s_{x}^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
 \end_inset
 
-) eller (
-\begin_inset Formula $-1$
-\end_inset
 
-,
-\begin_inset Formula $1$
-\end_inset
-
-), eller 
-\family typewriter
-(true,false
-\family default
-).
 \end_layout
 
 \begin_layout Itemize
-Regressionsmodell med binär förklarande variabel:
+Samma formel som i F2, men med andra symboler:
 \begin_inset Formula 
 \[
-y=\alpha+\beta_{1}\cdot\mathrm{temp}+\beta_{2}\cdot\mathrm{holiday}+\varepsilon
-\]
-
-\end_inset
-
-innebär att vi får 
-\series bold
-\color blue
-två parallella regressionlinjer
-\series default
-\size footnotesize
-\color inherit
-
-\begin_inset Formula 
-\[
-y=\begin{cases}
-\alpha+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{holiday}=0}\\
-(\alpha+\beta_{2})+\beta_{1}\cdot\mathrm{temp}+\varepsilon & {\color{blue}\text{ om }\mathrm{holiday}=1}
-\end{cases}
+r_{xy}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})(y_{i}-\bar{y}_{i})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
 \]
 
 \end_inset
 
 
-\size default
- 
 \end_layout
 
 \end_deeper
@@ -420,7 +380,7 @@ status open
 
 \series bold
 \color orange
-Binära förklarande variabler
+Repetition - Korrelation
 \end_layout
 
 \end_inset
@@ -432,21 +392,9 @@ Binära förklarande variabler
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/cykelHolidayDummy.pdf
-	lyxscale 40
-	scale 35
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/SAScykelholidaydummy.png
-	lyxscale 50
-	scale 35
+	filename figs/correlationexamples.pdf
+	lyxscale 30
+	scale 50
 
 \end_inset
 
@@ -469,159 +417,107 @@ status open
 
 \series bold
 \color orange
-Säsongsrensning med regression - kvartalsdata
+Autokorrelation av ordning 1
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Frame
 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Skatta 
+Observationerna i en 
 \series bold
 \color blue
-regression
-\series default
-\color inherit
- med 
-\series bold
-\color blue
-trendmodell + kvartalsdummies
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+c_{3}\cdot D_{3t}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Formula 
-\[
-D_{1t}=\begin{cases}
-1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 1}\\
-0 & \text{annars}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Formula 
-\[
-D_{2t}=\begin{cases}
-1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 2}\\
-0 & \text{annars}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Formula 
-\[
-D_{3t}=\begin{cases}
-1 & \text{om observationen vid tidpunkt }t\text{ är kvartal 3}\\
-0 & \text{annars}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Säsongsrensning med regression - månadsdata
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Skatta 
-\series bold
-\color blue
-regression
-\series default
-\color inherit
- med 
-\series bold
-\color blue
-trendmodell + månadsdummies
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+\ldots+c_{11}\cdot D_{11t}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Formula 
-\[
-D_{kt}=\begin{cases}
-1 & \text{om observationen vid tidpunkt }t\text{ är månad nr }k\\
-0 & \text{annars}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Multiplikativ modell: logga 
+tidsserie 
 \begin_inset Formula $y_{t}$
+\end_inset
+
+ 
+\series default
+\color inherit
+är ofta beroende/
+\series bold
+\color blue
+korrelerade
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autokorrelation 
+\series default
+\color inherit
+av 
+\series bold
+\color blue
+ordning 1
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+r_{1}=\mathrm{corr}(y_{t},y_{t-1})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Korrelation mellan dagens värde och gårdagens värde.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Korrelation mellan denna månad och förra månaden
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Första laggen
+\begin_inset Quotes erd
+\end_inset
+
+: 
+\begin_inset Formula $y_{t-1}$
 \end_inset
 
 .
@@ -643,7 +539,7 @@ status open
 
 \series bold
 \color orange
-Airline passenger data - säsongsdummies
+Inflation
 \end_layout
 
 \end_inset
@@ -654,11 +550,10 @@ Airline passenger data - säsongsdummies
 \begin_deeper
 \begin_layout Standard
 \align center
-
-\size tiny
-\begin_inset CommandInset include
-LatexCommand include
-filename "figs/airlinedummytable.tex"
+\begin_inset Graphics
+	filename figs/infl.pdf
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -681,7 +576,7 @@ status open
 
 \series bold
 \color orange
-Säsongsrensning med regression
+Laggade variabler - inflation
 \end_layout
 
 \end_inset
@@ -689,28 +584,369 @@ Säsongsrensning med regression
 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/InflLagTable.png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autokorrelation lag 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/inflACFLag1.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autokorrelation av ordning 2
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Skatta 
+
 \series bold
 \color blue
-regression
+Autokorrelation 
 \series default
 \color inherit
- med 
+av 
 \series bold
 \color blue
-trendmodell + kvartalsdummies
+ordning 2
 \series default
 \color inherit
 :
 \begin_inset Formula 
 \[
-y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+c_{3}\cdot D_{3t}
+r_{2}=\mathrm{corr}(y_{t},y_{t-2})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Korrelation mellan dagens värde och förrgårs värde.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Korrelation mellan denna månad och förrförra månaden
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Andra laggen
+\begin_inset Quotes erd
+\end_inset
+
+: 
+\begin_inset Formula $y_{t-2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autokorrelation lag 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/inflACFLag2.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autokorrelationsfunktionen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autokorrelation 
+\series default
+\color inherit
+av 
+\series bold
+\color blue
+ordning 
+\begin_inset Formula $k$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+r_{k}\mathrm{=corr}(y_{t},y_{t-k})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Korrelation mellan månadens värde och 
+\begin_inset Formula $k$
+\end_inset
+
+ månader innan
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autokorrelationsfunktionen
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) är 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ som en funktion av tidsavståndet 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autokorrelationsfunktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/inflACF.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autoregressiva modeller
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Autoregressiv modell av ordning 1 (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
 \]
 
 \end_inset
@@ -719,393 +955,559 @@ y_{t}=a+b\cdot t+c_{1}\cdot D_{1t}+c_{2}\cdot D_{2t}+c_{3}\cdot D_{3t}
 \end_layout
 
 \begin_layout Itemize
-Uttrycket 
-\begin_inset Formula $a+b\cdot t$
+
+\series bold
+\color blue
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ 
+\series default
+\color inherit
+är 
+\series bold
+\color blue
+regression med 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ som förklarande variabel
+\series default
+\color inherit
+!
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattas med 
+\series bold
+\color blue
+minstakvadrat-metoden
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y_{t}=a+by_{t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Autoregressiv modell av ordning 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta_{1}y_{t-1}+\ldots+\beta_{p}y_{t-p}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\series default
+\color inherit
+ är en 
+\series bold
+\color blue
+multipel regression
+\series default
+\color inherit
+ med de 
+\begin_inset Formula $p$
+\end_inset
+
+ förklarande variablerna 
+\begin_inset Formula $y_{t-1},...,y_{t-p}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+AR(1) för inflation - R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/swedinflAR1.png
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+AR(4) för inflation - R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/swedinflAR4.png
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autokorrelationsfunktion AR(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autokorrelationsfunktion
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) för 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ i populationen:
+\begin_inset Formula 
+\[
+\rho_{k}=\beta^{k},\text{ för }k=1,2,\ldots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ACF_theo_AR1.pdf
+	lyxscale 40
+	scale 33
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autoregressiva modeller - stationäritet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
 \end_inset
 
  är 
 \series bold
-inte
-\series default
- trendkomponenten.
- 
-\begin_inset Newline newline
-\end_inset
-
-Lutningen 
-\begin_inset Formula $b$
-\end_inset
-
- är korrekt, men 
-\begin_inset Formula $a$
-\end_inset
-
- är interceptet under vintern.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Den 
-\series bold
 \color blue
-genomsnittliga trenden
+stationär
 \series default
 \color inherit
-:
-\size footnotesize
-
-\begin_inset Formula 
-\[
-y_{t}=a_{0}+b\cdot t
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Vi vet att:
-\size footnotesize
-
-\begin_inset Formula 
-\[
-\bar{y}=a_{0}+b\cdot\bar{t}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-a_{0}=\bar{y}-b\cdot\bar{t}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Säsongen
-\series default
-\color inherit
- som avvikelse från trenden
-\size footnotesize
-
-\begin_inset Formula 
-\begin{align*}
-S_{1} & =a+c_{1}-a_{0}\text{ (vår})\\
-S_{2} & =a+c_{2}-a_{0}\text{ (sommar})\\
-S_{3} & =a+c_{3}-a_{0}\text{ (höst})\\
-S_{4} & =a-a_{0}\text{ (vinter})
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Airline - regression med säsongsdummies
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/airlinedummyregcoef.png
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-\begin_inset Formula $a_{0}=\bar{y}-b\cdot\bar{t}=280.299-2.66033\cdot72.5\approx87.425$
+ (icke-explosiv) modell om 
+\begin_inset Formula $-1<\beta<1$
 \end_inset
 
 .
  
-\series bold
-\color blue
-Trend
-\series default
-\color inherit
-: 
-\begin_inset Formula 
-\[
-87.425+2.660\cdot t
-\]
-
-\end_inset
-
-
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-\size footnotesize
-\color blue
-Säsong januari
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-S_{1}=a+c_{1}-a_{0}=54.3277+9.18029-87.425\approx-23.917
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\size footnotesize
-\color blue
-Säsong december
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-S_{12}=a-a_{0}=54.3277-87.425\approx-33.097
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Airline - regression med säsongsdummies
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/airlineAdditiveRegrSeasonalFactors.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Airline - regression med säsongsdummies
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/airlineRegrSeasonalFactorsFit.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Airline - regression med säsongsdummies
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/airlineRegrSeasonalFactorsFitQuad.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Cykeluthyrning säsongsdummies
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/cykelseasontime.pdf
+	filename figs/simulateAR1.pdf
 	lyxscale 40
-	scale 35
+	scale 40
 
 \end_inset
 
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prognoser med AR(1) modell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skattad AR(1)-modell
+\begin_inset Formula 
+\[
+y_{t}=a+b\cdot y_{t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vid tidpunkt 
+\begin_inset Formula $T$
+\end_inset
+
+, 
+\series bold
+\color blue
+prognos för nästa månad 
+\begin_inset Formula $T+1$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{y}_{T+1}=a+b\cdot y_{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prognos för 
+\begin_inset Formula $T+2$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{y}_{T+2}=a+b\cdot\textcolor{orange}{\hat{y}_{T+1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/inflpred.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Prognoser med AR(2) modell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Skattad AR(2)-modell
+\begin_inset Formula 
+\[
+y_{t}=a+b_{1}\cdot y_{t-1}+b_{2}\cdot y_{t-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vid tidpunkt 
+\begin_inset Formula $T$
+\end_inset
+
+, 
+\series bold
+\color blue
+prognos för nästa månad 
+\begin_inset Formula $T+1$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{y}_{T+1}=a+b_{1}\cdot y_{T}+b_{2}\cdot y_{T-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prognos för 
+\begin_inset Formula $T+2$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{y}_{T+2}=a+b_{1}\cdot\textcolor{orange}{\hat{y}_{T+1}}+b_{2}\cdot y_{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prognos för 
+\begin_inset Formula $T+3$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{y}_{T+3}=a+b_{1}\cdot\textcolor{orange}{\hat{y}_{T+2}}+b_{2}\cdot\textcolor{orange}{\hat{y}_{T+1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Mått på prognosförmåga
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Genomsnittliga 
+\series bold
+\color blue
+kvadrerade
+\series default
+\color inherit
  
+\series bold
+\color blue
+prognosfel
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename figs/bikeRegDummyTable.png
-	lyxscale 50
-	scale 22
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Felspecifikation - saknade förklarande variabler
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Population
-\series default
-\color inherit
-:
 \begin_inset Formula 
 \[
-y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon
+\mathrm{MSE}=\frac{\sum_{t=1}^{n}\left(y_{t}-\hat{y}_{t}\right)^{2}}{n}
 \]
 
 \end_inset
@@ -1114,273 +1516,54 @@ y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon
 \end_layout
 
 \begin_layout Itemize
-Skattad modell 
+Genomsnittliga 
 \series bold
 \color blue
-korrekt specificerad
+absoluta
 \series default
 \color inherit
-.
  
 \series bold
 \color blue
-Väntevärderiktiga
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-\mathbb{E}(a)=\alpha,\;\mathbb{E}(b_{1})=\beta_{1}\;\text{och}\;\mathbb{E}(b_{2})=\beta_{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Skattad modell
-\series default
-\color inherit
- missar att ta med 
-\begin_inset Formula $x_{2}$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-y=a+b_{1}x_{1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Bias
-\begin_inset Formula 
-\[
-E(b_{1})\neq\beta_{1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Storleken på biasen beror på
-\series bold
-\color blue
- korrelationen mellan 
-\begin_inset Formula $x_{1}$
-\end_inset
-
- och 
-\begin_inset Formula $x_{2}$
-\end_inset
-
-
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $x_{1}$
-\end_inset
-
- plockar upp variation i 
-\begin_inset Formula $y$
-\end_inset
-
- som egentligen förklaras av 
-\begin_inset Formula $x_{2}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Interaktioner
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Additiv modell
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\varepsilon
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Modell med 
-\series bold
-\color blue
-interaktion
-\series default
-\color inherit
-: 
-\begin_inset Formula 
-\[
-y=\alpha+\beta_{1}x_{1}+\beta_{2}x_{2}+\beta_{3}x_{1}\cdot x_{2}+\varepsilon
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Modell med 
-\series bold
-\color blue
-interaktion med dummy variabel
-\series default
-\color inherit
- (
-\begin_inset Formula $d$
-\end_inset
-
-)
-\begin_inset Formula 
-\[
-y=\alpha+\beta_{1}x+\beta_{2}d+\beta_{3}x\cdot d+\varepsilon
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Regressionslinjerna är inte längre parallella:
-\begin_inset Formula 
-\begin{align*}
-d=0:\qquad & y=\alpha+\beta_{1}x+\varepsilon\\
-d=1:\qquad & y=(\alpha+\beta_{2})+(\beta_{1}+\beta_{3})\cdot x+\varepsilon
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-cykelhyrningar - dummy utan interaktion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/cykelHolidayDummy.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-cykelhyrningar - dummy med interaktion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/cykelHolidayDummyInteract.pdf
-	lyxscale 50
-	scale 35
-
-\end_inset
-
-
+prognosfel
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename figs/dummyinteractTable.png
-	lyxscale 50
-	scale 45
+\begin_inset Formula 
+\[
+\mathrm{MAE}=\frac{\sum_{t=1}^{n}\left|y_{t}-\hat{y}_{t}\right|}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Genomsnittlig 
+\series bold
+\color blue
+procentuella
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+absoluta
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+prognosfel
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{MAPE}=\frac{1}{n}\sum_{t=1}^{n}\frac{\left|y_{t}-\hat{y}_{t}\right|}{y_{t}}\cdot100
+\]
 
 \end_inset
 

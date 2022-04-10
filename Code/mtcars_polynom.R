@@ -31,9 +31,10 @@ R2 = c(summ1$r.squared, summ2$r.squared, summ3$r.squared, summ4$r.squared,
        summ5$r.squared,summ10$r.squared)
 adjR2 = c(summ1$adj.r.squared, summ2$adj.r.squared, summ3$adj.r.squared, summ4$adj.r.squared,
        summ5$adj.r.squared,summ10$adj.r.squared)
-plot(c(1,2,3,4,5), R2[1:5], type = "l", col = colors[2], lwd = 3,
+plot(c(1,2,3,4,5), R2[1:5], type = "b", col = colors[2], lwd = 3, pch = 19,
      ylim = c(0.55,0.8), xlab = "Polynomgrad", ylab = "R2")
-lines(c(1,2,3,4,5), adjR2[1:5], col = colors[4], lwd = 3)
+lines(c(1,2,3,4,5), adjR2[1:5], col = colors[4], type = "b", pch = 19, lwd = 3)
+legend(x = "topleft", inset=.05, legend = c("R2", "Adj-R2"), pch = c(19,19), lty = c(1, 1), pt.lwd = c(3,3), col = c(colors[2], colors[4]))
 
 
 # kors-validering med K=4 folds
