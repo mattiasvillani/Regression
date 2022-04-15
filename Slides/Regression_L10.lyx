@@ -990,7 +990,7 @@ oberoende
 
 \series bold
 \color blue
-Oberoende = korrelerade
+Oberoende = okorrelerade
 \series default
 \color inherit
  för 
@@ -2723,10 +2723,157 @@ Logistisk regression
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+\color blue
 Odds
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 \mathrm{Odds}(y=1\vert x)=\frac{\mathrm{P}(y=1\vert x)}{\mathrm{P}(y=0\vert x)}=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds i logistisk regression är 
+\series bold
+\color blue
+multiplikativa effekter
+\series default
+\color inherit
+ [
+\begin_inset Formula $\exp(a+b)=\exp(a)\exp(b)$
+\end_inset
+
+]
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0})\cdot\exp(\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tolkning intercept 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ [
+\begin_inset Formula $\exp(0)=1$
+\end_inset
+
+]
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=0)=\exp(\beta_{0})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - oddskvot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För 
+\begin_inset Formula $x=1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=1)=\exp(\beta_{0}+\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För 
+\begin_inset Formula $x=2$
+\end_inset
+
+ [
+\begin_inset Formula $\exp(ab)=\exp(a)^{b}$
+\end_inset
+
+]
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=2)=\exp(\beta_{0})\exp(2\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tolkning 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+: 
+\begin_inset Formula $x$
+\end_inset
+
+ ökar med en enhet, oddset multipliceras med
+\begin_inset Formula 
+\[
+\exp(\beta_{1})
 \]
 
 \end_inset
@@ -2811,7 +2958,7 @@ status open
 
 \series bold
 \color orange
-Logistisk regression - oddskvot
+Oddskvot - exempel
 \end_layout
 
 \end_inset
@@ -2820,13 +2967,97 @@ Logistisk regression - oddskvot
 \end_layout
 
 \begin_deeper
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/OddsFunc.pdf
-	lyxscale 50
-	scale 45
+\begin_layout Itemize
+Sannolikhet för cancer (
+\begin_inset Formula $y=1$
+\end_inset
 
+) bestäms av personens ålder 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(-4.6+0.04\cdot x)}{1+\exp(-4.6+0.04\cdot x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Dvs 
+\begin_inset Formula $\beta_{0}=-4.6$
+\end_inset
+
+ och 
+\begin_inset Formula $\beta_{1}=0.04$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Oddskvoten: ökning av odds med ca 
+\begin_inset Formula $4\%$
+\end_inset
+
+ per levnadsår:
+\begin_inset Formula 
+\[
+\exp(\beta_{1})=\exp(0.04)=1.040811
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en nyfödd är ca 
+\begin_inset Formula $1:100$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=0)=\exp(-4.6)=0.01005184
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 1-åring
+\begin_inset Formula 
+\[
+\exp(\beta_{0})\exp(\beta_{1})=0.01005184\cdot1.040811=0.01046207
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 2-åring
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=1)\exp(\beta_{1})=0.01046207\cdot1.040811
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 100-åring: 
+\begin_inset Formula $\exp(\beta_{0}+100\beta_{1})=0.548811$
 \end_inset
 
 
@@ -2946,43 +3177,6 @@ linjär modell
 \color inherit
  för log-oddset.
  
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Logistisk regression - logodds
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/LogOddsFunc.pdf
-	lyxscale 50
-	scale 45
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper
