@@ -2507,116 +2507,6 @@ status open
 
 \series bold
 \color orange
-Exponentialfunktionen
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Exponentialfunktionen
-\series default
-\color inherit
- 
-\begin_inset Formula 
-\[
-\exp(x)=e^{x}
-\]
-
-\end_inset
-
-där 
-\begin_inset Formula $e\approx2.71828$
-\end_inset
-
- är 
-\series bold
-\color blue
-Eulers tal
-\series default
-\color inherit
- som 
-\series bold
-\color blue
-bas
-\series default
-\color inherit
-, istället för basen 
-\begin_inset Formula $10$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Naturliga logaritmen 
-\begin_inset Formula $\ln(x)$
-\end_inset
-
-
-\series default
-\color inherit
- är inversa funktionen till 
-\begin_inset Formula $\exp(x)$
-\end_inset
-
-.
- 
-\begin_inset Formula 
-\[
-\ln(e^{x})=x
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout LyX-Code
-\align center
-\begin_inset Graphics
-	filename figs/ExponentialFunction.pdf
-	lyxscale 50
-	scale 20
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename figs/LnFunction.pdf
-	lyxscale 50
-	scale 20
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
 Logistisk regression - sannolikhet för 
 \begin_inset Formula $y=1$
 \end_inset
@@ -2767,11 +2657,7 @@ Tolkning intercept
 \begin_inset Formula $\beta_{0}$
 \end_inset
 
- [
-\begin_inset Formula $\exp(0)=1$
-\end_inset
 
-]
 \begin_inset Formula 
 \[
 \mathrm{Odds}(y=1\vert x=0)=\exp(\beta_{0})
@@ -2846,14 +2732,12 @@ För
 \begin_inset Formula $x=2$
 \end_inset
 
- [
-\begin_inset Formula $\exp(ab)=\exp(a)^{b}$
-\end_inset
 
-]
+\size footnotesize
+
 \begin_inset Formula 
 \[
-\mathrm{Odds}(y=1\vert x=2)=\exp(\beta_{0})\exp(2\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})^{2}
+\mathrm{Odds}(y=1\vert x=2)=\exp(\beta_{0}+\beta_{1}\cdot2)=\exp(\beta_{0})\exp(2\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})^{2}
 \]
 
 \end_inset
@@ -3304,18 +3188,6 @@ Oddset för att överleva för en nyfödd (age=0
 \family default
 
 \begin_inset Formula $\exp(-0.2091888)=0.81124$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Sannolikheten för att överleva för en nyfödd (age=0
-\family typewriter
-) är 
-\family default
-
-\begin_inset Formula $0.81124/(1+0.81124)=0.4478927$
 \end_inset
 
 .
