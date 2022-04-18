@@ -535,7 +535,7 @@ Multiplikation av potenstal
  med samma bas
 \begin_inset Formula 
 \[
-a^{x}\cdots a^{y}=a^{x+y}
+a^{x}\cdot a^{y}=a^{x+y}
 \]
 
 \end_inset
