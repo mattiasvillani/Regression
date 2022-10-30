@@ -62,7 +62,7 @@ Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https:
 
 **Föreläsning 9 - Autokorrelation. Autoregressiva modeller för tidsserier.**\
 Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf)\
-Kod: [R kod för att skatta AR och ARMA modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/swedinflARMA.R)
+Kod: [R kod för att skatta och göra prediktion med AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/swedinflARMA.R)
 
 **Föreläsning 10 - ARMA modeller för tidserier. Enkel logistisk regression.**\
 Läs: AJÅ Kapitel 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10_noMA.pdf) | [Slides om potenser och logaritmer](https://github.com/mattiasvillani/Regression/raw/master/Slides/PotensOchLogaritm.pdf)\
