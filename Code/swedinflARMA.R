@@ -1,4 +1,4 @@
-# AR och ARMA modeller för svensk inflation
+# AR modeller för svensk inflation
 prettycol = RColorBrewer::brewer.pal(12, "Paired")[c(1,2,7,8,3,4,5,6,9,10,11,12)]
 library(regkurs)
 library(SUdatasets)
@@ -34,9 +34,5 @@ arima_coef_summary(arfit)
 predAR4 = predict(arfit, 4)
 predAR4$pred
 
-# ARMA(2,2)
-arfit = arima(swedinfl$KPIF, order = c(2,0,2))
-arima_coef_summary(arfit)
-predARMA22 = predict(arfit, 4)
-predARMA22$pred
+
 

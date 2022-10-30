@@ -740,22 +740,38 @@ Logaritmen av ett potenstal
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset space \hspace{}
+\length 0.9cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/emojilog.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-Logaritmen och potensen är varandras 
+Log och potens är varandras 
 \series bold
 \color blue
 inverser
 \series default
 \color inherit
 :
-\begin_inset Formula 
-\[
-\log_{10}(10^{x})=x
-\]
-
+\size small
+ 
+\begin_inset Formula $\log_{10}(10^{x})=x$
 \end_inset
 
 
+\size default
+.
 \end_layout
 
 \end_deeper

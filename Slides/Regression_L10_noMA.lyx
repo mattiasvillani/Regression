@@ -1,0 +1,2921 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+  \setbeamertemplate{headline}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include necessary packages here
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+
+\includegraphics[width=1.5cm]{/home/mv/Dropbox/IconsAndLogos/LogoBlueJustRing.jpg}\hspace*{2.5cm}~%
+\includegraphics[width=2cm]{/home/mv/Dropbox/IconsAndLogos/liulogo.png} \linebreak
+\hrulefill \break
+\tiny
+\includegraphics[width=0.33cm]{/home/mv/Dropbox/IconsAndLogos/web.png} \href{https://mattiasvillani.com}{mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/twitter.jpg} \href{https://twitter.com/matvil}{@matvil}\hspace*{1cm}~
+\includegraphics[width=0.3cm]{/home/mv/Dropbox/IconsAndLogos/github.png} \href{https://github.com/mattiasvillani}{mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{lblue}{RGB}{179, 230, 255}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\usepackage{booktabs} 
+\usepackage[ruled]{algorithm2e}
+\usepackage{wasysym}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Regressions- och tidsserieanalys
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST123G
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 10 - AR modeller och Enkel logistisk regression.
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Institutionen för datavetenskap
+\begin_inset Newline newline
+\end_inset
+
+Linköpings universitet 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms och Linköpings universitet
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+AR modeller
+\series default
+\color inherit
+ och 
+\series bold
+\color blue
+partiell autokorrelation
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression för tidsserier
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+ och 
+\series bold
+\color blue
+logodds
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Enkel logistisk regression
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autokorrelationsfunktion - AR(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ som populationsmodell:
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autokorrelationsfunktion
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+\rho_{k}=\mathrm{corr}(y_{t},y_{t-k}),\text{ för }k=1,2,...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{k}=\beta^{k},\text{ för }k=1,2,\ldots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ACF_theo_AR1.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Partiell autokorrelationsfunktion - AR(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Partiell ACF
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+PACF
+\series default
+\color inherit
+) multipel regressions-variant av 
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\rho_{k}^{\star}=\mathrm{corr}\left(y_{t},y_{t-k}\vert\textcolor{orange}{y_{t-1},\ldots,y_{t-k-1}}\right),\text{ för }k=1,2,...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+för 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ i populationen:
+\begin_inset Formula 
+\begin{align*}
+\rho_{1}^{\star} & =\beta\\
+\rho_{k}^{\star} & =0,\text{ för }k=2,3,\ldots
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/PACF_theo_AR1.pdf
+	lyxscale 40
+	scale 35
+	BoundingBox 0bp 420bp 1250bp 834bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Partiell autokorrelationsfunktion - AR(2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(2)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta_{1}y_{t-1}+\beta_{2}y_{t-2}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Partiell ACF
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\mathrm{AR}(2)$
+\end_inset
+
+ i populationen:
+\begin_inset Formula 
+\begin{align*}
+\rho_{1}^{\star} & =\frac{\beta_{1}}{1-\beta_{2}}\\
+\rho_{2}^{\star} & =\beta_{2}\\
+\rho_{k}^{\star} & =0,\text{ för }k=3,4,\ldots
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/PACF_theo_AR2.pdf
+	lyxscale 40
+	scale 26
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi kan 
+\series bold
+\color blue
+identifiera
+\series default
+\color inherit
+ vilken 
+\series bold
+\color blue
+ordning AR
+\series default
+\color inherit
+ modell ska ha från 
+\series bold
+\color blue
+PACF
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression för tidsserier
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Regression
+\begin_inset Formula 
+\[
+y=\alpha+\beta_{1}x_{1}+\ldots+\beta_{k}x_{k}+\varepsilon
+\]
+
+\end_inset
+
+där 
+\series bold
+\color blue
+feltermerna 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\series default
+\color inherit
+ antas bara 
+\series bold
+\color blue
+oberoende
+\series default
+\color inherit
+ från 
+\begin_inset Formula $N(0,\sigma_{\varepsilon}^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Oberoende = okorrelerade
+\series default
+\color inherit
+ för 
+\series bold
+\color blue
+normalfördelade
+\series default
+\color inherit
+ variabler.
+\end_layout
+
+\begin_layout Itemize
+Regressionen skattas med
+\begin_inset Formula 
+\[
+y=a+b_{1}x_{1}+\ldots+b_{k}x_{k}
+\]
+
+\end_inset
+
+och vi får residualer
+\begin_inset Formula 
+\[
+e_{t}=y_{t}-\hat{y}_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi kan undersöka om 
+\series bold
+\color blue
+residualerna är okorrelerade
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Två metoder:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Visuellt genom att 
+\series bold
+\color blue
+plotta autokorrelationsfunktionen för 
+\begin_inset Formula $e_{t}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Durbin-Watson test
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ACF residualer - temp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikeACFres_temp.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ACF residualer - alla variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Regression med alla förklarande variabler:
+\family typewriter
+\size small
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+temp,hum,windspeed,holiday,workingday,säsong,yr
+\size tiny
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikeACFres_AllNoLags.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression för tidsserier
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regressionsmodeller för tidsserier
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y_{t}=\alpha+\beta_{1}x_{t}+\varepsilon_{t}
+\]
+
+\end_inset
+
+får ofta korrelerade residualer.
+ 
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Crying Sad Emoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kombinera 
+\series bold
+\color blue
+enkel regression och 
+\color orange
+
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ 
+\series default
+\color inherit
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/Very Happy Emoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\color black
+
+\begin_inset Formula 
+\[
+y_{t}={\color{blue}\alpha+\beta_{1}x_{t}}{\color{orange}+\beta_{2}y_{t-1}}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kombinera 
+\series bold
+\color blue
+multipel regression och 
+\color orange
+
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\color blue
+ 
+\series default
+\color inherit
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/IconsAndLogos/HeartEyes.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\color black
+
+\begin_inset Formula 
+\[
+y_{t}={\color{blue}\alpha+\beta_{1}x_{t}+\ldots+\beta_{k}x_{kt}}{\color{orange}+\beta_{k+1}y_{t-1}+\ldots+\beta_{k+p}y_{t-p}}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Cykeluthyrning:
+\begin_inset Formula 
+\[
+\mathrm{\texttt{AntalUthyr}}_{\mathrm{idag}}=a+b_{1}\cdot\texttt{temp}_{\mathrm{idag}}+b_{2}\cdot\mathrm{\texttt{AntalUthyr}}_{\mathrm{igår}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Standardfel och hypotestest måste korrigeras om laggar av 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ används som förklarande variabel.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ACF residualer - enbart lag 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikeACFres_lag1.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ACF residualer - alla variabler + lag 1-4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/bikeACFres_AllLag14.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Durbin-Watson test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Test för autokorrelation
+\series default
+\color inherit
+ (i feltermer).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistika
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+d=\frac{\sum_{t=2}^{T}(e_{t}-e_{t-1})^{2}}{\sum_{t=1}^{T}e_{t}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Durbin-Watson
+\series bold
+\color blue
+ testar första autokorrelationen
+\series default
+\color inherit
+ (AJÅ)
+\begin_inset Formula 
+\[
+d\approx2(1-r_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Teststatistikan uppfyller
+\begin_inset Formula 
+\[
+0\leq d\leq4
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Grova 
+\series bold
+\color blue
+kritiska gränser
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\begin{alignat*}{1}
+d\text{ nära }2\quad\Longrightarrow & \quad\text{ej signifikant}\\
+d<1\quad\Longrightarrow & \text{\quad signifikant positiv autokorrelation}\\
+d>1\quad\Longrightarrow & \text{\quad signifikant negativ autokorrelation}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Durbin-Watson test kan inte användas när man har laggar av målvariabeln
+ (
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ etc) som förklarande variabler.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Durbin-Watson test - cykeluthyrning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/DurbinWatsonBikeSimple.png
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/DurbinWatsonComplex.png
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Förklarande variabler
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $R^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{1}^{(\mathrm{res})}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+-värde
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.385$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.764$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.471^{\star\star\star}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $<1\text{e-}93$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.795$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.447$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1.104$
+\end_inset
+
+
+\begin_inset Formula $^{\star\star\star}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $<1\text{e-}33$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykeluthyrningar - utvärdera prognosförmåga
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Träningsdata
+\series default
+\color inherit
+: Jan 1, 2011 - Aug 31, 2012.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Testdata
+\series default
+\color inherit
+: Sept 1, 2012 - Dec 31, 2012.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediktionsmått RMSE
+\color black
+
+\begin_inset Formula 
+\[
+\mathrm{RMSE}_{\mathrm{test}}=\sqrt{\frac{1}{n_{\mathrm{test}}}\sum_{t\in\mathrm{Testdata}}(y_{t}-\hat{y}_{t})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cykeldataTrainTestSplit.pdf
+	lyxscale 40
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Cykeluthyrningar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Träningsdata: Jan 1, 2011 - Aug 31, 2012.
+\end_layout
+
+\begin_layout Itemize
+Testdata: Sept 1, 2012 - Dec 31, 2012.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="right" valignment="top">
+<column alignment="right" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Förklarande variabler
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $R^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{RMSE}_{\mathrm{test}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.385$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $2346.60$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.795$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1292.07$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+lag1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.714$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1274.32$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+lag1,lag2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.730$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1279.30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+lag1-lag4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.746$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1267.84$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+lag1-lag6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.764$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1262.10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr,
+\series bold
+lag1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.825$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1127.63$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr,
+\series bold
+lag1-lag4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.827$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1118.83$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr,
+\series bold
+lag1-lag6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $0.830$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1117.63$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+temp,hum,windspeed,holiday,workingday,säsong,yr,
+\series bold
+lag1-lag6,
+\color red
+Lasso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{NA}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $1118.34$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Odds och logodds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Låt 
+\begin_inset Formula $\mathrm{P}(A)$
+\end_inset
+
+ vara 
+\series bold
+\color blue
+sannolikheten
+\series default
+\color inherit
+ för en händelse 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\mathrm{P}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{antal möjliga fall}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{\text{antal fall där }A\text{ inträffar}}{\text{\text{antal fall där }A\text{ inte inträffar}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{\mathrm{P}(A)}{1-\mathrm{P}(A)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exempel: Sannolikheten att slå en 6:a med en vanlig tärning:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikhet 
+\begin_inset Formula $\mathrm{P}(A)=1/6$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds
+\begin_inset Formula 
+\[
+\mathrm{Odds}(A)=\frac{1/6}{5/6}=\frac{1}{5}
+\]
+
+\end_inset
+
+Oddset är 
+\begin_inset Formula $1:5$
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $1$
+\end_inset
+
+mot 
+\begin_inset Formula $5$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - sannolikhet för 
+\begin_inset Formula $y=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Binär responsvariabel: 
+\begin_inset Formula $y=0$
+\end_inset
+
+ och 
+\begin_inset Formula $y=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=0\vert x)=1-\mathrm{P}(y=1\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/LogisticFunc.pdf
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - oddskvot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Logistisk regression
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=0\vert x)=\frac{1}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\frac{\mathrm{P}(y=1\vert x)}{\mathrm{P}(y=0\vert x)}=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds i logistisk regression är 
+\series bold
+\color blue
+multiplikativa effekter
+\series default
+\color inherit
+ [
+\begin_inset Formula $\exp(a+b)=\exp(a)\exp(b)$
+\end_inset
+
+]
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0})\cdot\exp(\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tolkning intercept 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=0)=\exp(\beta_{0})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - oddskvot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För 
+\begin_inset Formula $x=1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=1)=\exp(\beta_{0}+\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För 
+\begin_inset Formula $x=2$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=2)=\exp(\beta_{0}+\beta_{1}\cdot2)=\exp(\beta_{0})\exp(2\beta_{1})=\exp(\beta_{0})\exp(\beta_{1})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tolkning 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+: 
+\begin_inset Formula $x$
+\end_inset
+
+ ökar med en enhet, oddset multipliceras med
+\begin_inset Formula 
+\[
+\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series bold
+\color blue
+Oddskvot
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ för att tolka 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\size scriptsize
+Bevis:
+\size tiny
+
+\begin_inset Formula 
+\[
+\mathrm{OR}(x)=\frac{\mathrm{Odds}(y=1\vert x+1)}{\mathrm{Odds}(y=1\vert x)}=\frac{\exp(\beta_{0}+\beta_{1}x+\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\frac{\exp(\beta_{0}+\beta_{1}x)\exp(\beta_{1})}{\exp(\beta_{0}+\beta_{1}x)}=\exp(\beta_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Oddskvot - exempel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikhet för cancer (
+\begin_inset Formula $y=1$
+\end_inset
+
+) bestäms av personens ålder 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(-4.6+0.04\cdot x)}{1+\exp(-4.6+0.04\cdot x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Dvs 
+\begin_inset Formula $\beta_{0}=-4.6$
+\end_inset
+
+ och 
+\begin_inset Formula $\beta_{1}=0.04$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Oddskvoten: ökning av odds med ca 
+\begin_inset Formula $4\%$
+\end_inset
+
+ per levnadsår:
+\begin_inset Formula 
+\[
+\exp(\beta_{1})=\exp(0.04)=1.040811
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en nyfödd är ca 
+\begin_inset Formula $1:100$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=0)=\exp(-4.6)=0.01005184
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 1-åring
+\begin_inset Formula 
+\[
+\exp(\beta_{0})\exp(\beta_{1})=0.01005184\cdot1.040811=0.01046207
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 2-åring
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x=1)\exp(\beta_{1})=0.01046207\cdot1.040811
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för en 100-åring: 
+\begin_inset Formula $\exp(\beta_{0}+100\beta_{1})=0.548811$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistisk regression - log-odds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Repetition: Logaritm med bas 
+\begin_inset Formula $10$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\log(10^{a})=a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Naturlig logaritm
+\series default
+\color inherit
+ (bas 
+\begin_inset Formula $e\approx2.7183$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\ln(\exp(a))=\ln e^{a}=a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression
+\begin_inset Formula 
+\[
+\mathrm{P}(y=1\vert x)=\frac{\exp(\beta_{0}+\beta_{1}x)}{1+\exp(\beta_{0}+\beta_{1}x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Odds
+\begin_inset Formula 
+\[
+\mathrm{Odds}(y=1\vert x)=\exp(\beta_{0}+\beta_{1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Log-odds
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{LogOdds}(y=1\vert x)=\beta_{0}+\beta_{1}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logistisk regression är en 
+\series bold
+\color blue
+linjär modell
+\series default
+\color inherit
+ för log-oddset.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vilka överlevde Titanic? Enkel logistisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $n=891$
+\end_inset
+
+ personer på Titanic, varav 
+\begin_inset Formula $342$
+\end_inset
+
+ överlevande.
+\end_layout
+
+\begin_layout Itemize
+Responsvariabel: 
+\begin_inset Formula $y=1$
+\end_inset
+
+ om överlevde, annars 
+\begin_inset Formula $y=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Förklarande variabel: age
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vilka överlevde Titanic? Enkel logistisk regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR_onlyest.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/titaniclogisticsimpleR_onlyodds.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oddset för att överleva för en nyfödd (age=0
+\family typewriter
+) är 
+\family default
+
+\begin_inset Formula $\exp(-0.2091888)=0.81124$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Oddset för att överleva för en 1-åring: 
+\begin_inset Formula $0.81124\cdot0.99126=0.8041498$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+...
+ vilket är en minskning med 
+\begin_inset Formula $(1-0.99126)\cdot100=0.874\%$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Varje extra levnadsår minskar oddset med 
+\begin_inset Formula $0.874\%$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
