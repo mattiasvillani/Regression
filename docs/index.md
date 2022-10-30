@@ -64,7 +64,7 @@ Extramaterial: [Excelfil för komponentsuppdelning av airpassengers data](https:
 Läs: AJÅ Kapitel 6.4 och 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L9.pdf)\
 Kod: [R kod för att skatta och göra prediktion med AR modeller för svensk inflation](https://github.com/mattiasvillani/Regression/raw/master/Code/swedinflARMA.R)
 
-**Föreläsning 10 - ARMA modeller för tidserier. Enkel logistisk regression.**\
+**Föreläsning 10 - AR modeller för tidserier. Enkel logistisk regression.**\
 Läs: AJÅ Kapitel 6.8 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L10_noMA.pdf) | [Slides om potenser och logaritmer](https://github.com/mattiasvillani/Regression/raw/master/Slides/PotensOchLogaritm.pdf)\
 Extraläsning: [Kapitel 10.5 i boken "Från datainsamling till rapport" av Karin Dahmström](https://www.studentlitteratur.se/kurslitteratur/matematik-och-statistik/statistik/fran-datainsamling-till-rapport/#Inneh%C3%A5llsf%C3%B6rteckning)\
 Kod: [R kod för att logistisk regression på titanic data](https://github.com/mattiasvillani/Regression/raw/master/Code/titanic.R) 
