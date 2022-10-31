@@ -388,7 +388,37 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Övningar Ö1-Ö6 (Jon Lachmann)
+Övningar Ö1-Ö6 (
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Maria Anna Di Lucca"
+target "https://www.su.se/profiles/madi6707-1.423540"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ och 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Mona Sfaxi"
+target "https://www.su.se/profiles/mosf7202-1.616028"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+)
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -404,6 +434,21 @@ Datorövningar D1-D3 (
 LatexCommand href
 name "Maria Anna Di Lucca"
 target "https://www.su.se/profiles/madi6707-1.423540"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ och 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Mona Sfaxi"
+target "https://www.su.se/profiles/mosf7202-1.616028"
 literal "false"
 
 \end_inset
@@ -948,7 +993,7 @@ SUdatasets
  
 \begin_inset Graphics
 	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/bike.pdf
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -1033,7 +1078,7 @@ Cykelpool - data i tabellform
 \begin_layout Itemize
 
 \family typewriter
-dtedat
+dteday
 \family default
 : datum (dag) för observationen.
 \end_layout
@@ -1731,7 +1776,7 @@ Data
  från 1000 avslutade myntauktioner: 
 \begin_inset Graphics
 	filename /home/mv/Dropbox/devR/SUdatasets/badges/datasetBadges/ebaycoins.pdf
-	scale 35
+	scale 45
 
 \end_inset
 
