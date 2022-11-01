@@ -1,5 +1,10 @@
 # Analys av hälsobudget data
 
+# Installera kurspaket. Avkommentera (ta bort # om du inte redan har installerat remotes)
+#install.packages("remotes")
+library(remotes)
+install_github("StatisticsSU/regkurs")
+install_github("StatisticsSU/SUdatasets")
 
 library(regkurs)
 library(SUdatasets)
@@ -19,3 +24,4 @@ res.diagnostics(lmfit)
 # Utan USA
 lmfit = lm(lifespan ~ spending, data = healthbudget[-30,])
 res.diagnostics(lmfit)
+
