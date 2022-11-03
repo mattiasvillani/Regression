@@ -27,12 +27,12 @@ Kursens schema på TimeEdit: [Schedule](https://cloud.timeedit.net/su/web/stud1/
 Läs: AJÅ Kapitel 1-2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L1.pdf) \
 Data: [cykeluthyrning](https://github.com/mattiasvillani/Regression/raw/master/Data/cykeluthyr.csv) | [myntauktioner](https://github.com/mattiasvillani/Regression/raw/master/Data/eBayDataUCI.csv) | [inflation](https://github.com/mattiasvillani/Regression/raw/master/Data/InflationReporanta.csv)
 
-**Föreläsning 2 - Enkel linjär regression: Skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
+**Föreläsning 2 - Enkel linjär regression: skattningar, residualer, OLS, ANOVA, förklaringsgrad, korrelation.**\
 Läs: AJÅ Kapitel 2 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L2.pdf)\
 Data: [hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Data/healthdata.csv)\
 Extramaterial: [Kalkylark för beräkning av residualer - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataResiduals.xlsx) | [Kalkylark för minstakvadratskattningar - hälsobudget](https://github.com/mattiasvillani/Regression/raw/master/Misc/HealthdataLeastSquares.xlsx) | [regression för hälsobudgetdata i R](/Code/healthbudget.R) | [Video om regressionsanpassning](https://youtu.be/4FzeGcgCy0g) | [gif om regressionsanpassning](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquares.gif)
 
-**Föreläsning 3 - Enkel och Multipel regression: ANOVA, hypotestest, förklaringsgrad, korrelation.**\
+**Föreläsning 3 - Enkel linjär regression: populationsmodell, samplingfördelning, hypotestest.**\
 Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L3.pdf)\
 Extramaterial: [figur om ANOVA](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/AnovaFigure.pdf) | [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
