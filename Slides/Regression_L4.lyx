@@ -1528,7 +1528,44 @@ status open
 
 \series bold
 \color orange
-Val av förklarande variabler
+Val av förklarande variabler 
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\color black
+Videon 
+\series bold
+\color blue
+variabelselektion.mp4
+\series default
+\color black
+ finns i Videos mappen på Athena.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1575,8 +1612,12 @@ justerad R-2
 \begin_inset Quotes erd
 \end_inset
 
-), se AJÅ, kan minska om en förklarande variabel bara reducerar variationen
- marginellt.
+), se AJÅ, kan minska om en förklarande variabel bara ger en liten ökning
+ av 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+.
 \begin_inset VSpace medskip
 \end_inset
 

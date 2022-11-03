@@ -555,14 +555,16 @@ Stickprov/datamaterial med
 \end_inset
 
 
-\begin_inset VSpace smallskip
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
-Vanligt att anta oberoende feltermer 
+Vanligt att anta 
+\series bold
+\color blue
+oberoende feltermer
+\series default
+\color inherit
+ 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
@@ -1766,6 +1768,7 @@ Root MSE =
 \end_layout
 
 \begin_layout Frame
+¨
 \begin_inset Argument 4
 status open
 
@@ -1773,7 +1776,32 @@ status open
 
 \series bold
 \color orange
-Konfidensintervall för regressionslinjen
+Konfidensintervall för regressionslinjen 
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\color black
+Videon 
+\series bold
+\color blue
+Prediktionsintervall.mp4
+\series default
+\color black
+ finns i Videos mappen på Athena.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1875,7 +1903,14 @@ status open
 
 \series bold
 \color orange
-Konfidensintervall för regressionslinjen
+Konfidensintervall för regressionslinjen 
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1913,6 +1948,13 @@ status open
 \series bold
 \color orange
 Prediktionsintervall 
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2077,7 +2119,14 @@ status open
 
 \series bold
 \color orange
-Prediktionsintervall
+Prediktionsintervall 
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

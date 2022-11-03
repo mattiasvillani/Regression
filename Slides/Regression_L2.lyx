@@ -2130,6 +2130,99 @@ status open
 
 \series bold
 \color orange
+Formelsamling
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I 
+\series bold
+\color blue
+AJÅ-boken
+\series default
+\color inherit
+ och mina slides
+\begin_inset Formula 
+\[
+b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_{i}-\bar{x}_{i})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i}-\bar{y}_{i})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+I 
+\series bold
+\color blue
+formelsamlingen
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+b_{1}=\frac{s_{xy}}{s_{x}^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r_{xy}=\frac{s_{xy}}{s_{x}s_{y}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{x}^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{xy}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Variansanalys (Analysis of Variance - ANOVA)
 \end_layout
 
@@ -2170,23 +2263,49 @@ ANOVA-uppdelningen:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\mathrm{SST}=\mathrm{SSE}+\mathrm{SSR}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/anovaillustration.pdf
+	lyxscale 40
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ANOVA i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 Hälsobudgetdata:
 \end_layout
@@ -2214,89 +2333,12 @@ Hälsobudgetdata:
 \end_layout
 
 \end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-ANOVA i R
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename figs/healthbudget_reg_R_output_anova.png
 	lyxscale 40
 	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\align left
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Variansanalys (ANOVA)
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-
-\size small
-\begin_inset Formula 
-\[
-\underset{\mathrm{SST}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}}=\underset{\mathrm{SSE}}{\underbrace{\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}}}+\underset{\mathrm{SSR}}{\underbrace{\sum_{i=1}^{n}(\hat{y}_{i}-\bar{y})^{2}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/anovaillustration.pdf
-	lyxscale 40
-	scale 38
 
 \end_inset
 
@@ -2345,13 +2387,13 @@ ANOVA:
 \end_layout
 
 \begin_layout Itemize
-Andel förklarad variation (
+
 \series bold
 \color blue
-determinationskoefficienten
+Andel förklarad variation
 \series default
 \color inherit
-)
+ (determinationskoefficienten)
 \begin_inset Formula 
 \[
 R^{2}=\frac{\mathrm{SSR}}{\mathrm{SST}}

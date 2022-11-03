@@ -1537,7 +1537,36 @@ status open
 
 \series bold
 \color orange
-L2-regularisering (Ridge regression)
+L2-regularisering (Ridge regression) 
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\color black
+Videon 
+\series bold
+\color blue
+regularisering.mp4
+\series default
+\color black
+ finns i Videos mappen på Athena.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1683,6 +1712,35 @@ status open
 \series bold
 \color orange
 L1-regularisering (Lasso regression)
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\color black
+Videon 
+\series bold
+\color blue
+regularisering.mp4
+\series default
+\color black
+ finns i Videos mappen på Athena.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1896,7 +1954,32 @@ status open
 
 \series bold
 \color orange
-Exponentiella samband
+Exponentiella samband 
+\begin_inset Graphics
+	filename figs/movieicon.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\color black
+Videon 
+\series bold
+\color blue
+PotenserLogaritmer.mp4
+\series default
+\color black
+ finns i Videos mappen på Athena.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
