@@ -269,7 +269,7 @@ Hypotesttest (
  
 \series bold
 \color blue
-cch 
+och 
 \begin_inset Formula $F$
 \end_inset
 
@@ -1506,6 +1506,46 @@ Vi tokförkastar nollhypotesen om ingen regression!
 	filename figs/Fdist.pdf
 	lyxscale 20
 	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ANOVA - hur allt hänger ihop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/Regression/Misc/AnovaFigure.pdf
+	scale 35
 
 \end_inset
 

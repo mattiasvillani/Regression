@@ -37,7 +37,8 @@ Läs: AJÅ Kapitel 2-3 | [Slides](https://github.com/mattiasvillani/Regression/r
 Extramaterial: [figur om ANOVA](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/AnovaFigure.pdf) | [gif om samplingfördelningen för minsta kvadratestimatorn](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDist.gif) | [gif om samplingfördelningen skattning av regressionslinje](https://raw.githubusercontent.com/mattiasvillani/Regression/master/Misc/LeastSquaresSampDistRegLine.gif) 
 
 **Föreläsning 4 - Multipel regression: Estimation, inferens**\
-Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)
+Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L4.pdf)\
+Extramaterial: [ANOVA - hur allt hänger ihop](https://github.com/mattiasvillani/Regression/raw/master/Misc/AnovaFigure.pdf)
 
 **Föreläsning 5 - Multipel regression: Modellantaganden, modellkontroll och modellutvärdering**\
 Läs: AJÅ Kapitel 3 | [Slides](https://github.com/mattiasvillani/Regression/raw/master/Slides/Regression_L5.pdf) \
