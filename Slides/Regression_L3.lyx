@@ -1254,11 +1254,28 @@ Exakt 95% konfidensintervall för
 \begin_inset Formula $97.5$
 \end_inset
 
-%) sannolikhetsmassa till vänster om värdet 
+%) sannolikhetsmassa till 
+\emph on
+vänster
+\emph default
+ om värdet 
 \begin_inset Formula $t_{0.975}(n-2)$
 \end_inset
 
 .
+ 
+\end_layout
+
+\begin_layout Itemize
+Alternativt: Sannolikhetmassa 
+\begin_inset Formula $0.025$
+\end_inset
+
+ till 
+\emph on
+höger
+\emph default
+ om tabellvärdet.
 \end_layout
 
 \begin_layout Standard
@@ -1569,6 +1586,22 @@ Eftersom
 \begin_layout Itemize
 Vi förkastar nollhypotesen att hälsobudgetens storlek inte är korrelerad
  med livslängd.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hälsobudgetens storlek är en 
+\series bold
+\color blue
+signifikant förklarande variabel
+\series default
+\color inherit
+ för livslängd på signifikansnivå 5%.
+ 
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -1634,6 +1667,19 @@ Hypotesttest för
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Talet 1.3164e-03 är detsamma som 
+\begin_inset Formula $1.3164\cdot10^{-3}$
+\end_inset
+
+ dvs 
+\begin_inset Formula $0.0013164$
+\end_inset
+
+.
+ Flytta kommat tre steg till vänster.
 \end_layout
 
 \end_deeper
