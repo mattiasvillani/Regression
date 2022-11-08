@@ -345,16 +345,16 @@ Antaganden
 \begin_deeper
 \begin_layout Itemize
 Betingade väntevärdet 
-\begin_inset Formula $\mu_{y\vert x}$
+\begin_inset Formula $\mu_{y\vert x_{1},\ldots,x_{k}}$
 \end_inset
 
- är en 
+ en 
 \series bold
 \color blue
 linjär funktion
 \series default
 \color inherit
- av 
+ av alla 
 \begin_inset Formula $x$
 \end_inset
 
@@ -999,6 +999,10 @@ korrelerade
 \color inherit
 .
  
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1036,6 +1040,10 @@ Problem vid multikollinearitet
 \series default
 \color inherit
 : 
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1048,6 +1056,10 @@ svårt att separera
 \color inherit
  de olika förklarande variablernas effekt på 
 \begin_inset Formula $y$
+\end_inset
+
+
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -1066,6 +1078,10 @@ för
 
 .
  
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1076,6 +1092,10 @@ insignifikans
 \series default
 \color inherit
 .
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -3322,7 +3342,15 @@ interaktioner
 Filmens trailer
 \series default
 : en interaktion med en dummy-variabel kan få regressionslinjen att byta
- lutning!
+ lutning! 
+\begin_inset Graphics
+	filename figs/Exploding Face Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -3348,7 +3376,7 @@ Filmens trailer
 omittedvar.mp4
 \series default
 \color black
- förklarar jag vad som händer om missar att ta med en viktig förklarande
+ förklarar jag vad som händer om man missar att ta med en viktig förklarande
  variabel i en regressionsmodell.
 \begin_inset VSpace smallskip
 \end_inset
@@ -3361,7 +3389,16 @@ omittedvar.mp4
 \series bold
 Filmens trailer
 \series default
-: glöm en viktig variabel och det kan gå riktigt illa! 
+: jag glömde en viktig variabel och du kan inte gissa vad som hände sen!
+ 
+\begin_inset Graphics
+	filename figs/OMG Face Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
