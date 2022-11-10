@@ -1421,7 +1421,7 @@ frihetsgraderna summerar också
 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{df}(\mathrm{SST}) & =\mathrm{df}(\mathrm{SSE})=\mathrm{df}(\mathrm{SSR})\\
+\mathrm{df}(\mathrm{SST}) & =\mathrm{df}(\mathrm{SSE})+\mathrm{df}(\mathrm{SSR})\\
 n-1 & \quad=\quad n-(k+1)\quad\quad+\quad\quad k
 \end{align*}
 

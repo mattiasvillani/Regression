@@ -293,6 +293,71 @@ status open
 
 \series bold
 \color orange
+Överanpassa data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly2.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly5.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/cars_mpg_vs_hpPoly10.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Prognosförmåga på testdata
 \end_layout
 
@@ -447,11 +512,6 @@ Korsvalidering
 Vilka observationer ska vara i träning respektive test?
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Tidsserier: låt de senare observationerna vara i test.
-\end_layout
-
 \begin_layout Itemize
 Regression: 
 \series bold
@@ -473,7 +533,6 @@ folds
 :
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 \align center
 \begin_inset Graphics
@@ -688,7 +747,7 @@ Minsta-kvadratmetoden
 \begin_inset Formula $a$
 \end_inset
 
-,
+, 
 \begin_inset Formula $b_{1}$
 \end_inset
 
@@ -696,7 +755,15 @@ Minsta-kvadratmetoden
 \begin_inset Formula $b_{2}$
 \end_inset
 
-!
+! 
+\begin_inset Graphics
+	filename figs/Blow Kiss Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \series bold
 \color blue
 
@@ -1205,7 +1272,15 @@ Minsta-kvadratmetoden
 \begin_inset Formula $b_{1},\ldots b_{k}$
 \end_inset
 
-!
+! 
+\begin_inset Graphics
+	filename figs/HeartEyes.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2241,6 +2316,42 @@ anti-logaritmering
 \[
 a=10^{\tilde{a}}\qquad\text{ och }\qquad b=10^{\tilde{b}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Potensregel logaritmer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/emojilog.png
+	scale 50
 
 \end_inset
 

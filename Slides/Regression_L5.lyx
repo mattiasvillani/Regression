@@ -1920,7 +1920,7 @@ status open
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/bikemanydummies.png
+	filename figs/bikemanydummies
 	lyxscale 40
 	scale 33
 
@@ -2429,11 +2429,6 @@ temp
 
 \begin_layout Plain Layout
 
-\size tiny
-\begin_inset Formula $\vdots$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -2575,11 +2570,6 @@ temp
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size tiny
-\begin_inset Formula $\vdots$
-\end_inset
-
 
 \end_layout
 

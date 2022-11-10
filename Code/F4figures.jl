@@ -36,7 +36,7 @@ Plots.abline!(βhat[2], βhat[1], color = colors[4], lw = 3, label = nothing)
 # Scatter plot nRides vs hum
 fit = lm(@formula(nRides ~ hum), bikeDay)
 βhat = coef(fit)
-p2 = scatter(bikeDay[!,:temp],bikeDay[!,:nRides], xlabel = "luftfuktighet (normaliserad)", 
+p2 = scatter(bikeDay[!,:hum],bikeDay[!,:nRides], xlabel = "luftfuktighet (normaliserad)", 
     ylabel  = "uthyrda cyklar", title = L"\mathrm{uthyrda\ cyklar} = %$(round(βhat[1], digits = 2)) %$(round(βhat[2], digits = 2)) \cdot \mathrm{luftfuktighet}", label = nothing, color = colors[6])
 
 # Adding regression line to scatter plot nRides vs temp

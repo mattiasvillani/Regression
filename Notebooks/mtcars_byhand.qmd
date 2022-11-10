@@ -1,0 +1,49 @@
+---
+title: "Simple linear regression for mtcars data"
+author: "Mattias Villani"
+format: html
+editor: visual
+---
+
+## Data
+
+The mtcars data contains measurements on 32 cars of different brands and sizes. Here is the first part of the data:
+
+```{r}
+head(mtcars)
+```
+
+We will here concentrate on modeling the fuel consumption, `mpg`, or miles per gallon, which tells us how many miles (1 mile = 1.6 km) a car travel on a gallon (1 gallon = 3.785 liters) of gas. We will initially use a single explanatory variable `hp`, the number of horsepowers of the car's engine. So mpg is our response variable ($y$) and hp is our explanatory variable ($x$). The population model is the linear regression:
+
+$$
+y=\alpha+\beta x+\varepsilon,\,\,\varepsilon\sim N(0,\sigma_{\varepsilon}^2)
+$$
+
+## Least squares - by hand
+
+We want to first estimate the parameters by hand, that is, without using a computer. We will therefore just use the first $10$ observations to make the hand calculations not to tedious. Here is a table with the first 10 observations on `mpg` and `hp`:
+
+| mpg ($y$) | hp ($x$) |
+|-----------|----------|
+| 21        | 110      |
+| 21        | 110      |
+| 22.8      | 93       |
+| 21.4      | 110      |
+| 18.7      | 175      |
+| 18.1      | 105      |
+| 14.3      | 245      |
+| 24.4      | 62       |
+| 22.8      | 95       |
+| 19.2      | 123      |
+| 17.8      | 123      |
+
+: First ten observation of mtcars data
+
+We estimate the intercept $\alpha$ with $a$ and slope $\beta$ with $b$. Here are formulas:
+
+$$
+b=\frac{SS_{xy}}{SS_{x}}\\
+a = \bar{y}-b \bar{x}
+$$
+
+where
