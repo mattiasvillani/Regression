@@ -1055,7 +1055,7 @@ multipel regression och
 
 \begin_inset Formula 
 \[
-y_{t}={\color{blue}\alpha+\beta_{1}x_{t}+\ldots+\beta_{k}x_{kt}}{\color{orange}+\beta_{k+1}y_{t-1}+\ldots+\beta_{k+p}y_{t-p}}+\varepsilon_{t}
+y_{t}={\color{blue}\alpha+\beta_{1}x_{1t}+\ldots+\beta_{k}x_{kt}}{\color{orange}+\beta_{k+1}y_{t-1}+\ldots+\beta_{k+p}y_{t-p}}+\varepsilon_{t}
 \]
 
 \end_inset
