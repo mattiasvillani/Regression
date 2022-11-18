@@ -869,31 +869,12 @@ Sannolikheten för just detta datamaterial
 :
 \begin_inset Formula 
 \[
-\text{\ensuremath{\underset{y_{1}=0}{\underbrace{\frac{1}{1+\exp(\beta_{0}+\beta_{1}x_{1})}}}}}\cdot\ensuremath{\underset{y_{2}=1}{\underbrace{\frac{\exp(\beta_{0}+\beta_{1}x_{2})}{1+\exp(\beta_{0}+\beta_{1}x_{2})}}}}\cdot\ensuremath{\underset{y_{3}=0}{\underbrace{\frac{1}{1+\exp(\beta_{0}+\beta_{1}x_{3})}}}}
+\text{\ensuremath{\underset{P(y_{1}=0)}{\underbrace{\frac{1}{1+\exp(\beta_{0}+\beta_{1}x_{1})}}}}}\cdot\ensuremath{\underset{P(y_{2}=1)}{\underbrace{\frac{\exp(\beta_{0}+\beta_{1}x_{2})}{1+\exp(\beta_{0}+\beta_{1}x_{2})}}}}\cdot\ensuremath{\underset{P(y_{3}=0)}{\underbrace{\frac{1}{1+\exp(\beta_{0}+\beta_{1}x_{3})}}}}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Likelihoodfunktion
-\series default
-\color inherit
-: sannolikheten för ett datamaterial betraktat som en funktion av parametrarna
- 
-\begin_inset Formula $\beta_{0}$
-\end_inset
-
- och 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Itemize
@@ -968,7 +949,7 @@ Data
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $n=200$
+\begin_inset Formula $n=30$
 \end_inset
 
 
@@ -1007,7 +988,7 @@ status open
 
 \series bold
 \color orange
-Skatta en logistisk regression - jitter
+Skatta en logistisk regression
 \end_layout
 
 \end_inset
@@ -1044,7 +1025,7 @@ status open
 
 \series bold
 \color orange
-Skatta en logistisk regression - jitter
+Skatta en logistisk regression
 \end_layout
 
 \end_inset
@@ -1094,7 +1075,6 @@ Skatta en logistisk regression
 \align center
 \begin_inset Graphics
 	filename figs/LogisticLogLik.png
-	lyxscale 40
 	scale 30
 
 \end_inset

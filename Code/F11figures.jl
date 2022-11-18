@@ -50,9 +50,20 @@ function ℓ_logistic(β, X, y)
     sum(y.*log.(θs) + (1 .- y).*log.(1 .- θs))
 end
 
+""" 
+    geometric_mean_logistic(β, X, y) 
+
+geometric mean probability for logistic regression
+""" 
+function geometric_mean_logistic(β, X, y) 
+    n = length(y)
+    θs = [p(X[i,:], β) for i in 1:n]
+    exp(sum(y.*log.(θs) + (1 .- y).*log.(1 .- θs))/n)
+end
+ 
 
 
-n = 200
+n = 30
 β = [1,2]
 X = [ones(n) randn(n)]
 y = zeros(Int, n)
@@ -63,9 +74,10 @@ end
 β₀grid = -1:0.01:4
 β₁grid = -1:0.01:4
 ℓ(β₀,β₁) = ℓ_logistic([β₀,β₁], X, y)
-p1 = plot(β₀grid, β₁grid, ℓ, st=:surface, opacity = 0.8, c = :viridis, title = "log-likelihood - ytplot", colorbar = false, ylab = L"\beta", xlab = L"\alpha", zlab = L"\ell(\alpha,\beta)", label = nothing)
-p2 = heatmap(β₀grid, β₁grid, ℓ, c = :viridis, colorbar = true,  title = "log-likelihood - konturplot", ylab = L"\beta", xlab = L"\alpha", legend = nothing)
-plot!(β₀grid, β₁grid, ℓ, st = :contour, linecolor = :black, lw = 0.5)
+geom(β₀,β₁) = geometric_mean_logistic([β₀,β₁], X, y)
+p1 = plot(β₀grid, β₁grid, geom, st=:surface, opacity = 0.8, c = :viridis, title = "medelsannolikheter - ytplot", colorbar = false, ylab = L"\beta_1", xlab = L"\beta_0", zlab = L"\bar{P}(\alpha,\beta)", label = nothing)
+p2 = heatmap(β₀grid, β₁grid, geom, c = :viridis, colorbar = true,  title = "medelsannolikheter - konturplot", ylab = L"\beta_1", xlab = L"\beta_0", legend = nothing)
+plot!(β₀grid, β₁grid, geom, st = :contour, linecolor = :black, lw = 0.5)
 scatter!([β[1]],[β[2]], label = "population", color = colors[8])
 plot(size = (1000,400), p1, p2, layout = (1,2), margin = 5mm)
 savefig(figFolder*"LogisticLogLik.png")
@@ -76,25 +88,25 @@ Xgrid = [ones(1000) x]
 θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
 plot(x, θ, xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", 
     label =  L"P(y=1|x)", legend = :right, legendfontsize = 10)
-scatter!(X[:,2],y, c = colors[1], label = "data")
+scatter!(X[:,2], y, c = colors[1], markersize = 2, label = "data")
 savefig(figFolder*"LogisticFuncWithData.pdf")
 
-jitterish =  0.05*randn(n)
+jitterish =  0.00*randn(n)
 x = range(-4,4, length = 1000)
 Xgrid = [ones(1000) x]
 θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
 plot(x, θ, xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", 
     label =  L"P(y=1|x)", legend = :right, legendfontsize = 10)
-scatter!(X[:,2], y + jitterish, c = colors[1], label = "data")
+scatter!(X[:,2], y + jitterish, c = colors[1], markersize = 2, label = "data")
 savefig(figFolder*"LogisticFuncWithDataJitter.pdf")
 
 gr(legendfontsize = 10)
 θ = exp.(Xgrid*β)./(1 .+ exp.(Xgrid*β))
-plot(xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", legend = :right, legendfontsize = 6)
-scatter!(X[:,2],y + jitterish, label = "data + jitter", color = colors[1])
-plot!(x, θ, label = L"\alpha = 1, \beta = 2. \log L = %$(round(ℓ(1,2), digits = 1))", color = colors[2])
-plot!(x, exp.(Xgrid*[1,1])./(1 .+ exp.(Xgrid*[1,1])), label = L"\alpha = 1, \beta = 1. \log L = %$(round(ℓ(1,1), digits = 1))", color = colors[4])
-plot!(x, exp.(Xgrid*[-3,2])./(1 .+ exp.(Xgrid*[-3,2])), label = L"\alpha = -3, \beta=2. \log L = %$(round(ℓ(1,-1), digits = 1))", color = colors[6])
+plot(xlab = L"x", ylab = L"\mathrm{P}(y=1 \vert x)", legend = :left, legendfontsize = 6)
+scatter!(X[:,2],y + jitterish, label = "data", color = colors[1], markersize = 2)
+plot!(x, θ, label = L"\beta_0 = 1, \beta_1 = 2. \bar P = %$(round(geom(1,2), digits = 2))", color = colors[2])
+plot!(x, exp.(Xgrid*[1,1])./(1 .+ exp.(Xgrid*[1,1])), label = L"\beta_0 = 1, \beta_1 = 1. \bar P = %$(round(geom(1,1), digits = 2))", color = colors[4])
+plot!(x, exp.(Xgrid*[-3,2])./(1 .+ exp.(Xgrid*[-3,2])), label = L"\beta_0 = -3, \beta_1=2. \bar P = %$(round(geom(1,-1), digits = 2))", color = colors[6])
 savefig(figFolder*"LogisticFuncWithDataJitterLike.pdf")
 
 x = 0:0.1:80
