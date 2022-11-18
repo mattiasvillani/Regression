@@ -890,14 +890,10 @@ Naturliga logaritmen
 
 \begin_layout Itemize
 Vi kommer t ex använda att 
-\begin_inset Formula 
-\[
-\ln e^{\beta_{0}+\beta_{1}x}=\beta_{0}+\beta_{1}x
-\]
-
+\begin_inset Formula $\ln e^{\beta_{0}+\beta_{1}x}=\beta_{0}+\beta_{1}x$
 \end_inset
 
-
+.
 \end_layout
 
 \end_deeper
